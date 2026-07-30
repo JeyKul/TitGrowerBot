@@ -1,6 +1,6 @@
 use crate::domain::primitives::{DaysCount, Ratio};
 
-/// Tuning for the daily job that shrinks dicks neglected for a while (issue #15).
+/// Tuning for the daily job that shrinks tits neglected for a while (issue #15).
 #[derive(Clone, Default)]
 pub struct DailyShrinkConfig {
     pub ratio: Ratio,

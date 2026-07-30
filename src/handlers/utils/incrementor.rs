@@ -16,7 +16,7 @@ use crate::domain::primitives::{DaysCount, Length, LengthChange, Ratio, SignedLe
 pub struct Incrementor {
     config: Config,
     perks: Vec<Arc<dyn Perk>>,
-    dicks: repo::Dicks,
+    tits: repo::Tits,
 }
 
 #[derive(Clone)]
@@ -30,7 +30,7 @@ pub struct Config {
 #[async_trait]
 pub trait Perk: Send + Sync + Downcast {
     fn name(&self) -> &str;
-    async fn apply(&self, dick_id: &DickId, change_intent: ChangeIntent) -> AdditionalChange;
+    async fn apply(&self, tit_id: &TitId, change_intent: ChangeIntent) -> AdditionalChange;
 
     fn enabled(&self) -> bool {
         let env_key = format!("DISABLE_{}", self.name().to_uppercase().replace('-', "_"));
@@ -47,7 +47,7 @@ pub trait ConfigurablePerk: Perk {
 
 #[derive(Display, Clone, Hash, PartialEq)]
 #[display("(user_id={_0}, chat_id={_1})")]
-pub struct DickId(pub(crate) UserId, pub(crate) ChatIdKind);
+pub struct TitId(pub(crate) UserId, pub(crate) ChatIdKind);
 
 #[derive(Copy, Clone)]
 pub struct ChangeIntent {
@@ -93,7 +93,7 @@ impl Config {
 }
 
 impl Incrementor {
-    pub fn from_env(dicks: &repo::Dicks, perks: Vec<Box<dyn Perk>>) -> Self {
+    pub fn from_env(tits: &repo::Tits, perks: Vec<Box<dyn Perk>>) -> Self {
         let growth_range_min = config::get_env_value_or_default("GROWTH_MIN", -5);
         let growth_range_max = config::get_env_value_or_default("GROWTH_MAX", 10);
         let dod_max_bonus = config::get_env_value_or_default("GROWTH_DOD_BONUS_MAX", 5);
@@ -112,7 +112,7 @@ impl Incrementor {
                 dod_bonus_range: 1..=dod_max_bonus,
             },
             perks,
-            dicks: dicks.clone(),
+            tits: tits.clone(),
         }
     }
 
@@ -140,27 +140,27 @@ impl Incrementor {
         chat_id: ChatIdKind,
         days_since_registration: DaysCount,
     ) -> Increment {
-        let dick_id = DickId(user_id, chat_id);
+        let tit_id = TitId(user_id, chat_id);
         let grow_shrink_ratio = if days_since_registration > self.config.newcomers_grace_days {
             self.config.grow_shrink_ratio
         } else {
             Ratio::literal(1.0)
         };
         let base_incr = get_base_increment(self.config.growth_range.clone(), grow_shrink_ratio);
-        self.add_additional_incr(dick_id, SignedLengthChange::new(base_incr.into())).await
+        self.add_additional_incr(tit_id, SignedLengthChange::new(base_incr.into())).await
     }
 
     pub async fn dod_increment(&self, user_id: UserId, chat_id: ChatIdKind) -> Increment {
-        let dick_id = DickId(user_id, chat_id);
+        let tit_id = TitId(user_id, chat_id);
         let base_incr = rand::rng().random_range(self.config.dod_bonus_range.clone());
-        self.add_additional_incr(dick_id, SignedLengthChange::new(base_incr.into())).await
+        self.add_additional_incr(tit_id, SignedLengthChange::new(base_incr.into())).await
     }
 
-    async fn add_additional_incr(&self, dick: DickId, base_increment: BaseIncrement) -> Increment {
-        let current_length = match self.dicks.fetch_length(dick.0, &dick.1).await {
+    async fn add_additional_incr(&self, tit: TitId, base_increment: BaseIncrement) -> Increment {
+        let current_length = match self.tits.fetch_length(tit.0, &tit.1).await {
             Ok(length) => length,
             Err(e) => {
-                log::error!("couldn't fetch the length of a dick: {e}");
+                log::error!("couldn't fetch the length of a tit: {e}");
                 return base_increment.only()
             }
         };
@@ -173,7 +173,7 @@ impl Incrementor {
         let mut additional_change = SignedLengthChange::new(0);
         let mut by_perks = HashMap::new();
         for perk in self.perks.iter() {
-            let AdditionalChange(ac) = perk.apply(&dick, change_intent).await;
+            let AdditionalChange(ac) = perk.apply(&tit, change_intent).await;
             if !ac.is_zero() {
                 by_perks.insert(perk.name().to_owned(), SignedLengthChange::new(ac.value()));
             }
@@ -183,7 +183,7 @@ impl Incrementor {
         }
 
         let total = (base + additional_change)
-            .inspect_err(|e| log::error!("overflow on increment calculation for {dick}: {e}"))
+            .inspect_err(|e| log::error!("overflow on increment calculation for {tit}: {e}"))
             .unwrap_or(base);
 
         if base == total && !additional_change.is_zero() {
@@ -282,14 +282,14 @@ mod test_incrementor {
     use async_trait::async_trait;
     use futures::future::join_all;
     use crate::domain::primitives::{DaysCount, LengthChange, Ratio};
-    use crate::handlers::utils::{AdditionalChange, ChangeIntent, Config, DickId, Incrementor, Perk};
+    use crate::handlers::utils::{AdditionalChange, ChangeIntent, Config, TitId, Incrementor, Perk};
     use crate::repo;
     use crate::repo::test::{CHAT_ID_KIND, start_postgres, USER_ID};
 
     #[tokio::test]
     async fn test_incrementor() {
         let (_container, db) = start_postgres().await;
-        let dicks = repo::Dicks::new(db.clone(), Default::default());
+        let tits = repo::Tits::new(db.clone(), Default::default());
         let incr = Incrementor {
             config: Config {
                 growth_range: -1..=1,
@@ -297,7 +297,7 @@ mod test_incrementor {
                 newcomers_grace_days: DaysCount::new(1),
                 dod_bonus_range: 1..=2,
             },
-            dicks,
+            tits,
             perks: Vec::default()
         };
 
@@ -356,7 +356,7 @@ mod test_incrementor {
             &self.name
         }
 
-        async fn apply(&self, _: &DickId, _: ChangeIntent) -> AdditionalChange {
+        async fn apply(&self, _: &TitId, _: ChangeIntent) -> AdditionalChange {
             AdditionalChange(LengthChange::signed(self.value))
         }
 

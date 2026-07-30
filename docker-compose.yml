@@ -1,8 +1,8 @@
 services:
-  DickGrowerBot:
+  TitGrowerBot:
     build: .
-    image: kozalosev/dickgrowerbot
-    container_name: dickgrowerbot
+    image: kozalosev/titgrowerbot
+    container_name: titgrowerbot
     restart: unless-stopped
     environment:
       - TELOXIDE_TOKEN
@@ -64,7 +64,7 @@ services:
       - postgres
   postgres:
     image: postgres:14.5-alpine
-    container_name: dickgrowerbot-postgresql
+    container_name: titgrowerbot-postgresql
     environment:
       - POSTGRES_PORT
       - POSTGRES_DB
@@ -99,7 +99,7 @@ services:
   # postgres/init-user-service-db.sh).
   user-service:
     image: ghcr.io/kozalo-blog/user-service
-    container_name: dickgrowerbot-user-service
+    container_name: titgrowerbot-user-service
     restart: unless-stopped
     environment:
       - RUST_LOG

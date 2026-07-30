@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS Chats(
         type = 'inst' AND chat_instance IS NOT NULL)
 );
 
-DROP TRIGGER IF EXISTS trg_forbid_dod_updates ON Dick_of_Day;
+DROP TRIGGER IF EXISTS trg_forbid_dod_updates ON Titties_of_Day;
 
 DO $$
 DECLARE
@@ -29,11 +29,11 @@ DECLARE
 BEGIN
     SELECT count(*) INTO c_count FROM Chats;
     IF c_count = 0 THEN
-        INSERT INTO Chats (type, chat_id) SELECT DISTINCT 'id'::chat_id_type, chat_id FROM Dicks;
-        UPDATE Dicks d SET bonus_attempts = (bonus_attempts + 1), chat_id = id FROM Chats c WHERE c.chat_id = d.chat_id;
-        UPDATE Dick_of_Day dod SET chat_id = id FROM Chats c WHERE c.chat_id = dod.chat_id;
+        INSERT INTO Chats (type, chat_id) SELECT DISTINCT 'id'::chat_id_type, chat_id FROM Tits;
+        UPDATE Tits d SET bonus_attempts = (bonus_attempts + 1), chat_id = id FROM Chats c WHERE c.chat_id = d.chat_id;
+        UPDATE Titties_of_Day dod SET chat_id = id FROM Chats c WHERE c.chat_id = dod.chat_id;
     END IF;
 END $$;
 
-CREATE OR REPLACE TRIGGER trg_forbid_dod_updates BEFORE UPDATE ON Dick_of_Day
+CREATE OR REPLACE TRIGGER trg_forbid_dod_updates BEFORE UPDATE ON Titties_of_Day
     FOR EACH ROW EXECUTE FUNCTION forbid_dod_updates();

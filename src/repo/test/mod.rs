@@ -1,5 +1,5 @@
 mod users;
-mod dicks;
+mod tits;
 mod chats;
 mod import;
 mod promo;
@@ -61,8 +61,8 @@ pub async fn start_postgres() -> (ContainerAsync<GenericImage>, Pool<Postgres>) 
 }
 
 #[inline]
-pub fn get_chat_id_and_dicks(db: &Pool<Postgres>) -> (ChatIdKind, repo::Dicks) {
-    let dicks = repo::Dicks::new(db.clone(), Default::default());
+pub fn get_chat_id_and_tits(db: &Pool<Postgres>) -> (ChatIdKind, repo::Tits) {
+    let tits = repo::Tits::new(db.clone(), Default::default());
     let chat_id = ChatIdKind::ID(TelegramChatId::new(CHAT_ID));
-    (chat_id, dicks)
+    (chat_id, tits)
 }

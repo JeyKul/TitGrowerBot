@@ -16,7 +16,7 @@ use crate::config::AppConfig;
 use crate::domain::objects::InlineMessageIdInfo;
 use crate::domain::primitives::{LanguageCode, Page, UserId as DomainUserId, Username};
 use crate::domain::primitives::chat::{ChatIdFull, ChatIdSource, TelegramChatId, TelegramChatInstanceId};
-use crate::handlers::{dick, dod, FromRefs, HandlerImplResult, HandlerResult, loan, shrink, stats, utils, pvp};
+use crate::handlers::{tit, dod, FromRefs, HandlerImplResult, HandlerResult, loan, shrink, stats, utils, pvp};
 use crate::handlers::utils::callbacks::CallbackDataWithPrefix;
 use crate::handlers::utils::Incrementor;
 use crate::metrics;
@@ -27,7 +27,7 @@ use crate::repo::{NoChatIdError, Repositories};
 enum InlineCommand {
     Grow,
     Top,
-    DickOfDay,
+    TitOfDay,
     Loan,
     Stats,
     Shrinks,
@@ -68,24 +68,24 @@ impl InlineCommand {
         match self {
             InlineCommand::Grow => {
                 metrics::CMD_GROW_COUNTER.inline.inc();
-                dick::grow_impl(repos, incr, from_refs, lang_code)
+                tit::grow_impl(repos, incr, from_refs, lang_code)
                     .await
                     .map(|reply| InlineResult::text(reply.text))
             },
             InlineCommand::Top => {
                 metrics::CMD_TOP_COUNTER.inline.inc();
-                dick::top_impl(repos, &config, from_refs, lang_code, Page::first())
+                tit::top_impl(repos, &config, from_refs, lang_code, Page::first())
                     .await
                     .map(|top| {
                         let mut res = InlineResult::text(top.lines);
                         res.keyboard = config.features.top_unlimited
-                            .then_some(dick::build_pagination_keyboard(Page::first(), top.has_more_pages));
+                            .then_some(tit::build_pagination_keyboard(Page::first(), top.has_more_pages));
                         res
                     })
             },
-            InlineCommand::DickOfDay => {
+            InlineCommand::TitOfDay => {
                 metrics::CMD_DOD_COUNTER.inline.inc();
-                dod::dick_of_day_impl(config, repos, incr, from_refs, lang_code)
+                dod::titties_of_day_impl(config, repos, incr, from_refs, lang_code)
                     .await
                     .map(|reply| InlineResult::text(reply.text))
             },

@@ -172,7 +172,7 @@ repository!(Chats, with_feature_toggles,
     /// Repoints a chat's row from its old (basic group) id to the new supergroup one after
     /// Telegram migrated the group.
     ///
-    /// The row keeps its internal id, so everything referencing the chat — dicks, loans, battle
+    /// The row keeps its internal id, so everything referencing the chat — tits, loans, battle
     /// stats, announcements — follows along untouched; only the external id changes.
     ///
     /// Telegram announces a migration in both chats at once, and the dispatcher hands updates of
@@ -237,7 +237,7 @@ repository!(Chats, with_feature_toggles,
                 ChatMigrationOutcome::of_migrated(old_instance.as_deref())
             }
             // Two rows for what is one and the same chat. Folding them together would mean moving
-            // dicks, loans and stats across rows, some of which sit behind triggers that forbid
+            // tits, loans and stats across rows, some of which sit behind triggers that forbid
             // updates outright — too destructive to attempt blindly for a case Telegram shouldn't
             // produce. Left for manual resolution instead.
             Some(id) => {
@@ -306,7 +306,7 @@ repository!(Chats, with_feature_toggles,
 ,
     /// Carries everything that references the chat being merged away over to the surviving row.
     ///
-    /// `Loans`, `Announcements`, `Dick_of_Day` and `Stale_Dick_Shrinks` reference `Chats(id)`
+    /// `Loans`, `Announcements`, `Titties_of_Day` and `Stale_Tit_Shrinks` reference `Chats(id)`
     /// without `ON DELETE`, so leaving their rows behind doesn't just orphan them — it makes the
     /// whole merge fail on a foreign key violation. `Battle_Stats` cascades instead, which
     /// silently throws the statistics away.
@@ -321,13 +321,13 @@ repository!(Chats, with_feature_toggles,
         let battle_stats = Self::move_battle_stats(tx, main_id, deleted_id).await?;
         let announcements = Self::move_announcements(tx, main_id, deleted_id).await?;
         let imports = Self::move_imports(tx, main_id, deleted_id).await?;
-        let dod = Self::move_dicks_of_the_day(tx, main_id, deleted_id).await?;
+        let dod = Self::move_tits_of_the_day(tx, main_id, deleted_id).await?;
         let shrinks = Self::move_shrinks(tx, main_id, deleted_id).await?;
         let migrations = Self::move_chat_migrations(tx, main_id, deleted_id).await?;
 
         log::info!("moved rows from the chat with id = {deleted_id} to {main_id}: \
             loans: {loans}, battle stats: {battle_stats}, announcements: {announcements}, \
-            imports: {imports}, dicks of the day: {dod}, shrinks: {shrinks}, \
+            imports: {imports}, tits of the day: {dod}, shrinks: {shrinks}, \
             migrations: {migrations}");
         Ok(())
     }
@@ -429,32 +429,32 @@ repository!(Chats, with_feature_toggles,
     /// past win with today's, so it has to be muted for the move. The ACCESS EXCLUSIVE lock that
     /// takes lasts until the transaction ends — acceptable for something that happens once in a
     /// chat's lifetime. An early return rolls the muting back along with everything else.
-    async fn move_dicks_of_the_day(
+    async fn move_tits_of_the_day(
         tx: &mut Transaction<'_, Postgres>,
         main_id: InternalChatId,
         deleted_id: InternalChatId,
     ) -> anyhow::Result<u64> {
-        sqlx::query!("ALTER TABLE Dick_of_Day DISABLE TRIGGER trg_check_dod_timestamp")
+        sqlx::query!("ALTER TABLE Titties_of_Day DISABLE TRIGGER trg_check_dod_timestamp")
             .execute(&mut **tx)
             .await
-            .context("couldn't mute the insertion trigger of Dick_of_Day")?;
+            .context("couldn't mute the insertion trigger of Titties_of_Day")?;
         let moved = sqlx::query!(
-            "INSERT INTO Dick_of_Day (chat_id, winner_uid, created_at)
-                    SELECT $1, winner_uid, created_at FROM Dick_of_Day WHERE chat_id = $2
+            "INSERT INTO Titties_of_Day (chat_id, winner_uid, created_at)
+                    SELECT $1, winner_uid, created_at FROM Titties_of_Day WHERE chat_id = $2
                     ON CONFLICT (chat_id, created_at) DO NOTHING",
                 main_id as InternalChatId, deleted_id as InternalChatId)
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't move the dicks of the day from the chat with id = {deleted_id} to {main_id}"))?
+            .context(format!("couldn't move the tits of the day from the chat with id = {deleted_id} to {main_id}"))?
             .rows_affected();
-        sqlx::query!("ALTER TABLE Dick_of_Day ENABLE TRIGGER trg_check_dod_timestamp")
+        sqlx::query!("ALTER TABLE Titties_of_Day ENABLE TRIGGER trg_check_dod_timestamp")
             .execute(&mut **tx)
             .await
-            .context("couldn't restore the insertion trigger of Dick_of_Day")?;
-        sqlx::query!("DELETE FROM Dick_of_Day WHERE chat_id = $1", deleted_id as InternalChatId)
+            .context("couldn't restore the insertion trigger of Titties_of_Day")?;
+        sqlx::query!("DELETE FROM Titties_of_Day WHERE chat_id = $1", deleted_id as InternalChatId)
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't delete the dicks of the day of the chat with id = {deleted_id}"))?;
+            .context(format!("couldn't delete the tits of the day of the chat with id = {deleted_id}"))?;
         Ok(moved)
     }
 ,
@@ -490,31 +490,31 @@ repository!(Chats, with_feature_toggles,
     ///
     /// The table forbids updates outright, and `ON CONFLICT DO UPDATE` fires `BEFORE UPDATE`
     /// triggers, so summing is only possible with the trigger muted — see
-    /// [`Self::move_dicks_of_the_day`] for what that costs.
+    /// [`Self::move_tits_of_the_day`] for what that costs.
     async fn move_shrinks(
         tx: &mut Transaction<'_, Postgres>,
         main_id: InternalChatId,
         deleted_id: InternalChatId,
     ) -> anyhow::Result<u64> {
-        sqlx::query!("ALTER TABLE Stale_Dick_Shrinks DISABLE TRIGGER trg_forbid_stale_dick_shrinks_updates")
+        sqlx::query!("ALTER TABLE Stale_Tit_Shrinks DISABLE TRIGGER trg_forbid_stale_tit_shrinks_updates")
             .execute(&mut **tx)
             .await
-            .context("couldn't mute the update trigger of Stale_Dick_Shrinks")?;
+            .context("couldn't mute the update trigger of Stale_Tit_Shrinks")?;
         let moved = sqlx::query!(
-            "INSERT INTO Stale_Dick_Shrinks (chat_id, uid, lost_length, created_at)
-                    SELECT $1, uid, lost_length, created_at FROM Stale_Dick_Shrinks WHERE chat_id = $2
+            "INSERT INTO Stale_Tit_Shrinks (chat_id, uid, lost_length, created_at)
+                    SELECT $1, uid, lost_length, created_at FROM Stale_Tit_Shrinks WHERE chat_id = $2
                     ON CONFLICT (chat_id, uid, created_at) DO UPDATE SET
-                        lost_length = Stale_Dick_Shrinks.lost_length + EXCLUDED.lost_length",
+                        lost_length = Stale_Tit_Shrinks.lost_length + EXCLUDED.lost_length",
                 main_id as InternalChatId, deleted_id as InternalChatId)
             .execute(&mut **tx)
             .await
             .context(format!("couldn't move shrinks from the chat with id = {deleted_id} to {main_id}"))?
             .rows_affected();
-        sqlx::query!("ALTER TABLE Stale_Dick_Shrinks ENABLE TRIGGER trg_forbid_stale_dick_shrinks_updates")
+        sqlx::query!("ALTER TABLE Stale_Tit_Shrinks ENABLE TRIGGER trg_forbid_stale_tit_shrinks_updates")
             .execute(&mut **tx)
             .await
-            .context("couldn't restore the update trigger of Stale_Dick_Shrinks")?;
-        sqlx::query!("DELETE FROM Stale_Dick_Shrinks WHERE chat_id = $1", deleted_id as InternalChatId)
+            .context("couldn't restore the update trigger of Stale_Tit_Shrinks")?;
+        sqlx::query!("DELETE FROM Stale_Tit_Shrinks WHERE chat_id = $1", deleted_id as InternalChatId)
             .execute(&mut **tx)
             .await
             .context(format!("couldn't delete shrinks of the chat with id = {deleted_id}"))?;
@@ -523,32 +523,32 @@ repository!(Chats, with_feature_toggles,
 ,
     async fn merge_chats(tx: &mut Transaction<'_, Postgres>, chats: [&Chat; 2]) -> anyhow::Result<i64> {
         let state = merge_chat_objects(&chats)?;
-        // Moving the dicks over rather than summing into the surviving rows: a user who only ever
+        // Moving the tits over rather than summing into the surviving rows: a user who only ever
         // played through inline mode has no row in the surviving chat at all, and updating in
         // place would skip them, leaving their length to be deleted below.
         //
-        // `bonus_attempts` is incremented on both paths because the trigger on Dicks decrements it
+        // `bonus_attempts` is incremented on both paths because the trigger on Tits decrements it
         // once per write; the increment merely cancels that out. It has to be spelled out again in
         // the conflict branch: the BEFORE INSERT trigger runs before the conflict is detected, so
         // by then `EXCLUDED` already carries the decremented value.
-        let updated_dicks = sqlx::query!(
-            "INSERT INTO Dicks (uid, chat_id, length, bonus_attempts, updated_at)
-                    SELECT uid, $1, length, bonus_attempts + 1, updated_at FROM Dicks WHERE chat_id = $2
+        let updated_tits = sqlx::query!(
+            "INSERT INTO Tits (uid, chat_id, length, bonus_attempts, updated_at)
+                    SELECT uid, $1, length, bonus_attempts + 1, updated_at FROM Tits WHERE chat_id = $2
                     ON CONFLICT (chat_id, uid) DO UPDATE SET
-                        length = Dicks.length + EXCLUDED.length,
-                        bonus_attempts = Dicks.bonus_attempts + EXCLUDED.bonus_attempts + 1,
-                        updated_at = GREATEST(Dicks.updated_at, EXCLUDED.updated_at)",
+                        length = Tits.length + EXCLUDED.length,
+                        bonus_attempts = Tits.bonus_attempts + EXCLUDED.bonus_attempts + 1,
+                        updated_at = GREATEST(Tits.updated_at, EXCLUDED.updated_at)",
                 state.main.internal_id, state.deleted.0)
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't update dicks while merging in the chats = {chats:?}"))?
+            .context(format!("couldn't update tits while merging in the chats = {chats:?}"))?
             .rows_affected();
-        let deleted_dicks = sqlx::query!("DELETE FROM Dicks WHERE chat_id = $1", state.deleted.0)
+        let deleted_tits = sqlx::query!("DELETE FROM Tits WHERE chat_id = $1", state.deleted.0)
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't delete dicks from the old chat with id = {}", state.deleted.0))?
+            .context(format!("couldn't delete tits from the old chat with id = {}", state.deleted.0))?
             .rows_affected();
-        log::info!("merging chats: {chats:?}, updated dicks: {updated_dicks}, deleted: {deleted_dicks}");
+        log::info!("merging chats: {chats:?}, updated tits: {updated_tits}, deleted: {deleted_tits}");
         Self::move_dependent_rows(tx,
             InternalChatId::new(state.main.internal_id),
             InternalChatId::new(state.deleted.0)

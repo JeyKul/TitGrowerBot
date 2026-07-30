@@ -33,7 +33,7 @@ repository!(PersonalStatsRepo,
                 r#"SELECT count(chat_id) AS chats,
                           max(length) AS max_length,
                           sum(length)::bigint AS total_length
-                   FROM Dicks WHERE uid = $1"#,
+                   FROM Tits WHERE uid = $1"#,
                 user_id as UserId)
             .fetch_one(&self.pool)
             .await

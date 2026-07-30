@@ -63,8 +63,8 @@ pub(crate) async fn chat_stats_impl(
     features: BattlesFeatureToggles,
     lang_code: &LanguageCode,
 ) -> anyhow::Result<String> {
-    let (length, position) = repos.dicks.fetch_dick(UserId::from(from_refs.0), &from_refs.1.kind()).await?
-        .map(|dick| (dick.length, dick.position.unwrap_or_default()))
+    let (length, position) = repos.tits.fetch_tit(UserId::from(from_refs.0), &from_refs.1.kind()).await?
+        .map(|tit| (tit.length, tit.position.unwrap_or_default()))
         .unwrap_or_default();
     let length_stats = t!("commands.stats.length", locale = lang_code,
         length = length, pos = position);

@@ -19,7 +19,7 @@ repository!(Import,
         let chat_id = chat_id.0;
         let mut tx = self.pool.begin().await?;
         let uids = Self::insert_into_imports_table(&mut tx, chat_id, users).await?;
-        Self::update_dicks(&mut tx, chat_id, uids).await?;
+        Self::update_tits(&mut tx, chat_id, uids).await?;
         tx.commit().await?;
         Ok(())
     }
@@ -40,16 +40,16 @@ repository!(Import,
         Ok(uids)
     }
 ,
-    async fn update_dicks(tx: &mut Transaction<'_, Postgres>, chat_id: i64, uids: Vec<UserId>) -> anyhow::Result<()> {
+    async fn update_tits(tx: &mut Transaction<'_, Postgres>, chat_id: i64, uids: Vec<UserId>) -> anyhow::Result<()> {
         sqlx::query!("WITH original AS (SELECT c.id as chat_id, uid, original_length
                         FROM Imports JOIN Chats c USING (chat_id)
                         WHERE chat_id = $1 AND uid = ANY($2))
-                            UPDATE Dicks d SET length = (length + original_length), bonus_attempts = (bonus_attempts + 1)
+                            UPDATE Tits d SET length = (length + original_length), bonus_attempts = (bonus_attempts + 1)
                             FROM original o WHERE d.chat_id = o.chat_id AND d.uid = o.uid",
                 chat_id, &uids as &[UserId])
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't update dicks while importing in the chat with id = {chat_id}: {uids:?}"))?;
+            .context(format!("couldn't update tits while importing in the chat with id = {chat_id}: {uids:?}"))?;
         Ok(())
     }
 );

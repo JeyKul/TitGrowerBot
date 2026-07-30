@@ -3,7 +3,7 @@ use crate::domain::objects::ExternalUser;
 use crate::domain::primitives::Length;
 use crate::repo;
 use crate::repo::test::{CHAT_ID, start_postgres, USER_ID};
-use crate::repo::test::dicks::{check_dick, create_dick, create_user};
+use crate::repo::test::tits::{check_tit, create_tit, create_user};
 
 #[tokio::test]
 async fn test_all() {
@@ -12,7 +12,7 @@ async fn test_all() {
     let chat_id = ChatId(CHAT_ID);
 
     create_user(&db).await;
-    create_dick(&db).await;
+    create_tit(&db).await;
 
     let u = import.get_imported_users(chat_id)
         .await.expect("couldn't fetch the empty list");
@@ -28,5 +28,5 @@ async fn test_all() {
     assert_eq!(u.len(), 1);
     assert_eq!(u, users);
 
-    check_dick(&db, length).await;
+    check_tit(&db, length).await;
 }

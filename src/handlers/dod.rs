@@ -6,7 +6,7 @@ use teloxide::macros::BotCommands;
 use teloxide::payloads::SendMessageSetters;
 use teloxide::types::{LinkPreviewOptions, Message};
 use crate::{metrics, repo};
-use crate::config::{AppConfig, DickOfDaySelectionMode, MessageGroup};
+use crate::config::{AppConfig, TitOfDaySelectionMode, MessageGroup};
 use crate::domain::objects::GrowthResult;
 use crate::domain::primitives::LanguageCode;
 use crate::handlers::{FromRefs, HandlerResult, TaggedReply, reply_html, utils};
@@ -16,9 +16,9 @@ const DOD_ALREADY_CHOSEN_SQL_CODE: &str = "GD0E2";
 
 #[derive(BotCommands, Clone)]
 #[command(rename_rule = "snake_case")]
-pub enum DickOfDayCommands {
+pub enum TitOfDayCommands {
     #[command(description = "dod")]
-    DickOfDay,
+    TitOfDay,
     Dod,
 }
 
@@ -36,8 +36,8 @@ pub async fn dod_cmd_handler(
     let chat_id = msg.chat.id.into();
     let from_refs = FromRefs(from, &chat_id);
     // A real election is a permanent event; the "already chosen"/"no candidates" statuses
-    // are scheduled (as a Notice). `dick_of_day_impl` tells them apart via the reply group.
-    let reply = dick_of_day_impl(cfg, &repos, incr, from_refs, lang_code.clone()).await?;
+    // are scheduled (as a Notice). `titties_of_day_impl` tells them apart via the reply group.
+    let reply = titties_of_day_impl(cfg, &repos, incr, from_refs, lang_code.clone()).await?;
     let sent = reply_html(bot.clone(), &msg, reply.text)
         .link_preview_options(disabled_link_preview())
         .await.context(format!("failed for {msg:?}"))?;
@@ -45,7 +45,7 @@ pub async fn dod_cmd_handler(
     Ok(())
 }
 
-pub(crate) async fn dick_of_day_impl(
+pub(crate) async fn titties_of_day_impl(
     cfg: AppConfig,
     repos: &repo::Repositories,
     incr: Incrementor,
@@ -54,10 +54,10 @@ pub(crate) async fn dick_of_day_impl(
 ) -> anyhow::Result<TaggedReply> {
     let chat_id = from_refs.1;
     let winner = match cfg.features.dod_selection_mode {
-        DickOfDaySelectionMode::WEIGHTS => {
+        TitOfDaySelectionMode::WEIGHTS => {
             repos.users.get_random_active_member_with_poor_in_priority(&chat_id.kind(), cfg.inactivity_days).await?
         },
-        DickOfDaySelectionMode::EXCLUSION if cfg.dod_rich_exclusion_ratio.is_some() => {
+        TitOfDaySelectionMode::EXCLUSION if cfg.dod_rich_exclusion_ratio.is_some() => {
             let rich_exclusion_ratio = cfg.dod_rich_exclusion_ratio.unwrap();
             repos.users.get_random_active_poor_member(&chat_id.kind(), rich_exclusion_ratio, cfg.inactivity_days).await?
         },
@@ -66,7 +66,7 @@ pub(crate) async fn dick_of_day_impl(
     let (answer, group) = match winner {
         Some(winner) => {
             let increment = incr.dod_increment(winner.uid, chat_id.kind()).await;
-            let dod_result = repos.dicks.set_dod_winner(chat_id, winner.uid, increment.total).await;
+            let dod_result = repos.tits.set_dod_winner(chat_id, winner.uid, increment.total).await;
             let (main_part, group) = match dod_result {
                 Ok(Some(GrowthResult { new_length, pos_in_top })) => {
                     let answer = t!("commands.dod.result", locale = &lang_code,
@@ -81,7 +81,7 @@ pub(crate) async fn dick_of_day_impl(
                     (text, MessageGroup::Event)
                 },
                 Ok(None) => {
-                    log::error!("there was an attempt to set a non-existent dick as a winner (UserID={}, ChatId={})",
+                    log::error!("there was an attempt to set a non-existent tit as a winner (UserID={}, ChatId={})",
                         winner.uid, chat_id);
                     let text = t!("commands.dod.no_candidates", locale = &lang_code).to_string();
                     (text, MessageGroup::Notice)

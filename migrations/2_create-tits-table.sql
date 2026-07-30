@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Dicks (
+CREATE TABLE IF NOT EXISTS Tits (
     uid bigint REFERENCES Users(uid) ON DELETE CASCADE,
     chat_id bigint,
     length integer NOT NULL DEFAULT 0,
@@ -7,13 +7,13 @@ CREATE TABLE IF NOT EXISTS Dicks (
     PRIMARY KEY (uid, chat_id)
 );
 
-CREATE OR REPLACE FUNCTION check_and_update_dicks_timestamp()
+CREATE OR REPLACE FUNCTION check_and_update_tits_timestamp()
     RETURNS TRIGGER
     LANGUAGE PLPGSQL
 AS $$
 BEGIN
     IF current_date = date(OLD.updated_at) THEN
-        RAISE EXCEPTION 'Your dick has been already grown today!'
+        RAISE EXCEPTION 'Your tit has been already grown today!'
             USING ERRCODE = 'GD0E1';
     END IF;
 
@@ -22,5 +22,5 @@ BEGIN
 END
 $$;
 
-CREATE OR REPLACE TRIGGER trg_check_and_update_dicks_timestamp BEFORE INSERT OR UPDATE ON Dicks
-    FOR EACH ROW EXECUTE FUNCTION check_and_update_dicks_timestamp();
+CREATE OR REPLACE TRIGGER trg_check_and_update_tits_timestamp BEFORE INSERT OR UPDATE ON Tits
+    FOR EACH ROW EXECUTE FUNCTION check_and_update_tits_timestamp();

@@ -5,7 +5,7 @@ const CACHED_ENV_TOGGLES_POISONED_MSG: &str = "CachedEnvToggles map was poisoned
 
 #[derive(Copy, Clone, Default, derive_more::FromStr, derive_more::Display)]
 #[allow(clippy::upper_case_acronyms)]
-pub enum DickOfDaySelectionMode {
+pub enum TitOfDaySelectionMode {
     WEIGHTS,
     EXCLUSION,
     #[default]
@@ -17,7 +17,7 @@ pub struct FeatureToggles {
     pub chats_merging: bool,
     pub top_unlimited: bool,
     pub multiple_loans: bool,
-    pub dod_selection_mode: DickOfDaySelectionMode,
+    pub dod_selection_mode: TitOfDaySelectionMode,
     pub pvp: BattlesFeatureToggles,
     pub most_popular_language_enabled: bool,
     pub hide_inactive_zero_length_from_top: bool,

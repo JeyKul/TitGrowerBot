@@ -29,7 +29,7 @@ pub fn spawn_daily_shrink(
         let bot = Throttle::new_spawn(bot, Limits::default());
         // Puts the feature into effect at once instead of hours later. Re-running the same day is
         // harmless: nothing here touches `updated_at`, so the repeat picks the same victims and
-        // aborts on Stale_Dick_Shrinks' primary key, rolling the length change back with it.
+        // aborts on Stale_Tit_Shrinks' primary key, rolling the length change back with it.
         if get_env_value_or_default("DAILY_SHRINK_RUN_ON_STARTUP", false) {
             log::warn!("DAILY_SHRINK_RUN_ON_STARTUP is set — running the daily shrink right now");
             run_daily_shrink(bot.clone(), repos.clone(), language_service.clone(), config.clone())

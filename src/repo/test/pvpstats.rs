@@ -2,7 +2,7 @@ use crate::domain::objects::WinRateAware;
 use crate::domain::primitives::{Bet, UserId};
 use crate::domain::primitives::chat::ChatIdPartiality;
 use crate::repo;
-use crate::repo::test::dicks::{create_dick, create_user, create_user_and_dick_2};
+use crate::repo::test::tits::{create_tit, create_user, create_user_and_tit_2};
 use crate::repo::test::{start_postgres, CHAT_ID_KIND, UID, USER_ID};
 
 #[tokio::test]
@@ -14,12 +14,12 @@ async fn test_all() {
     let bet = Bet::literal(42);
     let bet_length = i64::from(bet.value());
 
-    // create user and dick #1
+    // create user and tit #1
     create_user(&db).await;
-    create_dick(&db).await;
+    create_tit(&db).await;
     let uid_1 = USER_ID;
-    // create user and dick #2
-    create_user_and_dick_2(&db, &ChatIdPartiality::Specific(chat_id.clone()), "User-2").await;
+    // create user and tit #2
+    create_user_and_tit_2(&db, &ChatIdPartiality::Specific(chat_id.clone()), "User-2").await;
     let uid_2 = UserId::literal(UID + 1);
 
     // get stats when no rows

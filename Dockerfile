@@ -39,11 +39,11 @@ COPY .sqlx/ .sqlx/
 COPY build.rs ./
 COPY user-service-proto/ user-service-proto/
 COPY Cargo.* ./
-RUN cargo build --release && mv target/release/dick-grower-bot /dickGrowerBot
+RUN cargo build --release && mv target/release/tit-grower-bot /titGrowerBot
 
 FROM alpine:3.21
 RUN apk update && apk add --no-cache libgcc
-COPY --from=builder /dickGrowerBot /usr/local/bin/
+COPY --from=builder /titGrowerBot /usr/local/bin/
 # Import the user and group files from the builder
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
@@ -95,8 +95,8 @@ ARG MSG_SELFDESTRUCT_DELAY_NOTICE
 ARG MSG_SELFDESTRUCT_DELAY_REPORT
 ARG MSG_SELFDESTRUCT_READING_SPEED_CPM
 ARG MSG_SELFDESTRUCT_WARNING_SECONDS
-ENTRYPOINT [ "/usr/local/bin/dickGrowerBot" ]
+ENTRYPOINT [ "/usr/local/bin/titGrowerBot" ]
 
-LABEL org.opencontainers.image.source=https://github.com/kozalosev/DickGrowerBot
-LABEL org.opencontainers.image.description="Who has the biggest dick ever? A game bot for Telegram"
+LABEL org.opencontainers.image.source=https://github.com/JeyKul/TitGrowerBot
+LABEL org.opencontainers.image.description="Who has the biggest tits? A game bot for Telegram"
 LABEL org.opencontainers.image.licenses='MIT+"Commons Clause" License Condition v1.0'

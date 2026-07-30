@@ -17,7 +17,7 @@ use teloxide::dptree::deps;
 use teloxide::update_listeners::webhooks::{axum_to_router, Options};
 use teloxide::update_listeners::UpdateListener;
 use crate::handlers::{checks, HelpCommands, LanguageCommands, LoanCommands, PrivacyCommands, PromoCommandState, StartCommands};
-use crate::handlers::{DickCommands, DickOfDayCommands, ImportCommands, PromoCommands};
+use crate::handlers::{TitCommands, TitOfDayCommands, ImportCommands, PromoCommands};
 use crate::handlers::pvp::{BattleCommands, BattleCommandsNoArgs};
 use crate::handlers::stats::StatsCommands;
 use crate::handlers::utils::locks::LockCallbackServiceFacade;
@@ -46,8 +46,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .branch(Update::filter_message().filter_command::<HelpCommands>().endpoint(handlers::help_cmd_handler))
         .branch(Update::filter_message().filter_command::<PrivacyCommands>().endpoint(handlers::privacy_cmd_handler))
         .branch(Update::filter_message().filter_command::<LanguageCommands>().endpoint(handlers::language::cmd_handler))
-        .branch(checks::group_command::<DickCommands>().endpoint(handlers::dick_cmd_handler))
-        .branch(checks::group_command::<DickOfDayCommands>().endpoint(handlers::dod_cmd_handler))
+        .branch(checks::group_command::<TitCommands>().endpoint(handlers::tit_cmd_handler))
+        .branch(checks::group_command::<TitOfDayCommands>().endpoint(handlers::dod_cmd_handler))
         .branch(checks::group_command::<BattleCommands>().endpoint(handlers::pvp::cmd_handler))
         .branch(checks::group_command::<BattleCommandsNoArgs>().endpoint(handlers::pvp::cmd_handler_no_args))
         .branch(checks::group_command::<LoanCommands>().endpoint(handlers::loan::cmd_handler))
@@ -94,7 +94,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let me = bot.get_me().await?;
     let perks = handlers::perks::all(&db_conn, &app_config);
-    let incrementor = handlers::utils::Incrementor::from_env(&repos.dicks, perks);
+    let incrementor = handlers::utils::Incrementor::from_env(&repos.tits, perks);
     let help_context = config::build_context_for_help_messages(me, &incrementor, &handlers::ORIGINAL_BOT_USERNAMES)?;
     let help_container = help::render_help_messages(help_context)?;
     let battle_locker = LockCallbackServiceFacade::from_config(app_config.features);
@@ -104,7 +104,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
     let metrics_router = metrics::init();
 
-    // Best-effort background job that shrinks inactive dicks at each UTC midnight. Spawned before
+    // Best-effort background job that shrinks inactive tits at each UTC midnight. Spawned before
     // `deps!` moves the shared services, and before the webhook/polling split so it runs in both.
     scheduler::spawn_daily_shrink(bot.clone(), repos.clone(), language_service.clone(), app_config.clone());
 

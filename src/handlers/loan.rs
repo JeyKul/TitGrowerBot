@@ -70,7 +70,7 @@ pub(crate) async fn loan_impl(
         return Ok(HandlerImplResult::OnlyText(err_text))
     }
 
-    let length = repos.dicks.fetch_length(DomainUserId::from(from), &chat_id_kind).await?;
+    let length = repos.tits.fetch_length(DomainUserId::from(from), &chat_id_kind).await?;
     if length >= 0 {
         let err_text = t!("commands.loan.errors.positive_length", locale = &lang_code).to_string();
         return Ok(HandlerImplResult::OnlyText(err_text))

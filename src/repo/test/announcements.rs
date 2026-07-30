@@ -4,7 +4,7 @@ use crate::{config, repo};
 use crate::config::Announcement;
 use crate::domain::primitives::{Counter, LanguageCode, SupportedLanguage};
 use crate::domain::primitives::SupportedLanguage::{EN, RU};
-use crate::repo::test::{dicks, start_postgres, CHAT_ID_KIND};
+use crate::repo::test::{tits, start_postgres, CHAT_ID_KIND};
 
 #[tokio::test]
 async fn test_configured() {
@@ -81,7 +81,7 @@ async fn test_no_announcements() {
 
 async fn create_chat(db: &Pool<Postgres>) {
     let chat_id_part = CHAT_ID_KIND.clone().into();
-    dicks::create_user_and_dick_2(db, &chat_id_part, "Ann").await;
+    tits::create_user_and_tit_2(db, &chat_id_part, "Ann").await;
 }
 
 fn get_languages() -> [LanguageCode; 2] {

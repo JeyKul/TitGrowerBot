@@ -1,13 +1,13 @@
 mod announcement;
 mod user;
-mod dick;
+mod tit;
 mod loan;
 mod tghack;
 mod stats;
 
 pub use announcement::*;
 pub use user::*;
-pub use dick::*;
+pub use tit::*;
 pub use loan::*;
 pub use tghack::*;
 pub use stats::*;

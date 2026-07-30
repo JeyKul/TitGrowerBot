@@ -5,7 +5,7 @@ use crate::config;
 use crate::domain::objects::Loan;
 use crate::domain::primitives::{Debt, LengthChange, LoanId, LoanPayout, Ratio, UserId};
 use crate::domain::primitives::chat::InternalChatId;
-use crate::repo::{ensure_only_one_row_updated, ChatIdKind, Chats, Dicks};
+use crate::repo::{ensure_only_one_row_updated, ChatIdKind, Chats, Tits};
 
 struct LoanEntity {
     id: LoanId,
@@ -74,7 +74,7 @@ impl Loans {
             None => create_loan(&mut tx, chat_internal_id, user_id, value, self.payout_ratio).await?
         };
         let borrowed_length = LengthChange::signed(value.value());
-        Dicks::grow_no_attempts_check_internal(&mut *tx, chat_internal_id, user_id, borrowed_length).await?;
+        Tits::grow_no_attempts_check_internal(&mut *tx, chat_internal_id, user_id, borrowed_length).await?;
 
         tx.commit().await?;
         Ok(BorrowResult::Granted)
@@ -99,7 +99,7 @@ async fn fetch_length_locked(
     uid: UserId,
     chat_internal_id: InternalChatId,
 ) -> anyhow::Result<Option<i64>> {
-    sqlx::query_scalar!("SELECT length FROM Dicks WHERE chat_id = $1 AND uid = $2 FOR UPDATE",
+    sqlx::query_scalar!("SELECT length FROM Tits WHERE chat_id = $1 AND uid = $2 FOR UPDATE",
             chat_internal_id as InternalChatId, uid as UserId)
         .fetch_optional(&mut **tx)
         .await

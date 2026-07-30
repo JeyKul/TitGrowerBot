@@ -1,15 +1,15 @@
-[@DickGrowerBot](https://t.me/DickGrowerBot)
+[@TitGrowerBot](https://t.me/TitGrowerBot)
 ============================================
 
-[![CI Build](https://github.com/kozalosev/DickGrowerBot/actions/workflows/ci-build.yaml/badge.svg?branch=main&event=push)](https://github.com/kozalosev/DickGrowerBot/actions/workflows/ci-build.yaml) [![@DickGrowerBot MAU](https://tgbotmau.quoi.dev/api/bot/DickGrowerBot/mau/badge?style=flat "@DickGrowerBot MAU")](https://tgbotmau.quoi.dev/?bot=DickGrowerBot)
+[![CI Build](https://github.com/kozalosev/TitGrowerBot/actions/workflows/ci-build.yaml/badge.svg?branch=main&event=push)](https://github.com/kozalosev/TitGrowerBot/actions/workflows/ci-build.yaml) [![@TitGrowerBot MAU](https://tgbotmau.quoi.dev/api/bot/TitGrowerBot/mau/badge?style=flat "@TitGrowerBot MAU")](https://tgbotmau.quoi.dev/?bot=TitGrowerBot)
 
-A game bot for group chats that let its users grow their virtual "dicks" every day for some random count of centimeters (including negative values) and compete with friends and other chat members.
+A game bot for group chats that let its users grow their virtual "tits" every day for some random count of centimeters (including negative values) and compete with friends and other chat members.
 
 Additional mechanics
 --------------------
 _(compared with some competitors)_
 
-* **The Dick of the Day** daily contest to grow a randomly chosen dick for a bit more.
+* **The Tit of the Day** daily contest to grow a randomly chosen tit for a bit more.
 * A way to play the game without the necessity to add the bot into a group (via inline queries with a callback button).
 * Import from _@pipisabot_ and _@kraft28_bot_ (not tested! help of its users is required).
 * PvP fights with statistics.

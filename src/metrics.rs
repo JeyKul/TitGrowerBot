@@ -25,7 +25,7 @@ pub static CMD_TOP_COUNTER: Lazy<BothModesCounters> = Lazy::new(||
 pub static CMD_LOAN_COUNTER: Lazy<BothModesComplexCommandCounters> = Lazy::new(||
     BothModesComplexCommandCounters::new("command_loan_usage_total", "count of /loan invocations"));
 pub static CMD_DOD_COUNTER: Lazy<BothModesCounters> = Lazy::new(||
-    BothModesCounters::new("command_dick_of_day_usage_total", "count of /dick_of_day invocations"));
+    BothModesCounters::new("command_titties_of_day_usage_total", "count of /titties_of_day invocations"));
 pub static CMD_PVP_COUNTER: Lazy<BothModesCounters> = Lazy::new(||
     BothModesCounters::new("command_pvp_usage_total", "count of /pvp invocations"));
 pub static CMD_STATS: Lazy<BothModesCounters> = Lazy::new(||
@@ -47,7 +47,7 @@ pub static USED_LANGUAGE: Lazy<SpokenLanguageCounter> = Lazy::new(||
 pub static SELF_DESTRUCTION: Lazy<SelfDestructionCounters> = Lazy::new(||
     SelfDestructionCounters::new("self_destruction_total", "count of the bot's own messages removed by the self-destruction feature, split by message group and outcome (deleted/failed)"));
 pub static ANNOUNCEMENT_SHOWN: Lazy<AnnouncementCounter> = Lazy::new(||
-    AnnouncementCounter::new("announcement_shown_total", "count of announcements shown at the end of the Dick of the Day message, split by the recipient's language"));
+    AnnouncementCounter::new("announcement_shown_total", "count of announcements shown at the end of the Tit of the Day message, split by the recipient's language"));
 pub static CHAT_MIGRATION: Lazy<ChatMigrationCounter> = Lazy::new(||
     ChatMigrationCounter::new("chat_migration_total", "count of group to supergroup migrations the bot witnessed, by outcome: migrated when the chat came across whole, migrated_unanchored when it came across but left its inline half behind, untraceable when it wasn't known by its old id at all, conflict when both ids already had a row of their own"));
 pub static DAILY_SHRINK: Lazy<DailyShrinkCounters> = Lazy::new(DailyShrinkCounters::new);
@@ -331,7 +331,7 @@ impl SelfDestructionCounters {
     }
 }
 
-/// Counts announcements actually shown at the end of the Dick of the Day message, labeled by the
+/// Counts announcements actually shown at the end of the Tit of the Day message, labeled by the
 /// recipient's resolved [`SupportedLanguage`] (with fallback, the audience's language — not
 /// necessarily the language the borrowed text is written in).
 pub struct AnnouncementCounter(CounterVec);
@@ -372,7 +372,7 @@ impl ChatMigrationCounter {
     }
 }
 
-/// Counters of the daily shrink job: the runs, the shrunk dicks, and the sent summaries.
+/// Counters of the daily shrink job: the runs, the shrunk tits, and the sent summaries.
 /// Without them the job is visible in the logs only.
 ///
 /// Alert on `daily_shrink_run_total` when it stops growing for more than 26 hours. That means the
@@ -388,9 +388,9 @@ pub struct DailyShrinkCounters {
 impl DailyShrinkCounters {
     fn new() -> Self {
         let runs = CounterVec::new("daily_shrink_run_total",
-            "count of daily shrink runs by outcome: succeeded when dicks were shrunk, empty when there was nothing to shrink today, failed when the shrinking statement itself errored", &["outcome"]);
+            "count of daily shrink runs by outcome: succeeded when tits were shrunk, empty when there was nothing to shrink today, failed when the shrinking statement itself errored", &["outcome"]);
         let victims = CounterVec::new("daily_shrink_victims_total",
-            "count of dicks shrunk, by how their owners get to hear about it: broadcast when their chat can be messaged, inline_only when it can't and the shrinks command is the only way to see it", &["delivery"]);
+            "count of tits shrunk, by how their owners get to hear about it: broadcast when their chat can be messaged, inline_only when it can't and the shrinks command is the only way to see it", &["delivery"]);
         let broadcasts = CounterVec::new("daily_shrink_broadcast_total",
             "count of per-chat shrink summaries by outcome: sent, or failed when Telegram rejected the message (one sample per chat, not per victim)", &["outcome"]);
         for outcome in ["succeeded", "empty", "failed"] {
@@ -405,7 +405,7 @@ impl DailyShrinkCounters {
         Self { runs, victims, broadcasts }
     }
 
-    /// A run that shrank at least one dick.
+    /// A run that shrank at least one tit.
     pub fn run_succeeded(&self) {
         self.runs.counter(&["succeeded"]).inc()
     }
@@ -420,12 +420,12 @@ impl DailyShrinkCounters {
         self.runs.counter(&["failed"]).inc()
     }
 
-    /// `count` dicks shrunk in chats the bot can post to.
+    /// `count` tits shrunk in chats the bot can post to.
     pub fn victims_to_broadcast(&self, count: u64) {
         self.victims.counter(&["broadcast"]).inc_by(count)
     }
 
-    /// `count` dicks shrunk in inline-only chats. Such chats get no summary message.
+    /// `count` tits shrunk in inline-only chats. Such chats get no summary message.
     pub fn victims_inline_only(&self, count: u64) {
         self.victims.counter(&["inline_only"]).inc_by(count)
     }

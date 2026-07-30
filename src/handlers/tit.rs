@@ -20,17 +20,17 @@ const CALLBACK_PREFIX_TOP_PAGE: &str = "top:page:";
 
 #[derive(BotCommands, Clone)]
 #[command(rename_rule = "lowercase")]
-pub enum DickCommands {
+pub enum TitCommands {
     #[command(description = "grow")]
     Grow,
     #[command(description = "top")]
     Top,
 }
 
-pub async fn dick_cmd_handler(
+pub async fn tit_cmd_handler(
     bot: Bot,
     msg: Message,
-    cmd: DickCommands,
+    cmd: TitCommands,
     repos: repo::Repositories,
     incr: Incrementor,
     config: AppConfig,
@@ -41,7 +41,7 @@ pub async fn dick_cmd_handler(
     let chat_id = msg.chat.id.into();
     let from_refs = FromRefs(from, &chat_id);
     match cmd {
-        DickCommands::Grow => {
+        TitCommands::Grow => {
             // A real growth is a permanent event; only the "come back tomorrow" status is
             // scheduled (as a Notice). `grow_impl` tells the two apart via the reply group.
             metrics::CMD_GROW_COUNTER.chat.inc();
@@ -49,7 +49,7 @@ pub async fn dick_cmd_handler(
             let sent = reply_html!(bot.clone(), msg, reply.text);
             self_destruction.schedule(&bot, &sent, reply.group, &lang_code);
         },
-        DickCommands::Top => {
+        TitCommands::Top => {
             metrics::CMD_TOP_COUNTER.chat.inc();
             let top = top_impl(&repos, &config, from_refs, lang_code.clone(), Page::first()).await?;
             let mut request = reply_html(bot.clone(), &msg, top.lines);
@@ -82,7 +82,7 @@ pub(crate) async fn grow_impl(
         .map(DaysCount::new)
         .ok_or_else(|| anyhow!("days since registration are too much: {days_since_registration}"))?;
     let increment = incr.growth_increment(uid, chat_id.kind(), days_since_registration).await;
-    let grow_result = repos.dicks.create_or_grow(uid, chat_id, increment.total).await;
+    let grow_result = repos.tits.create_or_grow(uid, chat_id, increment.total).await;
 
     let (main_part, group) = match grow_result {
         Ok(GrowthResult { new_length, pos_in_top }) => {
@@ -148,10 +148,10 @@ pub(crate) async fn top_impl(
     let (from, chat_id) = (from_refs.0, from_refs.1.kind());
     let offset = Offset::calculate(page, config.top_limit);
     let query_limit = (config.top_limit + 1)?; // fetch +1 row to know whether more rows exist or not
-    let dicks = repos.dicks.get_top(&chat_id, offset, query_limit, config.inactivity_days).await?;
-    let has_more_pages = dicks.len() > config.top_limit.value() as usize;
+    let tits = repos.tits.get_top(&chat_id, offset, query_limit, config.inactivity_days).await?;
+    let has_more_pages = tits.len() > config.top_limit.value() as usize;
     let mut any_inactive = false;
-    let lines = dicks.into_iter()
+    let lines = tits.into_iter()
         .take(config.top_limit.value() as usize)
         .enumerate()
         .map(|(i, d)| {

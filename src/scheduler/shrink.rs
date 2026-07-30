@@ -119,7 +119,7 @@ async fn resolve_broadcast_language(
     }
 
     if config.features.most_popular_language_enabled {
-        let uids: Vec<TeloxideUserId> = repos.dicks.get_player_uids(chat).await
+        let uids: Vec<TeloxideUserId> = repos.tits.get_player_uids(chat).await
             .inspect_err(|e| log::warn!("daily shrink: couldn't list players of {chat}: {e:#}"))
             .unwrap_or_default()
             .into_iter()

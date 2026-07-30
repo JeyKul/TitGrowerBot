@@ -2,7 +2,7 @@ use sqlx::{Pool, Postgres};
 use crate::{config, repo};
 use crate::domain::primitives::{Debt, LoanPayout, Ratio, UserId};
 use crate::repo::BorrowResult;
-use crate::repo::test::dicks::{create_dick, create_user};
+use crate::repo::test::tits::{create_tit, create_user};
 use crate::repo::test::{CHAT_ID, NAME, start_postgres, UID, USER_ID, CHAT_ID_KIND};
 
 #[tokio::test]
@@ -11,7 +11,7 @@ async fn test_all() {
     let payout_ratio = Ratio::literal(0.1);
 
     create_user(&db).await;
-    create_dick(&db).await; // to create a chat
+    create_tit(&db).await; // to create a chat
 
     let user_id = USER_ID;
     let chat_id = CHAT_ID_KIND;
@@ -48,8 +48,8 @@ async fn test_all() {
     // the ratio is stored as REAL (f32) in the database, so compare at f32 precision
     assert_eq!(loan.payout_ratio.value() as f32, payout_ratio.value() as f32);
 
-    let dicks = repo::Dicks::new(db.clone(), Default::default());
-    let length_after_borrowing = dicks.fetch_length(user_id, &chat_id)
+    let tits = repo::Tits::new(db.clone(), Default::default());
+    let length_after_borrowing = tits.fetch_length(user_id, &chat_id)
         .await.expect("couldn't fetch a length after borrowing");
     assert_eq!(length_after_borrowing, value.value());
 
@@ -88,32 +88,32 @@ async fn test_all() {
 }
 
 #[tokio::test]
-async fn test_borrow_without_dick() {
+async fn test_borrow_without_tit() {
     let (_container, db) = start_postgres().await;
 
     create_user(&db).await;
-    create_dick(&db).await; // to create a chat
+    create_tit(&db).await; // to create a chat
 
     let chat_id = CHAT_ID_KIND;
-    let user_id_without_dick = UserId::literal(UID + 1);
+    let user_id_without_tit = UserId::literal(UID + 1);
     repo::Users::new(db.clone())
-        .create_or_update(user_id_without_dick, &format!("{NAME} 2"))
+        .create_or_update(user_id_without_tit, &format!("{NAME} 2"))
         .await.expect("couldn't create a user");
 
     let loans = repo::Loans::new(db.clone(), &config::AppConfig {
         loan_payout_ratio: Ratio::literal(0.1),
         ..Default::default()
     });
-    let borrow_result = loans.borrow(user_id_without_dick, &chat_id, Debt::new(10))
-        .await.expect("couldn't apply for a loan without a dick");
+    let borrow_result = loans.borrow(user_id_without_tit, &chat_id, Debt::new(10))
+        .await.expect("couldn't apply for a loan without a tit");
     assert_eq!(borrow_result, BorrowResult::NotEligible);
 }
 
 async fn set_length(db: &Pool<Postgres>, uid: i64, chat_id: i64, length: i64) {
     // bonus_attempts = 1 bypasses the "already grown today" trigger (it decrements to 0 after)
-    sqlx::query!("UPDATE Dicks SET length = $3, bonus_attempts = 1 WHERE uid = $1 AND chat_id = (SELECT id FROM Chats WHERE chat_id = $2)",
+    sqlx::query!("UPDATE Tits SET length = $3, bonus_attempts = 1 WHERE uid = $1 AND chat_id = (SELECT id FROM Chats WHERE chat_id = $2)",
             uid, chat_id, length)
         .execute(db)
         .await
-        .expect("couldn't set the dick length directly");
+        .expect("couldn't set the tit length directly");
 }

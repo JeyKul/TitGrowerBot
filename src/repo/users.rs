@@ -19,7 +19,7 @@ repository!(Users,
     pub async fn get_chat_members(&self, chat_id: &ChatIdKind) -> anyhow::Result<Vec<User>> {
         sqlx::query_as!(User,
             r#"SELECT u.uid AS "uid: UserId", name AS "name: Username", created_at FROM Users u
-                JOIN Dicks d USING (uid)
+                JOIN Tits d USING (uid)
                 JOIN Chats c ON d.chat_id = c.id
                 WHERE c.chat_id = $1::bigint OR c.chat_instance = $1::text"#,
                 chat_id.value() as String)
@@ -35,7 +35,7 @@ repository!(Users,
     ) -> anyhow::Result<Option<User>> {
         sqlx::query_as!(User,
             r#"SELECT u.uid AS "uid: UserId", name AS "name: Username", u.created_at FROM Users u
-                JOIN Dicks d USING (uid)
+                JOIN Tits d USING (uid)
                 JOIN Chats c ON d.chat_id = c.id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                     AND updated_at > current_timestamp - make_interval(days => $2::bigint::int)
@@ -57,7 +57,7 @@ repository!(Users,
             r#"WITH ranked_users AS (
                 SELECT u.uid, name, u.created_at, PERCENT_RANK() OVER (ORDER BY length) AS percentile_rank
                     FROM Users u
-                    JOIN Dicks d USING (uid)
+                    JOIN Tits d USING (uid)
                     JOIN Chats c ON d.chat_id = c.id
                     WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                         AND updated_at > current_timestamp - make_interval(days => $3::bigint::int)
@@ -89,7 +89,7 @@ repository!(Users,
                            (d.length - AVG(d.length) OVER ()) / NULLIF(STDDEV_POP(d.length) OVER (), 0),
                            0))) AS weight
                 FROM Users u
-                  JOIN Dicks d USING (uid)
+                  JOIN Tits d USING (uid)
                   JOIN Chats c ON d.chat_id = c.id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                   AND d.updated_at > current_timestamp - make_interval(days => $2::bigint::int)

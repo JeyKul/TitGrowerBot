@@ -1,7 +1,7 @@
 use crate::domain::primitives::{Length, Position, UserId};
 
 #[derive(Debug)]
-pub struct Dick {
+pub struct Tit {
     pub length: Length,
     pub owner_uid: UserId,
     pub owner_name: String,

@@ -4,7 +4,7 @@ use crate::domain::primitives::{DaysCount, LengthChange, Ratio, UserId};
 use crate::domain::primitives::chat::{ChatIdKind, ChatIdPartiality, TelegramChatId};
 use crate::repo;
 use crate::repo::test::{CHAT_ID, NAME, start_postgres, UID, USER_ID};
-use crate::repo::test::dicks::{create_another_user_and_dick, create_user_and_dick_2};
+use crate::repo::test::tits::{create_another_user_and_tit, create_user_and_tit_2};
 
 const INACTIVITY_DAYS: DaysCount = DaysCount::new(7);
 
@@ -75,10 +75,10 @@ macro_rules! base_checks {
         assert_eq!(user.name.value(), NAME);
 
         // check inactive member is not found
-        sqlx::query!("DROP TRIGGER IF EXISTS trg_check_and_update_dicks_timestamp ON Dicks")
+        sqlx::query!("DROP TRIGGER IF EXISTS trg_check_and_update_tits_timestamp ON Tits")
             .execute(&$db)
             .await.expect("couldn't drop the trigger");
-        sqlx::query!("UPDATE Dicks SET updated_at = '1997-01-01' WHERE chat_id = (SELECT id FROM Chats WHERE chat_id = $1) AND uid = $2", CHAT_ID, UID)
+        sqlx::query!("UPDATE Tits SET updated_at = '1997-01-01' WHERE chat_id = (SELECT id FROM Chats WHERE chat_id = $1) AND uid = $2", CHAT_ID, UID)
             .execute(&$db)
             .await.expect("couldn't reset the updated_at column");
 
@@ -87,7 +87,7 @@ macro_rules! base_checks {
             .expect("couldn't fetch Some(User)");
         assert!(user.is_none());
 
-        sqlx::query!("UPDATE Dicks SET updated_at = now() WHERE chat_id = (SELECT id FROM Chats WHERE chat_id = $1) AND uid = $2", CHAT_ID, UID)
+        sqlx::query!("UPDATE Tits SET updated_at = now() WHERE chat_id = (SELECT id FROM Chats WHERE chat_id = $1) AND uid = $2", CHAT_ID, UID)
             .execute(&$db)
             .await.expect("couldn't rollback the updated_at column");
      };
@@ -128,9 +128,9 @@ async fn get_random_active_member_with_poor_in_priority() {
     // Together with the base member (UID, length 0) the lengths are -20, 0, 20, 40.
     let users = repo::Users::new(db.clone());
     let chat_id: ChatIdPartiality = TelegramChatId::new(CHAT_ID).into();
-    create_another_user_and_dick(&db, &chat_id, 2, "User-A", -20).await; // UID+1, the poorest
-    create_another_user_and_dick(&db, &chat_id, 3, "User-B", 20).await;  // UID+2
-    create_another_user_and_dick(&db, &chat_id, 4, "User-C", 40).await;  // UID+3, the richest
+    create_another_user_and_tit(&db, &chat_id, 2, "User-A", -20).await; // UID+1, the poorest
+    create_another_user_and_tit(&db, &chat_id, 3, "User-B", 20).await;  // UID+2
+    create_another_user_and_tit(&db, &chat_id, 4, "User-C", 40).await;  // UID+3, the richest
 
     const ATTEMPTS: usize = 1000;
     let mut results = Vec::with_capacity(ATTEMPTS);
@@ -161,8 +161,8 @@ async fn get_random_active_member_with_poor_in_priority() {
 async fn prepare_for_additional_tests(db: &Pool<Postgres>) -> (repo::Users, ChatIdPartiality) {
     let users = repo::Users::new(db.clone());
     let chat_id = TelegramChatId::new(CHAT_ID).into();
-    create_user_and_dick_2(db, &chat_id, "User-2").await;
-    create_another_user_and_dick(db, &chat_id, 3, "User-3", 10).await;
+    create_user_and_tit_2(db, &chat_id, "User-2").await;
+    create_another_user_and_tit(db, &chat_id, 3, "User-3", 10).await;
     (users, chat_id)
 }
 
@@ -185,13 +185,13 @@ fn check_member_with_name(members: &[User], name: &str) {
 
 async fn create_member(db: &Pool<Postgres>) {
     let users = repo::Users::new(db.clone());
-    let dicks = repo::Dicks::new(db.clone(), Default::default());
+    let tits = repo::Tits::new(db.clone(), Default::default());
 
     let chat_id = ChatIdKind::ID(TelegramChatId::new(CHAT_ID));
     let uid = USER_ID;
 
     users.create_or_update(uid, NAME)
         .await.expect("couldn't create a user");
-    dicks.create_or_grow(uid, &chat_id.into(), LengthChange::signed(0))
-        .await.expect("couldn't create a dick");
+    tits.create_or_grow(uid, &chat_id.into(), LengthChange::signed(0))
+        .await.expect("couldn't create a tit");
 }

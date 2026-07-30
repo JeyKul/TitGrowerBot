@@ -15,7 +15,7 @@ pub struct ActivationResult {
 #[strum(serialize_all = "snake_case")]
 pub enum ActivationError {
     NoActivationsLeft,
-    NoDicks,
+    NoTits,
     AlreadyActivated,
     Other(anyhow::Error)
 }
@@ -57,9 +57,9 @@ repository!(Promo,
             .ok_or(ActivationError::NoActivationsLeft)?;
         // the column stays INT4 in the database (promo bonuses are small); the domain type is built at this boundary
         let bonus = LengthIncrement::new(bonus_length.into())?;
-        let chats_affected = Self::grow_dicks(&mut tx, user_id, bonus_length).await?;
+        let chats_affected = Self::grow_tits(&mut tx, user_id, bonus_length).await?;
         if chats_affected < 1 {
-            return Err(ActivationError::NoDicks)
+            return Err(ActivationError::NoTits)
         }
         Self::add_activation(&mut tx, user_id, &found_code, chats_affected)
             .await
@@ -97,12 +97,12 @@ repository!(Promo,
             .context(format!("couldn't find a promo code length of {code}"))
     }
 ,
-    async fn grow_dicks(tx: &mut sqlx::Transaction<'_, Postgres>, user_id: UserId, bonus: i32) -> anyhow::Result<u64> {
-        let rows_affected = sqlx::query!("UPDATE Dicks SET bonus_attempts = (bonus_attempts + 1), length = (length + $2) WHERE uid = $1",
+    async fn grow_tits(tx: &mut sqlx::Transaction<'_, Postgres>, user_id: UserId, bonus: i32) -> anyhow::Result<u64> {
+        let rows_affected = sqlx::query!("UPDATE Tits SET bonus_attempts = (bonus_attempts + 1), length = (length + $2) WHERE uid = $1",
                 user_id as UserId, i64::from(bonus))
             .execute(&mut **tx)
             .await
-            .context(format!("couldn't grow dicks of {user_id} by {bonus}"))?
+            .context(format!("couldn't grow tits of {user_id} by {bonus}"))?
             .rows_affected();
         Ok(rows_affected)
     }

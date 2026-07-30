@@ -1,4 +1,4 @@
-mod dick;
+mod tit;
 mod help;
 mod start;
 mod privacy;
@@ -24,7 +24,7 @@ use teloxide::sugar::request::RequestLinkPreviewExt;
 use teloxide::types::{CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyParameters};
 use teloxide::types::ParseMode::Html;
 
-pub use dick::*;
+pub use tit::*;
 pub use help::*;
 pub use start::*;
 pub use privacy::*;

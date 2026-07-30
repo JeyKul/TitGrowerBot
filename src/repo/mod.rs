@@ -1,5 +1,5 @@
 mod users;
-mod dicks;
+mod tits;
 mod chats;
 mod import;
 mod promo;
@@ -16,7 +16,7 @@ use anyhow::anyhow;
 use sqlx::{Pool, Postgres};
 use sqlx::postgres::PgQueryResult;
 pub use users::*;
-pub use dicks::*;
+pub use tits::*;
 pub use chats::*;
 pub use import::*;
 pub use promo::*;
@@ -32,7 +32,7 @@ use crate::domain::primitives::chat::ChatIdKind;
 #[derive(Clone)]
 pub struct Repositories {
     pub users: Users,
-    pub dicks: Dicks,
+    pub tits: Tits,
     pub chats: Chats,
     pub import: Import,
     pub promo: Promo,
@@ -47,7 +47,7 @@ impl Repositories {
     pub fn new(db_conn: &Pool<Postgres>, config: &config::AppConfig) -> Self {
         Self {
             users: Users::new(db_conn.clone()),
-            dicks: Dicks::new(db_conn.clone(), config.features),
+            tits: Tits::new(db_conn.clone(), config.features),
             chats: Chats::new(db_conn.clone(), config.features),
             import: Import::new(db_conn.clone()),
             promo: Promo::new(db_conn.clone()),

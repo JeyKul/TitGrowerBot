@@ -760,51 +760,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dick-grower-bot"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "axum",
- "axum-prometheus",
- "base64 0.22.1",
- "byteorder",
- "chrono",
- "derive_more 2.1.1",
- "domain_types",
- "domain_types_macro",
- "dotenvy",
- "downcast-rs",
- "flurry",
- "futures",
- "log",
- "num-traits",
- "once_cell",
- "pretty_env_logger",
- "prometheus",
- "prost",
- "prost-types",
- "rand 0.10.2",
- "regex",
- "reqwest 0.13.4",
- "rust-i18n",
- "serde",
- "serde-saphyr",
- "sha2 0.11.0",
- "sqlx",
- "strum",
- "strum_macros",
- "teloxide",
- "testcontainers",
- "tinytemplate",
- "tokio",
- "tonic",
- "tonic-prost",
- "tonic-prost-build",
- "unicode-general-category",
-]
-
-[[package]]
 name = "digest"
 version = "0.10.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3878,6 +3833,51 @@ name = "tinyvec_macros"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
+
+[[package]]
+name = "tit-grower-bot"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "axum",
+ "axum-prometheus",
+ "base64 0.22.1",
+ "byteorder",
+ "chrono",
+ "derive_more 2.1.1",
+ "domain_types",
+ "domain_types_macro",
+ "dotenvy",
+ "downcast-rs",
+ "flurry",
+ "futures",
+ "log",
+ "num-traits",
+ "once_cell",
+ "pretty_env_logger",
+ "prometheus",
+ "prost",
+ "prost-types",
+ "rand 0.10.2",
+ "regex",
+ "reqwest 0.13.4",
+ "rust-i18n",
+ "serde",
+ "serde-saphyr",
+ "sha2 0.11.0",
+ "sqlx",
+ "strum",
+ "strum_macros",
+ "teloxide",
+ "testcontainers",
+ "tinytemplate",
+ "tokio",
+ "tonic",
+ "tonic-prost",
+ "tonic-prost-build",
+ "unicode-general-category",
+]
 
 [[package]]
 name = "tokio"

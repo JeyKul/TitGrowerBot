@@ -16,7 +16,7 @@ pub struct ShrinkEvent {
 }
 
 /// The log only stores how much was lost, so `length` (the owner's *current* length) comes from a
-/// `Dicks` join — the post-shrink value when read moments after the daily run, self-updating later.
+/// `Tits` join — the post-shrink value when read moments after the daily run, self-updating later.
 pub struct RecentShrink {
     pub uid: UserId,
     pub owner_name: Username,
@@ -33,13 +33,13 @@ pub struct AdjacentDates {
 }
 
 repository!(Shrinks,
-    /// Shrinks every dick that is still positive and hasn't been grown for `grace_days`, logging
-    /// each shrink into `Stale_Dick_Shrinks` and returning the events for the broadcast. The whole thing
+    /// Shrinks every tit that is still positive and hasn't been grown for `grace_days`, logging
+    /// each shrink into `Stale_Tit_Shrinks` and returning the events for the broadcast. The whole thing
     /// is one statement: Postgres runs the unreferenced `logged` data-modifying CTE to completion.
     ///
     /// The full `ratio` doesn't apply from day one of staleness: it ramps up linearly over
     /// `ramp_up_days`, starting at `ratio / ramp_up_days` on the first overdue day and reaching
-    /// the full `ratio` once a dick has been overdue for `ramp_up_days` days (and staying there
+    /// the full `ratio` once a tit has been overdue for `ramp_up_days` days (and staying there
     /// afterwards) — so neglect is punished gradually rather than with one abrupt cut the moment
     /// the grace period lapses. `ramp_up_days <= 1` reproduces the old instant-full-ratio behavior.
     pub async fn perform_daily_shrink(
@@ -55,17 +55,17 @@ repository!(Shrinks,
                                (EXTRACT(DAY FROM (current_timestamp - d.updated_at))::int - $2::bigint::int + 1)::double precision
                                    / GREATEST($3::bigint::int, 1)
                            ))::bigint)) AS loss
-                    FROM Dicks d
+                    FROM Tits d
                     WHERE d.length > 0
                       AND d.updated_at <= current_timestamp - make_interval(days => $2::bigint::int)
                 ),
                 updated AS (
-                    UPDATE Dicks d SET length = d.length - v.loss, bonus_attempts = d.bonus_attempts + 1
+                    UPDATE Tits d SET length = d.length - v.loss, bonus_attempts = d.bonus_attempts + 1
                     FROM victims v WHERE d.uid = v.uid AND d.chat_id = v.chat_id
                     RETURNING d.uid, d.chat_id, v.loss AS loss, d.length AS new_length
                 ),
                 logged AS (
-                    INSERT INTO Stale_Dick_Shrinks (chat_id, uid, lost_length)
+                    INSERT INTO Stale_Tit_Shrinks (chat_id, uid, lost_length)
                     SELECT chat_id, uid, loss FROM updated
                 )
                 SELECT u.uid AS "uid: UserId", usr.name AS "owner_name: Username",
@@ -90,9 +90,9 @@ repository!(Shrinks,
         sqlx::query_as!(RecentShrink,
             r#"SELECT s.uid AS "uid: UserId", usr.name AS "owner_name: Username",
                        s.lost_length AS "lost_length!: Length", d.length AS "length!: Length"
-                FROM Stale_Dick_Shrinks s
+                FROM Stale_Tit_Shrinks s
                 JOIN Users usr USING (uid)
-                JOIN Dicks d ON d.uid = s.uid AND d.chat_id = s.chat_id
+                JOIN Tits d ON d.uid = s.uid AND d.chat_id = s.chat_id
                 JOIN Chats c ON c.id = s.chat_id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                   AND s.created_at = $2
@@ -110,7 +110,7 @@ repository!(Shrinks,
     ) -> anyhow::Result<Option<NaiveDate>> {
         sqlx::query_scalar!(
             r#"SELECT MAX(s.created_at) AS "created_at"
-                FROM Stale_Dick_Shrinks s
+                FROM Stale_Tit_Shrinks s
                 JOIN Chats c ON c.id = s.chat_id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)"#,
                 chat_id.value() as String)
@@ -128,7 +128,7 @@ repository!(Shrinks,
     ) -> anyhow::Result<AdjacentDates> {
         let older = sqlx::query_scalar!(
             r#"SELECT MAX(s.created_at) AS "created_at"
-                FROM Stale_Dick_Shrinks s
+                FROM Stale_Tit_Shrinks s
                 JOIN Chats c ON c.id = s.chat_id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                   AND s.created_at < $2"#,
@@ -138,7 +138,7 @@ repository!(Shrinks,
             .context(format!("couldn't fetch the older shrink date for {chat_id}"))?;
         let newer = sqlx::query_scalar!(
             r#"SELECT MIN(s.created_at) AS "created_at"
-                FROM Stale_Dick_Shrinks s
+                FROM Stale_Tit_Shrinks s
                 JOIN Chats c ON c.id = s.chat_id
                 WHERE (c.chat_id = $1::bigint OR c.chat_instance = $1::text)
                   AND s.created_at > $2"#,

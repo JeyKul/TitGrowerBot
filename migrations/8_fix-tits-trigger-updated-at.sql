@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION check_and_update_dicks_timestamp()
+CREATE OR REPLACE FUNCTION check_and_update_tits_timestamp()
     RETURNS TRIGGER
     LANGUAGE PLPGSQL
 AS $$
 BEGIN
     IF current_date = date(OLD.updated_at) AND NEW.bonus_attempts = 0 THEN
-        RAISE EXCEPTION 'Your dick has been already grown today!'
+        RAISE EXCEPTION 'Your tit has been already grown today!'
             USING ERRCODE = 'GD0E1';
     END IF;
 

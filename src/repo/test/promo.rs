@@ -4,7 +4,7 @@ use crate::domain::primitives::Length;
 use crate::repo;
 use crate::repo::PromoCodeParams;
 use crate::repo::test::{start_postgres, USER_ID};
-use crate::repo::test::dicks::{check_dick, create_dick, create_user};
+use crate::repo::test::tits::{check_tit, create_tit, create_user};
 
 const PROMO_CODE: &str = "test10";
 const PROMO_CODE_UPPERCASE: &str = "TEST10";
@@ -22,13 +22,13 @@ async fn activate() {
     }).await.expect("couldn't create a promo code");
 
     create_user(&db).await;
-    create_dick(&db).await;
+    create_tit(&db).await;
     let res = promo.activate(USER_ID, PROMO_CODE_UPPERCASE)
         .await.expect("couldn't activate the promo code");
     assert_eq!(res.chats_affected, 1);
     assert_eq!(res.bonus_length, i64::from(PROMO_BONUS));
 
-    check_dick(&db, Length::new(PROMO_BONUS.into())).await;
+    check_tit(&db, Length::new(PROMO_BONUS.into())).await;
     check_promo_code_activations(&db).await;
 
     let res = promo.activate(USER_ID, PROMO_CODE).await;

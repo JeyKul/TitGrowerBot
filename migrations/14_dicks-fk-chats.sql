@@ -1,1 +1,0 @@
-ALTER TABLE Dicks ADD FOREIGN KEY (chat_id) REFERENCES Chats(id);

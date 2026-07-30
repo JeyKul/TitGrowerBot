@@ -5,7 +5,7 @@ AS $$
 DECLARE
     dod_name varchar;
 BEGIN
-    SELECT name INTO dod_name FROM Dick_of_Day dod
+    SELECT name INTO dod_name FROM Titties_of_Day dod
         JOIN Users u ON dod.winner_uid = u.uid
         WHERE created_at = current_date AND chat_id = NEW.chat_id;
     IF dod_name IS NOT NULL THEN
