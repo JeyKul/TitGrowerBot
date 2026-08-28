@@ -18,143 +18,110 @@ commands:
   privacy:
     description: "Privacy Policy detailing what data we store"
   grow:
-    description: "Grow your dick!"
-    result: "Your dick has %{event} by <b>%{incr} cm</b> and now it is <b>%{length} cm</b> long."
+    description: "Grow your TITS!"
+    result: "%{event} by <b>%{incr} cc.</b> Now you have <b>%{length} cc of heavy, jiggling tit meat </b> 😩🫧."
     direction:
-      grown: "grown"
-      shrunk: "shrunk"
+      grown: "💦🍒 FUUUUCK YES~ massive whore tits ballooned by"
+      shrunk: "Youre not SLUT enough to get big tits. They have shrunken by"
     position: "Your position in the top is <b>%{pos}</b>."
-    tomorrow: "You have already played with your dick today."
+    tomorrow: "Your fat slutty tits are still sore and leaking, you greedy whore~ Come back in"
   top:
-    description: "Get the biggest dicks of the chat"
-    title: "Top of the biggest dicks:"
-    line: "%{n}|<b>%{name}</b> — <b>%{length}</b> cm"
-    ending: "<i>[+] means a grower hasn't grown his dick today yet.</i>"
-    ending_inactive: "<i>[~] means a grower hasn't grown his dick for more than %{days} days.</i>"
-    empty: "No one is in the game yet :("
+    description: "Rank the biggest, sluttiest tits in this chat"
+    title: "🍒 <b>TOP HEAVY SLUTTY TITS</b> 🍒"
+    line: "%{n}|<b>%{name}</b> — <b>%{length} cc</b> of bouncing tit meat"
+    ending: "<i>[+] means this needy slut has not fed her tits today yet.</i>"
+    ending_inactive: "<i>[~] means these tits have been ignored for more than %{days} days.</i>"
+    empty: "No one has joined the tit farm yet. Be the first greedy slut 😩🍒"
   shrink:
     notification:
-      header: "✂️ <b>Time to trim the neglected!</b> These dicks haven't grown in %{days} days and shrank a bit:"
-      line: "— <b><a href=\"tg://user?id=%{uid}\">%{name}</a></b> lost <b>%{lost}</b> cm (now <b>%{length}</b> cm, chin up!)"
+      header: "✂✂️ <b>NEGLECTED TITS ALERT!</b> These greedy sluts have not grown in %{days} days, so their soft little tits got trimmed:"
+      line: "— <b><a href=\"tg://user?id=%{uid}\">%{name}</a></b> lost <b>%{lost} cc</b> 😭 Now they have <b>%{length} cc</b> left. Feed those tits next time, whore~"
     recent:
       header: "✂️ <b>Who's been shrinking lately:</b>"
       line: "— <b>%{name}</b> lost <b>%{lost}</b> cm"
     empty: "Silence… No one has shrunk lately. Guess everybody's keeping up the pace 💪"
   dod:
-    description: "Elect the Dick of a Day"
-    result: "The Dick of the Day is <b><a href=\"tg://user?id=%{uid}\">%{name}</a></b>!\n\nHis dick has become longer for <b>%{growth} cm</b> and is <b>%{length}</b> cm long now."
-    position: "His position in the top is <b>%{pos}</b>."
-    already_chosen: "The Dick of the Day has been already chosen for today! It's <b>%{name}</b>."
-    no_candidates: "There is no candidates for election. In this chat nobody is in the game yet 😢"
+    description: "Crown today's fattest, bounciest tits"
+    result: "🍒 <b>TITTIES OF THE DAY</b> 🍒\n\n<b><a href=\"tg://user?id=%{uid}\">%{name}</a></b> wins!\n\nThose gorgeous tits swelled by <b>%{growth} cc</b> and now hold a juicy <b>%{length} cc</b> 😩🫧"
+    position: "Their tits are now ranked <b>#%{pos}</b> on the leaderboard."
+    already_chosen: "Today’s Titties of the Day have already been crowned: <b>%{name}</b> 🍒"
+    no_candidates: "No juicy candidates yet. Nobody in this chat has started growing tits 😢"
   pvp:
-    description: "Fight with your friend's dick!"
+    description: "Put your tits on the line against a friend"
     results:
-      start: "<b>%{name}</b> challenged the chat with a bet of <b>%{bet} cm</b>!"
-      finish: "The winner is <b>%{winner_name}</b>! His dick is now <b>%{winner_length} cm</b> long. The loser's one is <b>%{loser_length}</b>.\nThe bet was <b>%{bet} cm</b>."
+      start: "<b>%{name}</b> threw their tits into the ring with a <b>%{bet} cc</b> bet! 🍒"
+      finish: "🍒 <b>%{winner_name}</b> wins the tit clash!\n\nTheir tits are now <b>%{winner_length} cc</b> of glorious bouncing meat. <b>%{loser_name}</b> is left with <b>%{loser_length} cc</b> 😩\n\nThe wager was <b>%{bet} cc</b>."
       position:
-        winner: "<b>%{name}</b>'s position in the top is <b>%{pos}</b>."
-        loser: "<b>%{name}</b>'s position in the top is <b>%{pos}</b>."
+        winner: "<b>%{name}</b>'s tits now sit at <b>#%{pos}</b> on the leaderboard."
+        loser: "<b>%{name}</b>'s tits now sit at <b>#%{pos}</b> on the leaderboard."
       stats:
-        text: "Win rate of the <b>winner</b> — <b>%{winner_win_rate}</b>.\nHis current win streak — <b>%{winner_win_streak}</b>, max win streak — <b>%{winner_win_streak_max}</b>.\nWin rate of the <b>loser</b> — <b>%{loser_win_rate}</b>."
-        lost_win_streak: "The streak of <b>%{lost_win_streak}</b> victories in a row was lost."
-      withheld: "<b>%{payout} cm</b> were withheld from the winner to pay off the loan."
-    button: "Attack!"
+        text: "Winner’s win rate: <b>%{winner_win_rate}</b>.\nCurrent streak: <b>%{winner_win_streak}</b>; best streak: <b>%{winner_win_streak_max}</b>.\nLoser’s win rate: <b>%{loser_win_rate}</b>."
+        lost_win_streak: "A streak of <b>%{lost_win_streak}</b> wins just got crushed 😩"
+      withheld: "<b>%{payout} cc</b> was taken from the winner’s tits to repay their loan."
+    button: "🍒 TIT FIGHT!"
     errors:
-      no_args: "Call the command with a number of centimeters you're willing to bet."
+      no_args: "Name how many cc of tit meat you are willing to bet."
       not_enough:
-        initiator: "Meh. The initiator's dick is not long enough for such a big bet!"
-        acceptor: "Your gun is not long enough 😣"
-      same_person: "You cannot fight with yourself!"
-      battle_already_in_progress: "The fight is in progress already! The message will be updated in a moment…"
+        initiator: "Those tits are not heavy enough to risk that much, needy slut."
+        acceptor: "Your little tits do not have enough cc for that bet 😣"
+      same_person: "Silly little cunt slut whore! You cannot fight your own tits! 😝"
+      battle_already_in_progress: "A tit fight is already happening! The message will update in a moment…"
   stats:
     description: "Statistics"
-    length: "Length: <b>%{length}</b>\nPosition in the top: <b>%{pos}</b>"
-    pvp: "Win rate: <b>%{win_rate}</b>.\nFights: <b>%{battles}</b>.\nWins: <b>%{wins}</b>.\nMax win streak: <b>%{win_streak}</b>.\nAcquired length: <b>%{acquired} cm</b>.\nLost length: <b>%{lost} cm</b>."
-    notice: "The collection of statistics started on July 2, 2024."
-    personal: "<i>Your personal statistics:</i>\n— Number of the chats in which you play: <b>%{chats}</b>.\n— Maximum length: <b>%{max_length}</b>.\n— Sum of dicks across all the chats: <b>%{total_length}</b>."
+    length: "Tit size: <b>%{length} cc</b>\nLeaderboard position: <b>#%{pos}</b>"
+    pvp: "Win rate: <b>%{win_rate}</b>.\nTit fights: <b>%{battles}</b>.\nWins: <b>%{wins}</b>.\nBest streak: <b>%{win_streak}</b>.\nTit meat gained: <b>%{acquired} cc</b>.\nTit meat lost: <b>%{lost} cc</b>."
+    notice: "Tit-fight statistics have been tracked since July 30, 2026."
+    personal: "<i>Your personal tit résumé:</i>\n— Chats where you grow: <b>%{chats}</b>.\n— Biggest pair: <b>%{max_length} cc</b>.\n— Total tit meat across all chats: <b>%{total_length} cc</b>."
   loan:
-    description: "Minus? Take a loan!"
-    debt: "Left to pay <b>%{debt} cm</b>"
+    description: "Tits in the negatives? Take a loan!"
+    debt: "Tit debt remaining: <b>%{debt} cc</b>"
     confirmation:
-      text: "Your deep hole will be reset to zero, but each growth will be lowered by <b>%{payout_percentage}</b> until all <b>%{debt} cm</b> is repaid."
+      text: "Your sad, empty tits will be reset to zero, but every future growth is taxed by <b>%{payout_percentage}</b> until you repay all <b>%{debt} cc</b>."
       buttons:
-        agree: "I'm in!"
-        disagree: "Disagree"
+        agree: "💦 Give me the loan!"
+        disagree: "No thanks"
     callback:
-      success: "The microloan has been issued successfully!"
-      refused: "The patient refused gender reassignment on credit."
-      payout_ratio_changed: "The payout rate has been changed since you sent the loan application. Please, invoke the command again."
+      success: "Your emergency tit loan has been approved!"
+      refused: "The desperate little borrower refused the tit loan."
+      payout_ratio_changed: "The repayment rate changed after you opened this loan. Send the command again."
     errors:
-      positive_length: "Sorry, man, this social initiative is supposed only for girls have very very deep craves. I cannot make your big bro even longer :("
+      positive_length: "Your tits are already above zero, greedy slut. Loans are for truly empty girls only."
+
   import:
-    description: "Import dicks from other bots"
+    description: "Import tits from other grower bots"
     result:
       titles:
-        imported: "The following users have been imported:"
-        already_present: "The following users were already imported earlier:"
-        not_found: "The following users are not in the game yet:"
+        imported: "These juicy players were imported:"
+        already_present: "These players and their tits were already here:"
+        not_found: "These users have not started growing tits yet:"
       line:
-        imported: "➖ <b>%{name}</b> (<i>%{length}</i> cm)"
-        already_present: "➖ <b>%{name}</b> (<i>%{length}</i> cm)"
+        imported: "➖ <b>%{name}</b> (<i>%{length} cc</i>)"
+        already_present: "➖ <b>%{name}</b> (<i>%{length} cc</i>)"
         not_found: "➖ <b>%{name}</b>"
     errors:
-      not_admin: "This command is supposed to be used by admins only!"
-      not_reply: "You must reply to a non-forwarded message sent by any of %{origin_bots}"
-      too_many_members: "Import is only allowed in chats with 10 or fewer members: competitor bots' leaderboards show just the top 10, so importing here would be unfair to everyone else."
+      not_admin: "Only chat admins can import a whole batch of tits!"
+      not_reply: "Reply to a non-forwarded message from one of: %{origin_bots}"
+      too_many_members: "Import works only in chats with 10 or fewer members: other bots only expose their top 10, so larger imports would be unfair."
       invalid_lines:
-        template: "Couldn't parse this message 🤔\nThe following lines are invalid:\n%{invalid_lines}"
+        template: "I could not read this tit list 🤔\nThese lines are invalid:\n%{invalid_lines}"
         line: "➖ <b>%{line}</b>"
   promo:
-    description: "Activate a promo code"
+    description: "Activate a juicy promo code"
     request: "Enter a promo code:"
     success:
-      template: "You has activated this promo code successfully! %{ending}"
-      singular: "Your dick has grown by <b>%{growth}</b> cm in one chat."
-      plural: "Your dick has grown by <b>%{growth}</b> cm in <b>%{affected_chats}</b> chats!"
+      template: "Promo code activated! %{ending}"
+      singular: "Your tits gained <b>%{growth} cc</b> in one chat. 🍒"
+      plural: "Your tits gained <b>%{growth} cc</b> in <b>%{affected_chats}</b> chats! 🍒"
     errors:
-      no_activations_left: "I'm so sorry but this promo code either does not exist at all, or expired, or exhausted 😞"
-      already_activated: "It seems you already used this promocode earlier 🤨"
-      no_dicks: "It seems you don't have any dicks yet. 🤔 Right now is the time to add me into a chat and execute the <code>/grow</code> command!"
-    inline:
-      switch_button: "Activate promo code '%{code}'…"
+      no_activations_left: "That promo code does not exist, expired, or has already been drained dry 😞"
+      already_activated: "You already used that promo code, greedy slut 🤨"
+      no_dicks: "You do not have any tits growing yet. Add me to a chat and use <code>/grow</code>!"
 inline:
   results:
-    text: "Since I cannot determine the chat by an inline query, you should click on the button below to get the result."
-    text_legacy_group: "This group is not a supergroup, so I can't recognize it from an inline query — press the button below to get the result.\n\nThe button will be needed every time. Better yet, add the bot to the chat and press its activation button! Then the plain commands will do, and the inline results will count towards the same score.\n\nAnd do it before the group turns into a supergroup: otherwise everything played here through inline mode is lost for good."
-    button: "Click me!"
     titles:
-      grow: "Grow your dick!"
-      top: "Get the biggest dicks of the chat"
-      dick_of_day: "Elect the Dick of a Day"
-      pvp: "Challenge others with a bet of %{bet} cm!"
-      stats: "Win statistics"
-      loan: "Minus? Take a loan!"
-      shrinks: "See recent shrinks"
-  callback:
-    errors:
-      another_user: "This message was sent by another person."
-      invalid_data: "Possibly this message was sent via an older version of the bot. Try to resend it again."
-      unknown_data: "Unknown command"
-      no_data: "Something went wrong…"
-titles:
-  greeting: "Hello"
-  time_till_next_day:
-    none: " Come back tomorrow!"
-    some: "\n\nNext attempt in <b>%{hours}</b>h <b>%{minutes}</b>m."
-  perks:
-    top_line: "The following perks affected the result"
-    help-pussies: "deep hole"
-    loan-payout: "micro-loaner"
-setup:
-  text: "This group is not a supergroup, so I can't recognize it when I'm called through inline mode.\n\nPress the button below <b>once</b> to activate me here — after that everything will work as usual.\n\nUntil it is pressed, everything played through inline mode will be lost if the group turns into a supergroup."
-  button: "Activate"
-  activated: "Done! The bot is now activated in this group. Have fun! 🍆"
-migration:
-  lost: "This group has just become a supergroup, and Telegram has given it an entirely new identity — I can no longer recognize it as the group I used to know.\n\nIf anyone played here through inline mode, that history is sadly out of reach now and the scores start over. If nobody did, nothing was lost. From here on everything works as usual — and it won't happen again. 🍆"
-  lost_inline: "This group has just become a supergroup. Everything played through the commands came across with it and is safe.\n\nThe results from inline mode, though, never got tied to this group — that needed the activation button pressed before the upgrade. They are sadly out of reach now. If nobody played through inline mode here, nothing was lost. From here on everything works as usual. 🍆"
-errors:
-  not_group_chat: "This bot is supposed to do its mission in group chats only!"
-  group_account: "You can't play on behalf of a group or channel — switch off anonymous mode and try again!"
-  feature_disabled: "This feature is currently temporarily disabled."
-self_destruction:
-  warning: "🧹 <i>To keep the chat clean, this message will be deleted in <b>%{seconds}</b> seconds…</i>"
+      grow: "Grow your TITS! 🍒"
+      top: "See the fattest tits in the chat"
+      tit_of_day: "Crown Titties of the Day"
+      pvp: "Challenge everyone with a %{bet} cc tit bet!"
+      stats: "Tit-fight statistics"
+      loan: "Tits in the negatives? Take a loan!"
