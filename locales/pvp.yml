@@ -1,0 +1,171 @@
+en:
+  commands:
+    pvp:
+      description: Put your tits on the line against a friend
+      results:
+        start: <b>%{name}</b> threw their tits into the ring with a <b>%{bet} cc</b> bet! 🍒
+        finish: '🍒 <b>%{winner_name}</b> wins the tit clash!
+
+
+          Their tits are now <b>%{winner_length} cc</b> of glorious bouncing meat. <b>%{loser_name}</b> is left with <b>%{loser_length} cc</b> 😩
+
+
+          The wager was <b>%{bet} cc</b>.'
+        position:
+          winner: <b>%{name}</b>'s tits now sit at <b>#%{pos}</b> on the leaderboard.
+          loser: <b>%{name}</b>'s tits now sit at <b>#%{pos}</b> on the leaderboard.
+        stats:
+          text: 'Winner’s win rate: <b>%{winner_win_rate}</b>.
+
+            Current streak: <b>%{winner_win_streak}</b>; best streak: <b>%{winner_win_streak_max}</b>.
+
+            Loser’s win rate: <b>%{loser_win_rate}</b>.'
+          lost_win_streak: A streak of <b>%{lost_win_streak}</b> wins just got crushed 😩
+        withheld: <b>%{payout} cc</b> was taken from the winner’s tits to repay their loan.
+      button: 🍒 TIT FIGHT!
+      errors:
+        no_args: Name how many cc of tit meat you are willing to bet.
+        not_enough:
+          initiator: Those tits are not heavy enough to risk that much, needy slut.
+          acceptor: Your little tits do not have enough cc for that bet 😣
+        same_person: Silly little cunt slut whore! You cannot fight your own tits! 😝
+        battle_already_in_progress: A tit fight is already happening! The message will update in a moment…
+ru:
+  commands:
+    pvp:
+      description: Сражайся с пипирками друзей!
+      results:
+        start: <b>%{name}</b> бросил чату вызов со ставкой <b>%{bet} см</b>!
+        finish: 'Победитель — <b>%{winner_name}</b>! Его пипирик теперь равен <b>%{winner_length} см</b>, а проигравшего — <b>%{loser_length} см</b>.
+
+          Ставка была <b>%{bet} см</b>.'
+        position:
+          winner: <b>%{name}</b> занимает <b>%{pos}</b> место в топе.
+          loser: <b>%{name}</b> занимает <b>%{pos}</b> место в топе.
+        stats:
+          text: 'Процент выигрышей <b>победителя</b> — <b>%{winner_win_rate}</b>.
+
+            Его текущая серия побед — <b>%{winner_win_streak}</b>, максимальная — <b>%{winner_win_streak_max}</b>.
+
+            Процент выигрышей <b>проигравшего</b> — <b>%{loser_win_rate}</b>.'
+          lost_win_streak: Прервалась серия из <b>%{lost_win_streak}</b> побед подряд.
+        withheld: <b>%{payout} см</b> было удержано с победителя для погашения задолженности.
+      button: Атаковать!
+      errors:
+        no_args: Вызови команду с числом сантиметров, которые готов поставить.
+        not_enough:
+          initiator: Пфф. Стрючок инициатора слишком короткий для такой ставки!
+          acceptor: Твоя волына слишком коротка 😣
+        same_person: Нельзя биться с самим собой!
+        battle_already_in_progress: Сражение уже началось! Сообщение обновится через мгновение…
+it:
+  commands:
+    pvp:
+      description: Combatti con il pene del tuo amico!
+      results:
+        start: <b>%{name}</b> ha sfidato il gruppo con una scommessa di <b>%{bet} cm</b>!
+        finish: 'Il vincitore è <b>%{winner_name}</b>! Il suo pene ora è lungo <b>%{winner_length} cm</b>. Quello del giocatore perdente è ora di <b>%{loser_length}</b>.
+
+          La scommessa era di <b>%{bet} cm</b>.'
+        position:
+          winner: La posizione nella classifica di <b>%{name}</b> è <b>%{pos}</b>.
+          loser: La posizione nella classifica di <b>%{name}</b> è <b>%{pos}</b>.
+        stats:
+          text: 'Tasso di vittoria del <b>vincitore</b> — <b>%{winner_win_rate}</b>.
+
+            La sua serie di vittorie attuale — <b>%{winner_win_streak}</b>, serie di vittorie massima — <b>%{winner_win_streak_max}</b>.
+
+            Tasso di vittoria del <b>perdente</b> — <b>%{loser_win_rate}</b>.'
+          lost_win_streak: La serie di <b>%{lost_win_streak}</b> vittorie di fila è stata persa.
+        withheld: <b>%{payout} cm</b> sono stati trattenuti dal vincitore per pagare il debito.
+      button: Attacca!
+      errors:
+        no_args: Chiama il comando con un numero di centimetri che sei disposto a scommettere.
+        not_enough:
+          initiator: Meh. Il pene dello sfidante non è lungo abbastanza per una tale scommessa!
+          acceptor: Il tuo membro non è abbastanza lungo 😣
+        same_person: Non puoi sfidarti da solo!
+        battle_already_in_progress: La battaglia è già in corso! Il messaggio verrà aggiornato in un momento…
+fa:
+  commands:
+    pvp:
+      description: با دوستت کیربازی کن!
+      results:
+        start: <b>%{name}</b> چت رو به چالش کشید و شرط بست روی <b>%{bet} سانت</b>!
+        finish: 'برنده <b>%{winner_name}</b> شد! کیرش الان <b>%{winner_length} سانت</b> شده. بازنده هم <b>%{loser_length}</b> سانته.
+
+          مبلغ شرط <b>%{bet} سانت</b> بود.'
+        position:
+          winner: رتبه <b>%{name}</b> در جدول <b>%{pos}</b> هست.
+          loser: رتبه <b>%{name}</b> در جدول <b>%{pos}</b> هست.
+        stats:
+          text: 'نرخ برد <b>winner</b> — <b>%{winner_win_rate}</b>.
+
+            سری بردهای فعلیش — <b>%{winner_win_streak}</b> و بیشترین سری برد — <b>%{winner_win_streak_max}</b>.
+
+            نرخ برد <b>loser</b> — <b>%{loser_win_rate}</b>.'
+          lost_win_streak: سری پیروزی‌های <b>%{lost_win_streak}</b> تا به حال شکسته شد.
+        withheld: <b>%{payout} سانت</b> از برد به‌عنوان پرداخت قرض از برنده نگه داشته شد.
+      button: کیرشو قطع کن!
+      errors:
+        no_args: برای استفاده از دستور، باید یک یه عدد به سانتی‌متر برای شرط‌بندی وارد کنی.
+        not_enough:
+          initiator: اخ که کیر شخص شروع‌کننده برای این شرط کافی نیست!
+          acceptor: کیرت به اندازه کافی کلفت نیست 😣
+        same_person: نمی‌تونی با خودت مبارزه کنی!
+        battle_already_in_progress: مبارزه در حال انجامه! پیام به‌زودی آپدیت میشه…
+zh:
+  commands:
+    pvp:
+      description: 斗鸡！
+      results:
+        start: <b>%{name}</b> 向聊天发起了一个<b>%{bet} 厘米</b>的挑战！
+        finish: '胜利者是<b>%{winner_name}</b>！他的丁丁现在长度为<b>%{winner_length} 厘米</b>。失败者的丁丁长度为<b>%{loser_length}</b>。
+
+          赌注是<b>%{bet} 厘米</b>。'
+        position:
+          winner: <b>%{name}</b> 在排行榜上的位置是<b>%{pos}</b>。
+          loser: <b>%{name}</b> 在排行榜上的位置是<b>%{pos}</b>。
+        stats:
+          text: '<b>胜利者</b>的胜率 — <b>%{winner_win_rate}</b>。
+
+            他当前的连胜 — <b>%{winner_win_streak}</b>，最大连胜 — <b>%{winner_win_streak_max}</b>。
+
+            <b>失败者</b>的胜率 — <b>%{loser_win_rate}</b>。'
+          lost_win_streak: <b>%{lost_win_streak}</b> 连胜被终结了。
+        withheld: <b>%{payout} 厘米</b> 从胜利者那里被扣留以偿还贷款。
+      button: 斗鸡！
+      errors:
+        no_args: 发起斗鸡要下注。
+        not_enough:
+          initiator: 呃。发起者的丁丁不够长，无法下这么大的赌注！
+          acceptor: 你的枪不够长 😣
+        same_person: 你不能和自己斗鸡！
+        battle_already_in_progress: 已经在斗鸡！结果立等可取
+zh-TW:
+  commands:
+    pvp:
+      results:
+        start: <b>%{name}</b> 向聊天發起了一個<b>%{bet} 公分</b>的挑戰！
+        finish: '勝利者是<b>%{winner_name}</b>！他的老二現在長度為<b>%{winner_length} 公分</b>。失敗者的老二長度為<b>%{loser_length}</b>。
+
+          賭注是<b>%{bet} 公分</b>。'
+        position:
+          winner: <b>%{name}</b> 在排行榜上的位置是<b>%{pos}</b>。
+          loser: <b>%{name}</b> 在排行榜上的位置是<b>%{pos}</b>。
+        stats:
+          text: '<b>勝利者</b>的勝率 — <b>%{winner_win_rate}</b>。
+
+            他當前的連勝 — <b>%{winner_win_streak}</b>，最大連勝 — <b>%{winner_win_streak_max}</b>。
+
+            <b>失敗者</b>的勝率 — <b>%{loser_win_rate}</b>。'
+          lost_win_streak: <b>%{lost_win_streak}</b> 連勝被終結了。
+        withheld: <b>%{payout} 公分</b> 從勝利者那裡被扣留以償還貸款。
+      button: PK！
+      errors:
+        no_args: 發起PK要下注。
+        not_enough:
+          initiator: 呃。發起者的老二不夠長，無法下這麼大的賭注！
+          acceptor: 你的老二不夠長 😣
+        same_person: 你不能和自己PK！
+        battle_already_in_progress: 已經在對戰了！結果稍後就會更新……

@@ -1,0 +1,59 @@
+en:
+  commands:
+    grow:
+      description: Grow your TITS!
+      result: '%{event} by <b>%{incr} cc.</b> Now you have <b>%{length} cc of heavy, jiggling tit meat </b> 😩🫧.'
+      direction:
+        grown: 💦🍒 FUUUUCK YES~ massive whore tits ballooned by
+        shrunk: Youre not SLUT enough to get big tits. They have shrunken by
+      position: Your position in the top is <b>%{pos}</b>.
+      tomorrow: Your fat slutty tits are still sore and leaking, you greedy whore~ Come back in
+ru:
+  commands:
+    grow:
+      description: Вырасти пиписю!
+      result: Твоя пися %{event} на <b>%{incr}</b> см и теперь её длина составляет <b>%{length} см</b>.
+      direction:
+        grown: выросла
+        shrunk: скукожилась
+      position: Ты занимаешь <b>%{pos}</b> место в топе.
+      tomorrow: Ты уже играл с пиписей сегодня.
+it:
+  commands:
+    grow:
+      description: Fai crescere il tuo pene!
+      result: Il tuo pene è %{event} di <b>%{incr} cm</b> e ora è lungo <b>%{length} cm</b>.
+      direction:
+        grown: cresciuto
+        shrunk: rimpicciolito
+      position: La tua posizione nella classifica è <b>%{pos}</b>.
+      tomorrow: Hai già giocato con il tuo pene oggi.
+fa:
+  commands:
+    grow:
+      description: کیرتو کلفت کن!
+      result: کیرت %{event} و <b>%{incr} سانت</b> تغییر کرده، الان طولش <b>%{length} سانت</b> شده.
+      direction:
+        grown: کلفت شد
+        shrunk: نازک شد
+      position: رتبه‌ت توی جدول <b>%{pos}</b> هست.
+      tomorrow: امروز به اندازه کافی با کیرت بازی کردی.
+zh:
+  commands:
+    grow:
+      description: 让你的丁丁变大！
+      result: 你的丁丁已经<b>%{incr} 厘米</b> %{event}，现在长度为<b>%{length} 厘米</b>。
+      direction:
+        grown: 增长了
+        shrunk: 缩短了
+      position: 你在排行榜上的位置是<b>%{pos}</b>。
+      tomorrow: 你今天已经玩过你的丁丁了。
+zh-TW:
+  commands:
+    grow:
+      result: 你的老二已經<b>%{incr} 公分</b> %{event}，現在長度為<b>%{length} 公分</b>。
+      direction:
+        grown: 增長了
+        shrunk: 縮短了
+      position: 你在排行榜上的位置是<b>%{pos}</b>。
+      tomorrow: 你今天已經玩過你的老二了。

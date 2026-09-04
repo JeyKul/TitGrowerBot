@@ -1,0 +1,53 @@
+en:
+  commands:
+    top:
+      description: Rank the biggest, sluttiest tits in this chat
+      title: 🍒 <b>TOP HEAVY SLUTTY TITS</b> 🍒
+      line: '%{n}|<b>%{name}</b> — <b>%{length} cc</b> of bouncing tit meat'
+      ending: <i>[+] means this needy slut has not fed her tits today yet.</i>
+      ending_inactive: <i>[~] means these tits have been ignored for more than %{days} days.</i>
+      empty: No one has joined the tit farm yet. Be the first greedy slut 😩🍒
+ru:
+  commands:
+    top:
+      description: Узнай рейтинг самых больших волын в чате
+      title: 'Топ самых больших пиписек:'
+      line: '%{n}|<b>%{name}</b> — <b>%{length}</b> см'
+      ending: <i>[+] значит, что гровер не растил ещё свою пипиську сегодня.</i>
+      ending_inactive: <i>[~] значит, что гровер не растил свою пипиську более %{days} дней.</i>
+      empty: Никто пока не участвует в игре :(
+it:
+  commands:
+    top:
+      description: Mostra i peni più grandi del gruppo
+      title: 'Classifica dei peni più grandi:'
+      line: '%{n}|<b>%{name}</b> — <b>%{length}</b> cm'
+      ending: <i>[+] significa che un giocatore non ha ancora fatto crescere il suo pene oggi.</i>
+      ending_inactive: <i>[~] significa che un giocatore non ha fatto crescere il suo pene per più di %{days} giorni.</i>
+      empty: Nessuno sta giocando :(
+fa:
+  commands:
+    top:
+      description: کلفت ترین کیر های توی چتو ببین
+      title: 'لیست کیر کلفتا:'
+      line: '%{n}|<b>%{name}</b> — <b>%{length}</b> سانت'
+      ending: <i>[+] یعنی یه کیر کلفت کن امروز کیرشو کلفت نکرده.</i>
+      ending_inactive: <i>[~] یعنی یه کیر کلفت کن بیش از %{days} روز کیرشو کلفت نکرده.</i>
+      empty: متاسفانه هیچکس توی بازی نیست :(
+zh:
+  commands:
+    top:
+      description: 获取聊天中最大的丁丁
+      title: 最大的丁丁排行榜：
+      line: '%{n}|<b>%{name}</b> — <b>%{length}</b> 厘米'
+      ending: <i>[+] 表示一个牛子怪今天还没有增长他的丁丁。</i>
+      ending_inactive: <i>[~] 表示一个牛子怪超过 %{days} 天没有增长他的丁丁了。</i>
+      empty: 还没有人加入游戏 :(
+zh-TW:
+  commands:
+    top:
+      title: 最大的老二排行榜：
+      line: '%{n}|<b>%{name}</b> — <b>%{length}</b> 公分'
+      ending: <i>[+] 表示一個成長者今天還沒有增長他的老二。</i>
+      ending_inactive: <i>[~] 表示一個成長者超過 %{days} 天沒有增長他的老二了。</i>
+      empty: 還沒有人加入遊戲 :(

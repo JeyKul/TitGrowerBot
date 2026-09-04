@@ -1,0 +1,66 @@
+en:
+  setup:
+    text: 'This group is not a supergroup, so I can''t recognize it when I''m called through inline mode.
+
+
+      Press the button below <b>once</b> to activate me here — after that everything will work as usual.
+
+
+      Until it is pressed, everything played through inline mode will be lost if the group turns into a supergroup.'
+    button: Activate
+    activated: Done! The bot is now activated in this group. Have fun! 🍒
+ru:
+  setup:
+    text: 'Эта группа не является супергруппой, поэтому я не могу распознать её, когда меня вызывают через инлайн-режим.
+
+
+      Нажмите кнопку ниже <b>один раз</b>, чтобы активировать меня здесь, — после этого всё заработает как обычно.
+
+
+      Пока она не нажата, всё наигранное через инлайн-режим пропадёт, если группа превратится в супергруппу.'
+    button: Активировать
+    activated: Готово! Бот активирован в этой группе. Приятной игры! 🍆
+it:
+  setup:
+    text: 'Questo gruppo non è un supergruppo, perciò non riesco a riconoscerlo quando vengo chiamato in modalità inline.
+
+
+      Premi il pulsante qui sotto <b>una volta</b> per attivarmi qui — dopodiché tutto funzionerà come al solito.
+
+
+      Finché non viene premuto, tutto ciò che è stato giocato in modalità inline andrà perso se il gruppo diventa un supergruppo.'
+    button: Attiva
+    activated: Fatto! Il bot è ora attivo in questo gruppo. Buon divertimento! 🍆
+fa:
+  setup:
+    text: 'این گروه سوپرگروه نیست، برای همین وقتی از حالت اینلاین صدام می‌زنی نمی‌تونم تشخیصش بدم.
+
+
+      <b>یک بار</b> دکمه‌ی زیر رو بزن تا اینجا فعال بشم — بعدش همه‌چیز مثل همیشه کار می‌کنه.
+
+
+      تا وقتی این دکمه زده نشده، اگه گروه به سوپرگروه تبدیل بشه هر چیزی که با حالت اینلاین بازی شده از بین می‌ره.'
+    button: فعال‌سازی
+    activated: انجام شد! بات توی این گروه فعال شد. خوش بگذره! 🍆
+zh:
+  setup:
+    text: '本群不是超级群组，因此通过内联模式调用我时，我无法识别它。
+
+
+      请<b>点击一次</b>下方按钮以在此激活我——之后一切将正常运作。
+
+
+      在按钮被点击之前，如果本群升级为超级群组，通过内联模式游玩的一切都会丢失。'
+    button: 激活
+    activated: 完成！机器人已在本群激活。玩得开心！🍆
+zh-TW:
+  setup:
+    text: '本群不是超級群組，因此透過內聯模式呼叫我時，我無法識別它。
+
+
+      請<b>點擊一次</b>下方按鈕以在此啟用我——之後一切將正常運作。
+
+
+      在按鈕被點擊之前，如果本群升級為超級群組，透過內聯模式遊玩的一切都會遺失。'
+    button: 啟用
+    activated: 完成！機器人已在本群啟用。玩得開心！🍆

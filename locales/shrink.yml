@@ -1,0 +1,60 @@
+en:
+  commands:
+    shrink:
+      notification:
+        header: '✂✂️ <b>NEGLECTED TITS ALERT!</b> These greedy sluts have not grown in %{days} days, so their soft little tits got trimmed:'
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> lost <b>%{lost} cc</b> 😭 Now they have <b>%{length} cc</b> left. Feed those tits next time, whore~
+      recent:
+        header: ✂️ <b>Who's been shrinking lately:</b>
+        line: — <b>%{name}</b> lost <b>%{lost}</b> cm
+      empty: Silence… No one has shrunk lately. Guess everybody's keeping up the pace 💪
+ru:
+  commands:
+    shrink:
+      notification:
+        header: '✂️ <b>Настал час расплаты за лень!</b> Эти пиписьки не росли %{days} дней и слегка усохли:'
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> недосчитался <b>%{lost}</b> см (осталось <b>%{length}</b> см, не унывай!)
+      recent:
+        header: ✂️ <b>Кто у нас тут усох в последнее время:</b>
+        line: — <b>%{name}</b> лишился <b>%{lost}</b> см
+      empty: Тишина… Никто не усох за последнее время. Видать, все исправно тягают свои пиписьки 💪
+it:
+  commands:
+    shrink:
+      notification:
+        header: '✂️ <b>Ora di potare i trascurati!</b> Questi cazzi non sono cresciuti per %{days} giorni e si sono un po'' accorciati:'
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> ha perso <b>%{lost}</b> cm (ora <b>%{length}</b> cm, testa alta!)
+      recent:
+        header: ✂️ <b>Chi si è accorciato di recente:</b>
+        line: — <b>%{name}</b> ha perso <b>%{lost}</b> cm
+      empty: Silenzio… Nessuno si è accorciato ultimamente. Sembra che tutti tengano il passo 💪
+fa:
+  commands:
+    shrink:
+      notification:
+        header: '✂️ <b>وقت کوتاه‌کردن فراموش‌شده‌هاست!</b> این کیرها %{days} روزه رشد نکردن و یه‌کم کوچیک شدن:'
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> <b>%{lost}</b> سانت از دست داد (الان <b>%{length}</b> سانته، ناراحت نباش!)
+      recent:
+        header: ✂️ <b>کیا اخیراً کوچیک شدن:</b>
+        line: — <b>%{name}</b> <b>%{lost}</b> سانت از دست داد
+      empty: سکوت... اخیراً هیچ‌کس کوچیک نشده. انگار همه دارن درست پیش می‌رن 💪
+zh:
+  commands:
+    shrink:
+      notification:
+        header: ✂️ <b>该修剪被忽视的了！</b> 这些屌 %{days} 天没长还缩水了一点：
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> 缩了 <b>%{lost}</b> 厘米（现在 <b>%{length}</b> 厘米，别灰心！）
+      recent:
+        header: ✂️ <b>最近都是谁缩水了：</b>
+        line: — <b>%{name}</b> 缩了 <b>%{lost}</b> 厘米
+      empty: 安静……最近没人缩水。看来大家都跟上节奏了 💪
+zh-TW:
+  commands:
+    shrink:
+      notification:
+        header: ✂️ <b>該修剪被忽視的了！</b> 這些屌 %{days} 天沒長還縮水了一點：
+        line: — <b><a href="tg://user?id=%{uid}">%{name}</a></b> 縮了 <b>%{lost}</b> 公分（現在 <b>%{length}</b> 公分，別灰心！）
+      recent:
+        header: ✂️ <b>最近都是誰縮水了：</b>
+        line: — <b>%{name}</b> 縮了 <b>%{lost}</b> 公分
+      empty: 安靜……最近沒人縮水。看來大家都跟上節奏了 💪

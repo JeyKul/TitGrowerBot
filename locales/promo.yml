@@ -1,0 +1,87 @@
+en:
+  commands:
+    promo:
+      description: Activate a juicy promo code
+      request: 'Enter a promo code:'
+      success:
+        template: Promo code activated! %{ending}
+        singular: Your tits gained <b>%{growth} cc</b> in one chat. 🍒
+        plural: Your tits gained <b>%{growth} cc</b> in <b>%{affected_chats}</b> chats! 🍒
+      errors:
+        no_activations_left: That promo code does not exist, expired, or has already been drained dry 😞
+        already_activated: You already used that promo code, greedy slut 🤨
+        no_dicks: You do not have any tits growing yet. Add me to a chat and use <code>/grow</code>!
+ru:
+  commands:
+    promo:
+      description: Активировать промокод
+      request: 'Введи промокод:'
+      success:
+        template: Промокод успешно активирован! %{ending}
+        singular: Твой писюн вырос на <b>%{growth}</b> см в одном чате.
+        plural: Твой писюн вырос на <b>%{growth}</b> см в <b>%{affected_chats}</b> %{word_chats}.
+      errors:
+        no_activations_left: Мне очень жаль, но кажется, что либо этого промокода никогда не существовало, либо он истёк, либо все активации уже были использованы 😞
+        already_activated: Кажется, ты уже использовал данный промокод ранее 🤨
+        no_dicks: Кажется, ты ещё не начал растить ни одного писюна? 🤔 Сейчас самое время добавить меня в какой-либо чат и выполнить команду <code>/grow</code>!
+      inline:
+        switch_button: Активировать промокод "%{code}"…
+it:
+  commands:
+    promo:
+      description: Attiva un codice promozionale
+      request: 'Inserisci un codice promozionale:'
+      success:
+        template: Hai attivato questo codice promozionale con successo! %{ending}
+        singular: Il tuo pene è cresciuto di <b>%{growth}</b> cm in un gruppo.
+        plural: Il tuo pene è cresciuto di <b>%{growth}</b> cm in <b>%{affected_chats}</b> gruppi!
+      errors:
+        no_activations_left: Mi dispiace ma questo codice promozionale non esiste o è scaduto 😞
+        already_activated: Sembra che tu abbia già utilizzato questo codice promozionale 🤨
+        no_dicks: Non hai ancora alcun pene. 🤔 Devi aggiungermi ad un gruppo ed eseguire il comando <code>/grow</code>!
+      inline:
+        switch_button: Attiva il codice promozionale '%{code}'…
+fa:
+  commands:
+    promo:
+      description: فعال کردن کد تخفیف
+      request: 'یه کد تخفیف وارد کن:'
+      success:
+        template: کد تخفیف با موفقیت فعال شد! %{ending}
+        singular: کیرت تو یه چت <b>%{growth}</b> سانت رشد کرد.
+        plural: کیرت تو <b>%{affected_chats}</b> چت، <b>%{growth}</b> سانت رشد کرد!
+      errors:
+        no_activations_left: متأسفم، ولی این کد تخفیف یا وجود نداره، یا منقضی شده، یا ظرفیتش پر شده 😞
+        already_activated: به نظر میاد قبلاً از این کد استفاده کردی 🤨
+        no_dicks: مثل اینکه هنوز کیری نداری 🤔 الان بهترین وقته که منو به یه چت اضافه کنی و دستور <code>/grow</code> رو اجرا کنی!
+      inline:
+        switch_button: فعال کردن کد تخفیف '%{code}'…
+zh:
+  commands:
+    promo:
+      description: 激活神秘代码
+      request: 输入神秘代码：
+      success:
+        template: 你已成功激活此神秘代码！%{ending}
+        singular: 你的丁丁在一个聊天中增长了 <b>%{growth}</b> 厘米。
+        plural: 你的丁丁在 <b>%{affected_chats}</b> 个聊天中增长了 <b>%{growth}</b> 厘米！
+      errors:
+        no_activations_left: 你输入了无效的神秘代码 😞
+        already_activated: 神秘代码已经激活过了 🤨
+        no_dicks: 看起来你还没有任何丁丁。🤔 现在是时候把我加入一个聊天并执行 <code>/grow</code> 命令了！
+      inline:
+        switch_button: 激活神秘代码 '%{code}'…
+zh-TW:
+  commands:
+    promo:
+      request: 輸入神秘代碼：
+      success:
+        template: 你已成功啟用此神秘代碼！%{ending}
+        singular: 你的老二在一個聊天中增長了 <b>%{growth}</b> 公分。
+        plural: 你的老二在 <b>%{affected_chats}</b> 個聊天中增長了 <b>%{growth}</b> 公分！
+      errors:
+        no_activations_left: 你輸入了無效的神秘代碼 😞
+        already_activated: 神秘代碼已經啟用過了 🤨
+        no_dicks: 看起來你還沒有任何老二。🤔 現在是時候把我加入一個聊天並執行 <code>/grow</code> 命令了！
+      inline:
+        switch_button: 啟用神秘代碼 '%{code}'…

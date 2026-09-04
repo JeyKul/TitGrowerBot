@@ -1,0 +1,96 @@
+en:
+  commands:
+    language:
+      description: Change the interface language
+      prompt: 'Choose your language:'
+      success: Done! Your language preference is saved and will apply to all of SadBot.Dev's bots.
+      not_registered: You aren't registered in the shared account service yet. Register via @LocPlaceBot first — then your language will sync across all of SadBot.Dev's bots.
+      errors:
+        unavailable: This feature is currently unavailable.
+        unsupported: 'Sorry, this language isn''t supported. Try one of: 🇬🇧 en, 🇷🇺 ru, 🇮🇹 it, 🇮🇷 fa, 🇨🇳 zh.'
+        admins_only: Only chat administrators can change the chat language.
+      chat:
+        prompt: 'Choose the language for this whole chat:'
+        success: Done! Everyone in this chat will now see me in the selected language.
+        reset: Done! The chat language was cleared — everyone will see me in their own language again.
+        auto_button: 🌐 Auto (each user's own)
+ru:
+  commands:
+    language:
+      description: Сменить язык интерфейса
+      prompt: 'Выберите язык:'
+      success: Готово! Выбранный язык сохранён и будет применён во всех ботах SadBot.Dev.
+      not_registered: Вы ещё не зарегистрированы в общем сервисе аккаунтов. Сначала зарегистрируйтесь через @LocPlaceBot — тогда язык будет синхронизирован во всех ботах SadBot.Dev.
+      errors:
+        unavailable: Эта функция сейчас недоступна.
+        unsupported: 'К сожалению, этот язык не поддерживается. Доступны: 🇬🇧 en, 🇷🇺 ru, 🇮🇹 it, 🇮🇷 fa, 🇨🇳 zh.'
+        admins_only: Менять язык чата могут только администраторы.
+      chat:
+        prompt: 'Выберите язык для всего чата:'
+        success: Готово! Теперь я отвечаю всем участникам чата на выбранном языке.
+        reset: Готово! Язык чата сброшен — снова отвечаю каждому на его языке.
+        auto_button: 🌐 Авто (у каждого свой)
+it:
+  commands:
+    language:
+      description: Cambia la lingua dell'interfaccia
+      prompt: 'Scegli la tua lingua:'
+      success: Fatto! La tua preferenza di lingua è stata salvata e verrà applicata a tutti i bot di SadBot.Dev.
+      not_registered: Non sei ancora registrato nel servizio account condiviso. Registrati prima tramite @LocPlaceBot — poi la lingua sarà sincronizzata su tutti i bot di SadBot.Dev.
+      errors:
+        unavailable: Questa funzione al momento non è disponibile.
+        unsupported: 'Spiacenti, questa lingua non è supportata. Prova una di: 🇬🇧 en, 🇷🇺 ru, 🇮🇹 it, 🇮🇷 fa, 🇨🇳 zh.'
+        admins_only: Solo gli amministratori della chat possono cambiare la lingua della chat.
+      chat:
+        prompt: 'Scegli la lingua per tutta questa chat:'
+        success: Fatto! Ora rispondo a tutti in questa chat nella lingua selezionata.
+        reset: Fatto! La lingua della chat è stata azzerata — risponderò di nuovo a ciascuno nella propria lingua.
+        auto_button: 🌐 Auto (lingua di ciascuno)
+fa:
+  commands:
+    language:
+      description: تغییر زبان رابط کاربری
+      prompt: 'زبان خود را انتخاب کنید:'
+      success: انجام شد! زبان انتخابی شما ذخیره شد و در همهٔ ربات‌های SadBot.Dev اعمال می‌شود.
+      not_registered: شما هنوز در سرویس حساب مشترک ثبت‌نام نکرده‌اید. ابتدا از طریق @LocPlaceBot ثبت‌نام کنید — سپس زبان شما در همهٔ ربات‌های SadBot.Dev هماهنگ می‌شود.
+      errors:
+        unavailable: این قابلیت در حال حاضر در دسترس نیست.
+        unsupported: 'متأسفیم، این زبان پشتیبانی نمی‌شود. یکی از این‌ها را امتحان کنید: 🇬🇧 en، 🇷🇺 ru، 🇮🇹 it، 🇮🇷 fa، 🇨🇳 zh.'
+        admins_only: فقط مدیران گروه می‌توانند زبان گفتگو را تغییر دهند.
+      chat:
+        prompt: 'زبان کل این گفتگو را انتخاب کنید:'
+        success: انجام شد! از این پس به همهٔ اعضای این گفتگو به زبان انتخاب‌شده پاسخ می‌دهم.
+        reset: انجام شد! زبان گفتگو پاک شد — دوباره به هر کس به زبان خودش پاسخ می‌دهم.
+        auto_button: 🌐 خودکار (زبان هر کاربر)
+zh:
+  commands:
+    language:
+      description: 更改界面语言
+      prompt: 请选择你的语言：
+      success: 完成！你的语言偏好已保存，并将应用于所有 SadBot.Dev 的机器人。
+      not_registered: 你还没有在共享账号服务中注册。请先通过 @LocPlaceBot 注册 —— 然后你的语言就会在所有 SadBot.Dev 的机器人间同步。
+      errors:
+        unavailable: 此功能当前不可用。
+        unsupported: 抱歉，暂不支持该语言。请尝试：🇬🇧 en、🇷🇺 ru、🇮🇹 it、🇮🇷 fa、🇨🇳 zh。
+        admins_only: 只有群管理员才能更改群聊语言。
+      chat:
+        prompt: 请为整个群聊选择语言：
+        success: 完成！现在我会用这种语言回复本群所有人。
+        reset: 完成！群聊语言已清除 —— 我会重新按每个人自己的语言回复。
+        auto_button: 🌐 自动（各自的语言）
+zh-TW:
+  commands:
+    language:
+      description: 變更介面語言
+      prompt: 請選擇你的語言：
+      success: 完成！你的語言偏好已儲存，並將套用於所有 SadBot.Dev 的機器人。
+      not_registered: 你尚未在共用帳號服務中註冊。請先透過 @LocPlaceBot 註冊 —— 然後你的語言就會在所有 SadBot.Dev 的機器人間同步。
+      errors:
+        unavailable: 此功能目前無法使用。
+        unsupported: 抱歉，暫不支援此語言。請嘗試：🇬🇧 en、🇷🇺 ru、🇮🇹 it、🇮🇷 fa、🇨🇳 zh。
+        admins_only: 只有群組管理員才能變更群組語言。
+      chat:
+        prompt: 請為整個群組選擇語言：
+        success: 完成！現在我會用這種語言回覆本群所有人。
+        reset: 完成！群組語言已清除 —— 我會重新依每個人自己的語言回覆。
+        auto_button: 🌐 自動（各自的語言）

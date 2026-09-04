@@ -1,0 +1,155 @@
+en:
+  inline:
+    results:
+      text: Since I cannot determine the chat by an inline query, tap the button below to get the result.
+      text_legacy_group: 'This group is not a supergroup, so I can''t recognize it from an inline query — press the button below to get the result.
+
+
+        The button will be needed every time. Better yet, add the bot to the chat and press its activation button! Then the plain commands will do, and the inline results will count towards the same score.
+
+
+        And do it before the group turns into a supergroup: otherwise everything played here through inline mode is lost for good.'
+      button: Click me!
+      titles:
+        grow: Grow your TITS! 🍒
+        top: See the fattest tits in the chat
+        tit_of_day: Crown Titties of the Day
+        pvp: Challenge everyone with a %{bet} cc tit bet!
+        stats: Tit-fight statistics
+        loan: Tits in the negatives? Take a loan!
+    callback:
+      errors:
+        another_user: This message was sent by another person.
+        invalid_data: Possibly this message was sent via an older version of the bot. Try to resend it again.
+        unknown_data: Unknown command
+        no_data: Something went wrong…
+ru:
+  inline:
+    results:
+      text: Так как я не могу определить чат из inline-запроса, нажми на кнопку ниже, чтобы получить результат.
+      text_legacy_group: 'Эта группа не является супергруппой, поэтому я не могу распознать её из inline-запроса — нажми на кнопку ниже, чтобы получить результат.
+
+
+        Нажимать придётся каждый раз. А лучше добавь бота в чат и нажми кнопку активации! Тогда сгодятся обычные команды, а результаты из inline будут считаться вместе с ними.
+
+
+        И сделай это до того, как группа станет супергруппой: иначе всё, наигранное здесь через inline, потеряется безвозвратно.'
+      button: Кликни!
+      titles:
+        grow: Увеличь свою пиписю!
+        top: Топ самых огромных писюнов
+        dick_of_day: Избрание Писюна Дня
+        pvp: Брось вызов другим гроверам со ставкой %{bet} см!
+        stats: Статистика побед
+        loan: Минус? Возьми кредит!
+        shrinks: Посмотреть недавние усыхания
+    callback:
+      errors:
+        another_user: Сообщение было отправлено другим человеком.
+        invalid_data: Возможно, это сообщение было отправлено через более старую версию бота. Попробуй послать его ещё раз.
+        unknown_data: Неизвестная команда
+        no_data: Что-то пошло не так нет…
+it:
+  inline:
+    results:
+      text: Clicca il tasto qui sotto per avere il risultato!
+      text_legacy_group: 'Questo gruppo non è un supergruppo, perciò non riesco a riconoscerlo da una query inline — premi il tasto qui sotto per avere il risultato.
+
+
+        Il tasto servirà ogni volta. Meglio ancora, aggiungi il bot alla chat e premi il suo tasto di attivazione! Così bastano i comandi normali, e i risultati inline conteranno insieme a loro.
+
+
+        E fallo prima che il gruppo diventi un supergruppo: altrimenti tutto ciò che è stato giocato qui in modalità inline andrà perso per sempre.'
+      button: Cliccami!
+      titles:
+        grow: Fai crescere il tuo pene!
+        top: Mostra i peni più grandi del gruppo
+        dick_of_day: Eleggi il Pene del Giorno
+        pvp: Sfida gli altri con una scommessa di %{bet} cm!
+        stats: Statistiche
+        loan: Sei in debito? Chiedi un prestito!
+        shrinks: Vedi gli accorciamenti recenti
+    callback:
+      errors:
+        another_user: Questo messaggio è stato inviato da un'altra persona.
+        invalid_data: Questo messaggio potrebbe essere stato mandato da una vecchia versione del bot. Prova a rimandarlo.
+        unknown_data: Comando sconosciuto
+        no_data: Qualcosa è andato storto…
+fa:
+  inline:
+    results:
+      text: چون توی کوئری اینلاین نمی‌تونم چت رو تشخیص بدم، باید روی دکمه زیر بزنی تا نتیجه رو ببینی.
+      text_legacy_group: 'این گروه سوپرگروه نیست، برای همین از روی کوئری اینلاین نمی‌تونم تشخیصش بدم — برای دیدن نتیجه دکمه‌ی زیر رو بزن.
+
+
+        این دکمه هر بار لازمه. بهتر از اون، بات رو به چت اضافه کن و دکمه‌ی فعال‌سازیش رو بزن! اون‌وقت دستورهای معمولی کافیه و نتیجه‌های اینلاین هم با همون‌ها حساب می‌شن.
+
+
+        این کار رو قبل از اینکه گروه به سوپرگروه تبدیل بشه انجام بده: وگرنه هر چیزی که اینجا با اینلاین بازی شده برای همیشه از بین می‌ره.'
+      button: بزن روم!
+      titles:
+        grow: کیرتو کلفت کن!
+        top: کلفت ترین کیر های توی چتو ببین
+        dick_of_day: کیر روز رو انتخاب کن
+        pvp: برو سراغ بقیه و با شرط %{bet} سانتی به چالش بکش!
+        stats: آمار برد و باخت
+        loan: کیرت منفیه؟ یه وام بگیر!
+        shrinks: دیدن کوچک‌شدن‌های اخیر
+    callback:
+      errors:
+        another_user: این پیام رو یه نفر دیگه فرستاده.
+        invalid_data: شاید این پیام از یه نسخه قدیمی بات ارسال شده. دوباره بفرست ببین چی میشه.
+        unknown_data: دستور نامفهومه.
+        no_data: یه مشکلی پیش اومده…
+zh:
+  inline:
+    results:
+      text: 由于我无法通过内联查询确定聊天，你应该点击下面的按钮以获取结果。
+      text_legacy_group: '本群不是超级群组，因此我无法通过内联查询识别它——请点击下面的按钮以获取结果。
+
+
+        这个按钮每次都需要点击。更好的办法是把机器人加入本群并点击它的激活按钮！那样用普通命令就够了，内联结果也会和它们合并计算。
+
+
+        请务必在本群升级为超级群组之前完成：否则这里通过内联模式游玩的一切都将永久丢失。'
+      button: 点我！
+      titles:
+        grow: 让你的丁丁变大！
+        top: 获取聊天中最大的丁丁
+        dick_of_day: 选举今日丁丁
+        pvp: 用 %{bet} 厘米的赌注挑战其他人！
+        stats: 胜利统计
+        loan: 负数？申请贷款！
+        shrinks: 查看最近的缩水
+    callback:
+      errors:
+        another_user: 此消息由其他人发送。
+        invalid_data: 可能此消息是通过旧版本的机器人发送的。请尝试重新发送。
+        unknown_data: 未知命令
+        no_data: 出了点问题…
+zh-TW:
+  inline:
+    results:
+      text: 由於我無法透過內聯查詢確定聊天，你應該點擊下面的按鈕以取得結果。
+      text_legacy_group: '本群不是超級群組，因此我無法透過內聯查詢識別它——請點擊下面的按鈕以取得結果。
+
+
+        這個按鈕每次都需要點擊。更好的辦法是把機器人加入本群並點擊它的啟用按鈕！那樣用一般指令就夠了，內聯結果也會和它們合併計算。
+
+
+        請務必在本群升級為超級群組之前完成：否則這裡透過內聯模式遊玩的一切都將永久遺失。'
+      button: 點我！
+      titles:
+        grow: 讓你的老二變大！
+        top: 取得聊天中最大的老二
+        dick_of_day: 選出今日老二
+        pvp: 用 %{bet} 公分的賭注挑戰其他人！
+        stats: 勝利統計
+        loan: 負數？申請貸款！
+        shrinks: 查看最近的縮水
+    callback:
+      errors:
+        another_user: 此訊息由其他人發送。
+        invalid_data: 可能此訊息是透過舊版本的機器人發送的。請嘗試重新發送。
+        unknown_data: 未知命令
+        no_data: 出了點問題…

@@ -1,0 +1,155 @@
+en:
+  commands:
+    stats:
+      description: Statistics
+      length: 'Tit size: <b>%{length} cc</b>
+
+        Leaderboard position: <b>#%{pos}</b>'
+      pvp: 'Win rate: <b>%{win_rate}</b>.
+
+        Tit fights: <b>%{battles}</b>.
+
+        Wins: <b>%{wins}</b>.
+
+        Best streak: <b>%{win_streak}</b>.
+
+        Tit meat gained: <b>%{acquired} cc</b>.
+
+        Tit meat lost: <b>%{lost} cc</b>.'
+      notice: Tit-fight statistics have been tracked since July 30, 2026.
+      personal: '<i>Your personal tit résumé:</i>
+
+        — Chats where you grow: <b>%{chats}</b>.
+
+        — Biggest pair: <b>%{max_length} cc</b>.
+
+        — Total tit meat across all chats: <b>%{total_length} cc</b>.'
+ru:
+  commands:
+    stats:
+      description: Статистика
+      length: 'Длина: <b>%{length}</b>
+
+        Позиция в топе: <b>%{pos}</b>'
+      pvp: 'Процент выигрышей: <b>%{win_rate}</b>.
+
+        Сыгранных боёв: <b>%{battles}</b>.
+
+        Побед: <b>%{wins}</b>.
+
+        Максимум побед подряд: <b>%{win_streak}</b>.
+
+        Выиграно: <b>%{acquired} см</b>.
+
+        Проиграно: <b>%{lost} см</b>.'
+      notice: Статистика начала собираться со 2 июля 2024.
+      personal: '<i>Персональная статистика:</i>
+
+        — Количество чатов: <b>%{chats}</b>.
+
+        — Максимальная длина: <b>%{max_length}</b>.
+
+        — Сумма писюнов среди всех чатов: <b>%{total_length}</b>.'
+it:
+  commands:
+    stats:
+      description: Statistiche
+      length: 'Lunghezza: <b>%{length}</b>
+
+        Posizione in classifica: <b>%{pos}</b>'
+      pvp: 'Tasso di vittoria: <b>%{win_rate}</b>.
+
+        Sfide: <b>%{battles}</b>.
+
+        Vittorie: <b>%{wins}</b>.
+
+        Serie di vittorie massima: <b>%{win_streak}</b>.
+
+        Lunghezza acquisita: <b>%{acquired} cm</b>.
+
+        Lunghezza persa: <b>%{lost} cm</b>.'
+      notice: La raccolta delle statistiche è iniziata il 2 Luglio 2024.
+      personal: '<i>Le tue statistiche personali:</i>
+
+        — Numero di gruppi in cui giochi: <b>%{chats}</b>.
+
+        — Lunghezza massima raggiunta: <b>%{max_length}</b>.
+
+        — Somma dei tuoi peni in tutti i gruppi: <b>%{total_length}</b>.'
+fa:
+  commands:
+    stats:
+      description: آمار
+      length: 'طول: <b>%{length}</b>
+
+        رتبه در جدول: <b>%{pos}</b>'
+      pvp: 'نرخ برد: <b>%{win_rate}</b>.
+
+        مبارزات: <b>%{battles}</b>.
+
+        بردها: <b>%{wins}</b>.
+
+        بیشترین سری برد: <b>%{win_streak}</b>.
+
+        طول به‌دست‌آمده: <b>%{acquired} سانت</b>.
+
+        طول از دست رفته: <b>%{lost} سانت</b>.'
+      notice: جمع‌آوری آمار از 2 جولای 2024 شروع شده.
+      personal: '<i>آمار شخصی شما:</i>
+
+        — تعداد چت‌هایی که توش بازی می‌کنی: <b>%{chats}</b>.
+
+        — بیشترین طول: <b>%{max_length}</b>.
+
+        — مجموع طول آلت‌ها در تمام چت‌ها: <b>%{total_length}</b>.'
+zh:
+  commands:
+    stats:
+      description: 统计
+      length: '长度: <b>%{length}</b>
+
+        在排行榜上的位置: <b>%{pos}</b>'
+      pvp: '胜率: <b>%{win_rate}</b>。
+
+        战斗次数: <b>%{battles}</b>。
+
+        胜利次数: <b>%{wins}</b>。
+
+        最大连胜: <b>%{win_streak}</b>。
+
+        获得长度: <b>%{acquired} 厘米</b>。
+
+        失去长度: <b>%{lost} 厘米</b>。'
+      notice: 统计收集从2024年7月2日开始。
+      personal: '<i>你的个人统计:</i>
+
+        — 你参与的游戏聊天数量: <b>%{chats}</b>。
+
+        — 最大长度: <b>%{max_length}</b>。
+
+        — 所有聊天中的丁丁总长度: <b>%{total_length}</b>。'
+zh-TW:
+  commands:
+    stats:
+      length: '長度: <b>%{length}</b>
+
+        在排行榜上的位置: <b>%{pos}</b>'
+      pvp: '勝率: <b>%{win_rate}</b>。
+
+        戰鬥次數: <b>%{battles}</b>。
+
+        勝利次數: <b>%{wins}</b>。
+
+        最大連勝: <b>%{win_streak}</b>。
+
+        獲得長度: <b>%{acquired} 公分</b>。
+
+        失去長度: <b>%{lost} 公分</b>。'
+      notice: 統計收集從2024年7月2日開始。
+      personal: '<i>你的個人統計:</i>
+
+        — 你參與的遊戲聊天數量: <b>%{chats}</b>。
+
+        — 最大長度: <b>%{max_length}</b>。
+
+        — 所有聊天中的老二總長度: <b>%{total_length}</b>。'

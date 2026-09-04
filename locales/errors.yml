@@ -1,0 +1,30 @@
+en:
+  errors:
+    not_group_chat: This bot is supposed to do its mission in group chats only!
+    group_account: You can't play on behalf of a group or channel — switch off anonymous mode and try again!
+    feature_disabled: This feature is currently temporarily disabled.
+ru:
+  errors:
+    not_group_chat: Бот выполняет свою миссию только в групповых чатах!
+    group_account: Нельзя играть от имени группы или канала — отключите анонимный режим и попробуйте снова!
+    feature_disabled: Данная функция пока временно отключена.
+it:
+  errors:
+    not_group_chat: Questo bot può svolgere la sua missione solo nei gruppi!
+    group_account: Non puoi giocare per conto di un gruppo o canale — disattiva la modalità anonima e riprova!
+    feature_disabled: Questa funzione non è al momento disponibile.
+fa:
+  errors:
+    not_group_chat: این بات فقط توی گروه‌ها کار می‌کنه!
+    group_account: نمی‌تونی به‌جای گروه یا کانال بازی کنی — حالت ناشناس رو خاموش کن و دوباره امتحان کن!
+    feature_disabled: این قابلیت فعلاً غیرفعاله.
+zh:
+  errors:
+    not_group_chat: 此机器人仅在群聊中执行任务！
+    group_account: 不能以群组或频道的身份游玩——请关闭匿名模式后重试！
+    feature_disabled: 此功能当前暂时禁用。
+zh-TW:
+  errors:
+    not_group_chat: 此機器人僅在群聊中執行任務！
+    group_account: 不能以群組或頻道的身份遊玩——請關閉匿名模式後重試！
+    feature_disabled: 此功能當前暫時禁用。

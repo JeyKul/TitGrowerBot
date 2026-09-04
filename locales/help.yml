@@ -1,0 +1,20 @@
+en:
+  commands:
+    help:
+      description: I'll help you, my friend
+ru:
+  commands:
+    help:
+      description: Я обязательно помогу тебе, друг
+it:
+  commands:
+    help:
+      description: Ti aiuterò, mio amico
+fa:
+  commands:
+    help:
+      description: کمکت میکنم دوست من
+zh:
+  commands:
+    help:
+      description: 有什么问题吗

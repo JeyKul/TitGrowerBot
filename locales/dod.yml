@@ -1,0 +1,68 @@
+en:
+  commands:
+    dod:
+      description: Crown today's fattest, bounciest tits
+      result: '🍒 <b>TITTIES OF THE DAY</b> 🍒
+
+
+        <b><a href="tg://user?id=%{uid}">%{name}</a></b> wins!
+
+
+        Those gorgeous tits swelled by <b>%{growth} cc</b> and now hold a juicy <b>%{length} cc</b> 😩🫧'
+      position: Their tits are now ranked <b>#%{pos}</b> on the leaderboard.
+      already_chosen: 'Today’s Titties of the Day have already been crowned: <b>%{name}</b> 🍒'
+      no_candidates: No juicy candidates yet. Nobody in this chat has started growing tits 😢
+ru:
+  commands:
+    dod:
+      description: Выбор Писюна Дня
+      result: 'Пам-пам-пам! Писюн Дня — <b><a href="tg://user?id=%{uid}">%{name}</a></b>!
+
+
+        Его пиписик вырос на <b>%{growth} см</b> и теперь длиной <b>%{length}</b> см.'
+      position: Он занимает <b>%{pos}</b> место в топе.
+      already_chosen: Писюн Дня уже был выбран на сегодня! Это <b>%{name}</b>.
+      no_candidates: 'Не из кого выбирать: в этом чате ещё никто не участвует в игре 😢'
+it:
+  commands:
+    dod:
+      description: Eleggi il Pene del Giorno
+      result: 'Il Pene del Giorno è <b><a href="tg://user?id=%{uid}">%{name}</a></b>!
+
+
+        Il suo pene è cresciuto di <b>%{growth} cm</b> e ora è lungo <b>%{length}</b> cm.'
+      position: La sua posizione nella classifica è <b>%{pos}</b>.
+      already_chosen: Il Pene del Giorno è già stato scelto oggi! Si tratta di <b>%{name}</b>.
+      no_candidates: Non ci sono candidati per l'elezione, in questo gruppo non gioca nessuno 😢
+fa:
+  commands:
+    dod:
+      description: کیر روز رو انتخاب کن
+      result: 'کیر روز متعلق به <b><a href="tg://user?id=%{uid}">%{name}</a></b> هست!
+
+
+        کیرش <b>%{growth} سانت</b> بلندتر شده و الان <b>%{length}</b> سانته.'
+      position: موقعیتش توی جدول <b>%{pos}</b> هست.
+      already_chosen: کیر روز امروز انتخاب شده و <b>%{name}</b> بوده.
+      no_candidates: هیچ نامزدی برای انتخابات وجود نداره. هنوز کسی توی این چت وارد بازی نشده 😢
+zh:
+  commands:
+    dod:
+      description: 选举今日丁丁
+      result: '今日丁丁是<b><a href="tg://user?id=%{uid}">%{name}</a></b>！
+
+
+        他的丁丁增长了<b>%{growth} 厘米</b>，现在长度为<b>%{length}</b> 厘米。'
+      position: 他在排行榜上的位置是<b>%{pos}</b>。
+      already_chosen: 今日丁丁已经被选出来了！是<b>%{name}</b>。
+      no_candidates: 没有候选人可以选举。在这个聊天中还没有人加入游戏 😢
+zh-TW:
+  commands:
+    dod:
+      result: '今日老二是<b><a href="tg://user?id=%{uid}">%{name}</a></b>！
+
+
+        他的老二增長了<b>%{growth} 公分</b>，現在長度為<b>%{length}</b> 公分。'
+      position: 他在排行榜上的位置是<b>%{pos}</b>。
+      already_chosen: 今日老二已經被選出來了！是<b>%{name}</b>。
+      no_candidates: 沒有候選人可以選舉。在這個聊天中還沒有人加入遊戲 😢

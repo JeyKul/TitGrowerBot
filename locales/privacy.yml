@@ -1,0 +1,20 @@
+en:
+  commands:
+    privacy:
+      description: Privacy Policy detailing what data we store
+ru:
+  commands:
+    privacy:
+      description: политика по работе с персональными данными
+it:
+  commands:
+    privacy:
+      description: Informativa sulla privacy che descrive quali dati memorizziamo
+fa:
+  commands:
+    privacy:
+      description: سیاست حفظ حریم خصوصی و اینکه چه اطلاعاتی ذخیره می‌کنیم
+zh:
+  commands:
+    privacy:
+      description: 存储数据说明详见隐私政策，

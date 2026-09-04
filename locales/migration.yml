@@ -1,0 +1,60 @@
+en:
+  migration:
+    lost: 'This group has just become a supergroup, and Telegram has given it an entirely new identity — I can no longer recognize it as the group I used to know.
+
+
+      If anyone played here through inline mode, that history is sadly out of reach now and the scores start over. If nobody did, nothing was lost. From here on everything works as usual — and it won''t happen again. 🍒'
+    lost_inline: 'This group has just become a supergroup. Everything played through the commands came across with it and is safe.
+
+
+      The results from inline mode, though, never got tied to this group — that needed the activation button pressed before the upgrade. They are sadly out of reach now. If nobody played through inline mode here, nothing was lost. From here on everything works as usual. 🍒'
+ru:
+  migration:
+    lost: 'Эта группа только что стала супергруппой, и Telegram выдал ей полностью новые идентификаторы — узнать в ней прежнюю группу я больше не могу.
+
+
+      Если здесь играли через inline-режим, эта история, увы, недоступна, и счёт начинается заново. Если не играли — ничего и не потерялось. Дальше всё работает как обычно, и повториться это уже не может. 🍆'
+    lost_inline: 'Эта группа только что стала супергруппой. Всё, что наиграно командами, переехало вместе с ней и никуда не делось.
+
+
+      А вот результаты из inline-режима привязать к группе не успели — для этого нужно было нажать кнопку активации до перехода. Они, к сожалению, больше недоступны. Если через inline тут не играли, то ничего и не потерялось. Дальше всё работает как обычно. 🍆'
+it:
+  migration:
+    lost: 'Questo gruppo è appena diventato un supergruppo, e Telegram gli ha dato un''identità del tutto nuova — non riesco più a riconoscerlo come il gruppo che conoscevo.
+
+
+      Se qualcuno ha giocato qui in modalità inline, quella storia purtroppo non è più raggiungibile e i punteggi ripartono da zero. Se nessuno l''ha fatto, non si è perso nulla. D''ora in poi tutto funziona come al solito, e non può più succedere. 🍆'
+    lost_inline: 'Questo gruppo è appena diventato un supergruppo. Tutto ciò che è stato giocato con i comandi è arrivato insieme a lui ed è al sicuro.
+
+
+      I risultati della modalità inline, invece, non erano mai stati legati a questo gruppo — sarebbe servito premere il tasto di attivazione prima del passaggio. Purtroppo ora non sono più raggiungibili. Se nessuno ha giocato qui in modalità inline, non si è perso nulla. D''ora in poi tutto funziona come al solito. 🍆'
+fa:
+  migration:
+    lost: 'این گروه همین الان به سوپرگروه تبدیل شد و تلگرام یه شناسه‌ی کاملاً جدید بهش داد — دیگه نمی‌تونم اون گروه قبلی رو توش تشخیص بدم.
+
+
+      اگه اینجا کسی با حالت اینلاین بازی کرده بود، اون تاریخچه متأسفانه دیگه در دسترس نیست و امتیازها از نو شروع می‌شن. اگه کسی بازی نکرده بود، چیزی هم از دست نرفته. از این به بعد همه‌چیز مثل همیشه کار می‌کنه و این اتفاق دیگه تکرار نمی‌شه. 🍆'
+    lost_inline: 'این گروه همین الان به سوپرگروه تبدیل شد. هر چیزی که با دستورها بازی شده بود همراهش اومد و سر جاشه.
+
+
+      اما نتیجه‌های حالت اینلاین هیچ‌وقت به این گروه گره نخورده بودن — برای این کار باید قبل از تبدیل شدن، دکمه‌ی فعال‌سازی زده می‌شد. متأسفانه دیگه در دسترس نیستن. اگه کسی اینجا با اینلاین بازی نکرده بود، چیزی هم از دست نرفته. از این به بعد همه‌چیز مثل همیشه کار می‌کنه. 🍆'
+zh:
+  migration:
+    lost: '本群刚刚升级为超级群组，Telegram 为它分配了全新的标识——我已经无法把它认作原来的那个群了。
+
+
+      如果之前有人在这里通过内联模式游玩，那些记录很遗憾已经无法找回，成绩将从头开始。如果没有人玩过，那就什么也没丢。从现在起一切照常运作，而且这种情况不会再发生了。🍆'
+    lost_inline: '本群刚刚升级为超级群组。通过命令游玩的一切都随之迁移过来了，完好无损。
+
+
+      但内联模式的结果从未与本群绑定——那需要在升级之前点击激活按钮。它们很遗憾已经无法找回。如果没有人在这里通过内联模式游玩，那就什么也没丢。从现在起一切照常运作。🍆'
+zh-TW:
+  migration:
+    lost: '本群剛剛升級為超級群組，Telegram 為它分配了全新的識別碼——我已經無法把它認作原來的那個群了。
+
+
+      如果之前有人在這裡透過內聯模式遊玩，那些紀錄很遺憾已經無法找回，成績將從頭開始。如果沒有人玩過，那就什麼也沒丟。從現在起一切照常運作，而且這種情況不會再發生了。🍆'
+    lost_inline: '本群剛剛升級為超級群組。透過指令遊玩的一切都隨之遷移過來了，完好無損。
+
+
+      但內聯模式的結果從未與本群綁定——那需要在升級之前點擊啟用按鈕。它們很遺憾已經無法找回。如果沒有人在這裡透過內聯模式遊玩，那就什麼也沒丟。從現在起一切照常運作。🍆'

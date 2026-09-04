@@ -1,0 +1,78 @@
+en:
+  titles:
+    greeting: Hello
+    time_till_next_day:
+      none: ' Come back tomorrow!'
+      some: '
+
+
+        Next attempt in <b>%{hours}</b>h <b>%{minutes}</b>m.'
+    perks:
+      top_line: The following perks affected the result
+      help-pussies: deep hole
+      loan-payout: micro-loaner
+ru:
+  titles:
+    greeting: Приветствую
+    time_till_next_day:
+      none: ' Возвращайся завтра!'
+      some: '
+
+
+        Следующая попытка через <b>%{hours}</b> ч. <b>%{minutes}</b> мин.'
+    perks:
+      top_line: На результат повлияли следующие перки
+      help-pussies: глубокая нора
+      loan-payout: микрозаймер
+it:
+  titles:
+    greeting: Ciao
+    time_till_next_day:
+      none: ' Torna domani!'
+      some: '
+
+
+        Prossimo tentativo tra <b>%{hours}</b>h <b>%{minutes}</b>m.'
+    perks:
+      top_line: 'I seguenti vantaggi hanno influenzato il risultato:'
+      help-pussies: buco profondo
+      loan-payout: micro-loaner
+fa:
+  titles:
+    greeting: سلام
+    time_till_next_day:
+      none: ' فردا برگرد!'
+      some: '
+
+
+        دفعه بعدی تو <b>%{hours}</b> ساعت و <b>%{minutes}</b> دقیقه.'
+    perks:
+      top_line: 'این قابلیت‌ها روی نتیجه تأثیر گذاشتن:'
+      help-pussies: حفره عمیق
+      loan-payout: وام خور
+zh:
+  titles:
+    greeting: 你好
+    time_till_next_day:
+      none: ' 回去玩丁丁，明天再来！'
+      some: '
+
+
+        下次尝试在 <b>%{hours}</b>小时 <b>%{minutes}</b>分钟后。'
+    perks:
+      top_line: 以下特权影响了结果
+      help-pussies: 深洞
+      loan-payout: 小贷人员
+zh-TW:
+  titles:
+    greeting: 你好
+    time_till_next_day:
+      none: ' 回去玩老二，明天再來！'
+      some: '
+
+
+        下次嘗試在 <b>%{hours}</b>小時 <b>%{minutes}</b>分鐘後。'
+    perks:
+      top_line: 以下特權影響了結果
+      help-pussies: 深洞
+      loan-payout: 貸款人

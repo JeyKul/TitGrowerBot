@@ -1,0 +1,146 @@
+en:
+  commands:
+    import:
+      description: Import tits from other grower bots
+      result:
+        titles:
+          imported: 'These juicy players were imported:'
+          already_present: 'These players and their tits were already here:'
+          not_found: 'These users have not started growing tits yet:'
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length} cc</i>)
+          already_present: ➖ <b>%{name}</b> (<i>%{length} cc</i>)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: Only chat admins can import a whole batch of tits!
+        not_reply: 'Reply to a non-forwarded message from one of: %{origin_bots}'
+        too_many_members: 'Import works only in chats with 10 or fewer members: other bots only expose their top 10, so larger imports would be unfair.'
+        invalid_lines:
+          template: 'I could not read this tit list 🤔
+
+            These lines are invalid:
+
+            %{invalid_lines}'
+          line: ➖ <b>%{line}</b>
+ru:
+  commands:
+    import:
+      description: Импорт писюнов из других ботов
+      result:
+        titles:
+          imported: 'Следующие пользователи были импортированы:'
+          already_present: 'Следующие пользователи уже были импортированы ранее:'
+          not_found: 'Следующие пользователи ещё не в игре:'
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length}</i> см)
+          already_present: ➖ <b>%{name}</b> (<i>%{length}</i> см)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: Команда предназначена для использования только администраторами чата!
+        not_reply: 'Вы должны ответить на не пересланное сообщение от любого из оригинальных ботов: %{origin_bots}'
+        too_many_members: 'Импорт разрешён только в чатах с 10 или менее участниками: топы ботов-конкурентов показывают лишь первую десятку, поэтому импорт здесь был бы несправедлив по отношению к остальным.'
+        invalid_lines:
+          template: 'Не удалось разобрать сообщение 🤔
+
+            Следующие строки невалидны:
+
+            %{invalid_lines}
+
+
+            Подписывайтесь на @kozaloru, чтобы узнать, когда выйдет исправление!'
+          line: ➖ <b>%{line}</b>
+it:
+  commands:
+    import:
+      description: Importa peni da altri bot
+      result:
+        titles:
+          imported: 'I seguenti utenti sono stati importati:'
+          already_present: 'I seguenti utenti erano già stati importati:'
+          not_found: 'I seguenti utenti non sono ancora in gioco:'
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length}</i> cm)
+          already_present: ➖ <b>%{name}</b> (<i>%{length}</i> cm)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: Questo comando può essere utilizzato solo dagli admin!
+        not_reply: Devi rispondere a un messaggio inviato da uno di %{origin_bots}
+        too_many_members: 'L''importazione è consentita solo nei gruppi con 10 o meno membri: le classifiche dei bot concorrenti mostrano solo i primi 10, quindi importare qui sarebbe ingiusto nei confronti degli altri.'
+        invalid_lines:
+          template: 'Impossibile elaborare questo messaggio 🤔
+
+            Le seguenti linee sono invalide:
+
+            %{invalid_lines}'
+          line: ➖ <b>%{line}</b>
+fa:
+  commands:
+    import:
+      description: وارد کردن سایز های کیر از باقی رباتا
+      result:
+        titles:
+          imported: 'این یوزرها اضافه شدن:'
+          already_present: 'این یوزرها از قبل وارد شده بودن:'
+          not_found: 'این یوزرها هنوز وارد بازی نشدن:'
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length}</i> سانت)
+          already_present: ➖ <b>%{name}</b> (<i>%{length}</i> سانت)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: این دستور فقط مخصوص ادمین‌هاست!
+        not_reply: باید به یه پیام غیر فوروارد شده از یکی از %{origin_bots} ریپلای بدی.
+        too_many_members: 'ایمپورت فقط توی چت‌هایی با ۱۰ عضو یا کمتر مجازه: جدول برترین‌های ربات‌های رقیب فقط ۱۰ نفر اول رو نشون می‌ده، پس ایمپورت اینجا به بقیه بی‌انصافیه.'
+        invalid_lines:
+          template: 'نتونستم این پیام رو پردازش کنم 🤔
+
+            این خط‌ها نامعتبرن:
+
+            %{invalid_lines}'
+          line: ➖ <b>%{line}</b>
+zh:
+  commands:
+    import:
+      description: 从其他机器人导入丁丁
+      result:
+        titles:
+          imported: 以下用户已被导入：
+          already_present: 以下用户之前已被导入：
+          not_found: 以下用户尚未加入游戏：
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length}</i> 厘米)
+          already_present: ➖ <b>%{name}</b> (<i>%{length}</i> 厘米)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: 此命令仅供管理员使用！
+        not_reply: 你必须回复由 %{origin_bots} 发送的非转发消息
+        too_many_members: 仅允许在成员不超过 10 人的聊天中导入：竞品机器人的排行榜只显示前 10 名，在此导入对其他人不公平。
+        invalid_lines:
+          template: '无法解析此消息 🤔
+
+            以下行无效：
+
+            %{invalid_lines}'
+          line: ➖ <b>%{line}</b>
+zh-TW:
+  commands:
+    import:
+      result:
+        titles:
+          imported: 以下使用者已被導入：
+          already_present: 以下使用者之前已被導入：
+          not_found: 以下使用者尚未加入遊戲：
+        line:
+          imported: ➖ <b>%{name}</b> (<i>%{length}</i> 公分)
+          already_present: ➖ <b>%{name}</b> (<i>%{length}</i> 公分)
+          not_found: ➖ <b>%{name}</b>
+      errors:
+        not_admin: 此命令僅供管理員使用！
+        not_reply: 你必須回覆由 %{origin_bots} 發送的非轉發訊息
+        too_many_members: 僅允許在成員不超過 10 人的聊天中導入：競品機器人的排行榜只顯示前 10 名，在此導入對其他人不公平。
+        invalid_lines:
+          template: '無法解析此訊息 🤔
+
+            以下行無效：
+
+            %{invalid_lines}'
+          line: ➖ <b>%{line}</b>
