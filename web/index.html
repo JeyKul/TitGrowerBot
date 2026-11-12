@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TitGrower</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root {
+    --bg: var(--tg-theme-bg-color, #fff);
+    --bg2: var(--tg-theme-secondary-bg-color, #f2f2f7);
+    --text: var(--tg-theme-text-color, #111);
+    --hint: var(--tg-theme-hint-color, #8e8e93);
+    --accent: var(--tg-theme-button-color, #e0457b);
+    --accent-text: var(--tg-theme-button-text-color, #fff);
+    --danger: var(--tg-theme-destructive-text-color, #e5393a);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.4 -apple-system, system-ui, Segoe UI, Roboto, sans-serif;
+         background: var(--bg2); color: var(--text); padding: 12px 16px 40px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--hint);
+       margin: 20px 4px 8px; font-weight: 600; }
+  .card { background: var(--bg); border-radius: 12px; overflow: hidden; }
+  .row { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-top: 1px solid var(--bg2); }
+  .row:first-child { border-top: 0; }
+  .row.tap { cursor: pointer; }
+  .grow { flex: 1; min-width: 0; }
+  .title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sub { color: var(--hint); font-size: 13px; }
+  .num { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tabs { display: flex; gap: 6px; background: var(--bg); padding: 4px; border-radius: 12px; }
+  .tabs button { flex: 1; border: 0; background: none; color: var(--text); padding: 8px; border-radius: 9px; font: inherit; font-weight: 600; }
+  .tabs button.on { background: var(--accent); color: var(--accent-text); }
+  .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .chip { border: 2px solid transparent; background: var(--bg); color: var(--text); border-radius: 12px;
+          padding: 10px; font: inherit; font-weight: 600; }
+  .chip.on { border-color: var(--accent); }
+  .btn { border: 0; border-radius: 10px; padding: 9px 14px; font: inherit; font-weight: 600;
+         background: var(--accent); color: var(--accent-text); }
+  .btn.ghost { background: var(--bg2); color: var(--text); }
+  .btn.danger { background: var(--danger); color: #fff; }
+  input { width: 100%; border: 0; border-radius: 10px; padding: 10px 12px; font: inherit;
+          background: var(--bg); color: var(--text); }
+  input.small { width: 90px; background: var(--bg2); text-align: right; }
+  .badge { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 99px; background: var(--danger); color: #fff; }
+  .empty { padding: 18px 14px; color: var(--hint); text-align: center; }
+  .back { background: none; border: 0; color: var(--accent); font: inherit; font-weight: 600; padding: 4px 0; }
+  .hello { font-size: 22px; font-weight: 800; margin: 6px 4px 2px; }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 14px; }
+  #err { color: var(--danger); margin: 10px 4px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="err"></div>
+<script>
+const tgApp = window.Telegram && Telegram.WebApp;
+tgApp && tgApp.ready(); tgApp && tgApp.expand();
+const $ = (h) => { const d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstElementChild; };
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const unit = (g) => g && g.body === 'dick' ? 'cm' : 'cc';
+const icon = (g) => g && g.body === 'dick' ? '🍆' : '🍒';
+const GENDERS = [['she','tits'],['he','dick'],['they','tits'],['they','dick'],['she','dick'],['he','tits']];
+const PRON = {she: 'she/her', he: 'he/him', they: 'they/them'};
+let me = null, tab = 'me';
+
+async function api(path, body) {
+  const res = await fetch('api/' + path, {
+    method: body ? 'POST' : 'GET',
+    headers: {'X-Init-Data': tgApp ? tgApp.initData : '', 'Content-Type': 'application/json'},
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const data = await res.json().catch(() => ({error: 'server error'}));
+  if (!res.ok) throw new Error(data.error || res.statusText);
+  return data;
+}
+function showErr(e) { document.getElementById('err').textContent = e ? (e.message || e) : ''; }
+function haptic() { try { tgApp.HapticFeedback.impactOccurred('light'); } catch (_) {} }
+
+function render(node) {
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  if (me && me.admin) {
+    const tabs = $(`<div class="tabs"><button data-t="me">🍒 Me</button><button data-t="admin">🔧 Admin</button></div>`);
+    tabs.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('on', b.dataset.t === tab);
+      b.onclick = () => { tab = b.dataset.t; tab === 'me' ? showMe() : showAdmin(''); };
+    });
+    app.append(tabs);
+  }
+  app.append(node);
+}
+
+// ---------- player view ----------
+async function showMe() {
+  showErr();
+  try { me = await api('me'); } catch (e) { return showErr(e); }
+  const wrap = $(`<div></div>`);
+  wrap.append($(`<div class="hello">${icon(me.gender)} Hey, ${esc(me.name)}~</div>`));
+
+  wrap.append($(`<h2>What are you growing, slut?</h2>`));
+  const chips = $(`<div class="chips"></div>`);
+  GENDERS.forEach(([pron, body]) => {
+    const on = me.gender.pron === pron && me.gender.body === body;
+    const c = $(`<button class="chip ${on ? 'on' : ''}">${body === 'dick' ? '🍆 dick' : '🍒 tits'} · ${PRON[pron]}</button>`);
+    c.onclick = async () => { haptic(); try { await api('gender', {pron, body}); showMe(); } catch (e) { showErr(e); } };
+    chips.append(c);
+  });
+  wrap.append(chips);
+
+  wrap.append($(`<h2>Your chats</h2>`));
+  const list = $(`<div class="card"></div>`);
+  if (!me.chats.length) list.append($(`<div class="empty">Nothing growing yet. Send /grow in a group 😩</div>`));
+  me.chats.forEach(c => {
+    const r = $(`<div class="row tap"><div class="grow"><div class="title">${esc(c.title || 'Chat #' + c.chat)}</div>
+      <div class="sub">#${c.pos} of ${c.players}</div></div><div class="num">${c.length} ${unit(me.gender)}</div></div>`);
+    r.onclick = () => showTop(c, () => showMe());
+    list.append(r);
+  });
+  wrap.append(list);
+  render(wrap);
+}
+
+async function showTop(c, back) {
+  showErr();
+  let top;
+  try { top = await api('top?chat=' + c.chat); } catch (e) { return showErr(e); }
+  const wrap = $(`<div></div>`);
+  const b = $(`<button class="back">‹ Back</button>`); b.onclick = back; wrap.append(b);
+  wrap.append($(`<h2>${esc(c.title || 'Chat #' + c.chat)} — top</h2>`));
+  const list = $(`<div class="card"></div>`);
+  if (!top.length) list.append($(`<div class="empty">Nobody here yet</div>`));
+  top.forEach(p => list.append($(`<div class="row"><div class="num">${p.pos}.</div>
+    <div class="grow"><div class="title">${icon(p.gender)} ${esc(p.name)}</div></div>
+    <div class="num">${p.length} ${unit(p.gender)}</div></div>`)));
+  wrap.append(list);
+  render(wrap);
+}
+
+// ---------- admin view ----------
+let searchTimer;
+async function showAdmin(q) {
+  showErr();
+  const wrap = $(`<div></div>`);
+  wrap.append($(`<h2>Users</h2>`));
+  const input = $(`<input placeholder="Search name or user id…" autocomplete="off">`);
+  input.value = q;
+  wrap.append(input);
+  const list = $(`<div class="card" style="margin-top:8px"><div class="empty">Loading…</div></div>`);
+  wrap.append(list);
+  render(wrap);
+  input.focus();
+  input.oninput = () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => fill(input.value), 300); };
+  async function fill(q) {
+    let users;
+    try { users = await api('admin/users?q=' + encodeURIComponent(q)); } catch (e) { return showErr(e); }
+    list.innerHTML = '';
+    if (!users.length) list.append($(`<div class="empty">No one found</div>`));
+    users.forEach(u => {
+      const r = $(`<div class="row tap"><div class="grow"><div class="title">${icon(u.gender)} ${esc(u.name)}
+        ${u.blocked ? '<span class="badge">BLOCKED</span>' : ''}</div>
+        <div class="sub">${u.uid} · ${u.chats} chats</div></div><div class="num">${u.total} ${unit(u.gender)}</div></div>`);
+      r.onclick = () => showUser(u.uid, () => showAdmin(input.value));
+      list.append(r);
+    });
+  }
+  fill(q);
+}
+
+async function showUser(uid, back) {
+  showErr();
+  let u;
+  try { u = await api('admin/user?uid=' + uid); } catch (e) { return showErr(e); }
+  const wrap = $(`<div></div>`);
+  const b = $(`<button class="back">‹ Back</button>`); b.onclick = back; wrap.append(b);
+  wrap.append($(`<div class="hello">${icon(u.gender)} ${esc(u.name)} ${u.blocked ? '<span class="badge">BLOCKED</span>' : ''}</div>`));
+  wrap.append($(`<div class="sub" style="margin:0 4px">${u.uid} · ${PRON[u.gender.pron]} · ${u.gender.body}</div>`));
+
+  const actions = $(`<div class="card" style="margin-top:12px"><div class="actions"></div></div>`);
+  const blockBtn = $(`<button class="btn ${u.blocked ? 'ghost' : 'danger'}">${u.blocked ? 'Unblock' : 'Block'}</button>`);
+  blockBtn.onclick = async () => {
+    try { await api('admin/block', {uid: u.uid, blocked: !u.blocked}); haptic(); showUser(uid, back); } catch (e) { showErr(e); }
+  };
+  const delBtn = $(`<button class="btn danger">Delete everything</button>`);
+  delBtn.onclick = () => confirmThen(`Delete ${u.name} and ALL their data in every chat? This can't be undone.`, async () => {
+    try { await api('admin/delete', {uid: u.uid}); back(); } catch (e) { showErr(e); }
+  });
+  actions.firstElementChild.append(blockBtn, delBtn);
+  wrap.append(actions);
+
+  wrap.append($(`<h2>Lengths per chat</h2>`));
+  const list = $(`<div class="card"></div>`);
+  if (!u.chats.length) list.append($(`<div class="empty">Not playing anywhere</div>`));
+  u.chats.forEach(c => {
+    const r = $(`<div class="row"><div class="grow"><div class="title">${esc(c.title || 'Chat #' + c.chat)}</div>
+      <div class="sub">#${c.pos} of ${c.players}</div></div>
+      <input class="small" type="number" inputmode="numeric" value="${c.length}"><button class="btn">Save</button></div>`);
+    const inp = r.querySelector('input');
+    r.querySelector('button').onclick = async () => {
+      const length = parseInt(inp.value, 10);
+      if (isNaN(length)) return showErr('Enter a number');
+      try { await api('admin/length', {uid: u.uid, chat: c.chat, length}); haptic(); showUser(uid, back); } catch (e) { showErr(e); }
+    };
+    list.append(r);
+  });
+  wrap.append(list);
+  render(wrap);
+}
+
+function confirmThen(msg, f) {
+  if (tgApp && tgApp.showConfirm) tgApp.showConfirm(msg, ok => ok && f());
+  else if (confirm(msg)) f();
+}
+
+showMe();
+</script>
+</body>
+</html>

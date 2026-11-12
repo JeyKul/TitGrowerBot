@@ -74,3 +74,64 @@ perks.loan-payout = بازپرداخت وام ممه
 errors.not_group_chat = ممه‌ها فقط توی گروه رشد می‌کنن! من را به یک گروه اضافه کن 🍒
 errors.group_account = نمی‌تونی به‌عنوان گروه یا کانال ممه پرورش بدی — حالت ناشناس را خاموش کن و دوباره امتحان کن!
 errors.another_user = این ممه‌ها مال تو نیستن، دست نزن! این دکمه مال کس دیگری است.
+
+errors.blocked = از مزرعهٔ ممه بیرونت کردن 🚫
+
+# ---- /gender ----
+gender.description = ممه یا کیر؟ اون (زن)، اون (مرد) یا اونها؟ انتخاب کن
+gender.prompt = چی داری پرورش می‌دی، جندهٔ نیازمند؟ الان: <b>{current}</b>\n\nضمیرت و چیزی که می‌خوای باد کنه رو انتخاب کن 🍒🍆
+gender.saved = انجام شد، جنده~ حالا <b>{current}</b> هستی. برو به ممه‌هات /grow بزن 🍒💦
+gender.saved.dick = انجام شد، جنده~ حالا <b>{current}</b> هستی. برو به کیر کلفتت /grow بزن 🍆💦
+
+# ---- web app ----
+app.description = باز کردن اپ ممه 📱
+app.button = 🍒 باز کردن اپ
+app.private = پایین رو بزن: ممه‌هات توی همهٔ گروه‌ها، انتخاب چیزی که پرورش می‌دی و بیشتر 🍒📱
+app.group = اپ توی چت خصوصی با من باز می‌شه. پایین رو بزن، جنده 😘
+
+# ---- inline ----
+inline.text = 🍒 دکمه رو بزن، جنده، تا به همه نشونش بدم~
+inline.button = 💦 بزن!
+inline.titles.grow = 🍒 ممه‌هات رو بزرگ کن
+inline.titles.grow.dick = 🍆 کیرت رو بزرگ کن
+inline.titles.top = 🏆 برترین‌های این گروه
+inline.titles.dod = 👑 ممه‌های روز
+inline.titles.stats = 📊 آمار تو
+inline.titles.loan = 💸 وام ممه
+inline.titles.loan.dick = 💸 وام کیر
+inline.titles.pvp = ⚔️ نبرد ممه سر {bet} سی‌سی!
+inline.titles.pvp.dick = ⚔️ نبرد کیر سر {bet} سانت!
+inline.descriptions.grow = روزی یک بار. بادشون کن، جنده
+inline.descriptions.grow.dick = روزی یک بار. پمپش کن، جنده
+inline.descriptions.top = کی آبدارترین جنس رو داره؟
+inline.descriptions.dod = خوش‌شانس‌ترین جندهٔ امروز رو تاج بزن
+inline.descriptions.stats = اندازه، نبردها و رکوردهات
+inline.descriptions.loan = زیر صفری؟ نجات پیدا کن
+
+# ---- 🍆 کیر ----
+grow.result.dick = {event} به اندازهٔ <b>{incr} سانت.</b> حالا <b>{length} سانت کیر کلفت و تپنده</b> داری 😩💦.
+grow.direction.grown.dick = 💦🍆 لعنتی آرهههه~ کیر جنده‌ات باد کرد
+grow.direction.shrunk.dick = اونقدر جنده نیستی که کیر بزرگ داشته باشی. کوچیک شد
+grow.tomorrow.dick = کیر چاق جنده‌ات هنوز دردناک و چکه‌کنه، جندهٔ حریص~
+top.line.dick = {n}|<b>{name}</b> — <b>{length} سانت</b> کیر تپنده 🍆
+dod.result.dick = 🍆 <b>کیر روز</b> 🍆\n\n<b><a href="tg://user?id={uid}">{name}</a></b> برنده شد!\n\nاون کیر محشر <b>{growth} سانت</b> باد کرد و حالا <b>{length} سانت</b> آبداره 😩💦
+dod.position.dick = حالا این کیر در جایگاه <b>#{pos}</b> جدول است.
+pvp.results.start.dick = <b>{name}</b> کیرش رو درآورد و <b>{bet} سانت</b> شرط بست! 🍆
+pvp.results.finish.dick = 🍆 <b>{winner_name}</b> نبرد رو برد!\n\nکیرش حالا <b>{winner_length} سانت</b> گوشت تپندهٔ پرشکوهه. برای <b>{loser_name}</b> فقط <b>{loser_length}</b> مونده 😩\n\nشرط <b>{bet}</b> بود.
+pvp.results.position.winner.dick = کیر <b>{name}</b> حالا در جایگاه <b>#{pos}</b> جدول است.
+pvp.results.position.loser.dick = کیر <b>{name}</b> حالا در جایگاه <b>#{pos}</b> جدول است.
+pvp.results.withheld.dick = <b>{payout} سانت</b> از کیر برنده برای پرداخت وام برداشته شد.
+pvp.errors.not_enough.initiator.dick = این کیر برای این‌قدر ریسک بزرگ نیست، جندهٔ نیازمند.
+pvp.errors.not_enough.acceptor.dick = کیر کوچولوت برای این شرط کافی نیست 😣
+pvp.errors.same_person.dick = جندهٔ کوچولوی خنگ! نمی‌تونی با کیر خودت بجنگی! 😝
+stats.length.dick = اندازهٔ کیر: <b>{length} سانت</b>\nجایگاه در جدول: <b>#{pos}</b>
+stats.pvp.dick = درصد برد: <b>{win_rate}</b>.\nنبردهای کیر: <b>{battles}</b>.\nبردها: <b>{wins}</b>.\nبهترین رکورد: <b>{win_streak}</b>.\nکیر به‌دست‌آمده: <b>{acquired} سانت</b>.\nکیر از دست‌رفته: <b>{lost} سانت</b>.
+stats.personal.dick = <i>رزومهٔ کیری تو:</i>\n— گروه‌هایی که در آن‌ها رشد می‌کنی: <b>{chats}</b>.\n— بزرگ‌ترین کیر: <b>{max_length} سانت</b>.\n— مجموع کیر در همهٔ گروه‌ها: <b>{total_length} سانت</b>.
+loan.debt.dick = بدهی کیری باقی‌مانده: <b>{debt} سانت</b>
+loan.confirmation.text.dick = کیر غمگین و چروکیده‌ات صفر می‌شه، ولی از هر رشد بعدی <b>{payout_percentage}</b> کم می‌شه تا کل <b>{debt} سانت</b> رو پس بدی.
+loan.callback.success.dick = وام اضطراری کیرت تأیید شد!
+loan.callback.refused.dick = وام‌گیرندهٔ درمانده وام کیر رو رد کرد.
+loan.errors.positive_length.dick = کیرت همین الان بالای صفره، جندهٔ حریص. وام فقط برای کیرهای واقعاً ریزه.
+perks.top_line.dick = این امتیازها به کیرت دست زدن
+perks.help-pussies.dick = حمایت از کیرریزها
+perks.loan-payout.dick = بازپرداخت وام کیر

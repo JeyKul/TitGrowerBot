@@ -89,6 +89,34 @@ func (t *Texts) T(lang, key string, args ...any) string {
 	return s
 }
 
+// G is T for a text about one player. A locale may have variants of a key:
+//
+//	key            tits + she (the default)
+//	key.he         tits + he      key.they       tits + they
+//	key.dick       dick (+ he)    key.dick.she   key.dick.they
+//
+// The most specific variant that exists wins: key.<body>.<pron>, key.<body>, key.<pron>, key.
+func (t *Texts) G(lang string, g Gender, key string, args ...any) string {
+	var tries []string
+	if g.Body == "dick" {
+		tries = append(tries, key+".dick."+g.Pron, key+".dick")
+	}
+	if g.Pron != "she" {
+		tries = append(tries, key+"."+g.Pron)
+	}
+	for _, k := range tries {
+		if _, ok := t.m[lang][k]; ok {
+			return t.T(lang, k, args...)
+		}
+		if _, ok := t.m["en"][k]; ok && !t.hasKey(lang, key) {
+			return t.T(lang, k, args...)
+		}
+	}
+	return t.T(lang, key, args...)
+}
+
+func (t *Texts) hasKey(lang, key string) bool { _, ok := t.m[lang][key]; return ok }
+
 // pickLang maps a Telegram language code ("ru", "zh-hans", "zh-hant", "pt-br") to a loaded locale.
 func (t *Texts) pickLang(code string) string {
 	code = strings.ToLower(code)

@@ -38,6 +38,9 @@ type Config struct {
 	PvpCheckAcceptor bool
 	PvpShowStats     bool
 	Debug            bool
+	WebURL           string // public https address of the web app, e.g. https://example.com/tits
+	WebAddr          string // where the web server listens, e.g. 127.0.0.1:8085
+	Admins           map[int64]bool
 }
 
 func env(key, def string) string {
@@ -113,7 +116,21 @@ func loadConfig() Config {
 		PvpCheckAcceptor: envBool("PVP_CHECK_ACCEPTOR_LENGTH", false),
 		PvpShowStats:     envBool("PVP_STATS_SHOW", true),
 		Debug:            envBool("DEBUG", false),
+		WebURL:           strings.TrimRight(env("WEB_URL", ""), "/"),
+		WebAddr:          env("WEB_ADDR", "127.0.0.1:8085"),
+		Admins:           parseIDs(env("ADMIN_IDS", "")),
 	}
+}
+
+// parseIDs reads "123,456" into a set.
+func parseIDs(s string) map[int64]bool {
+	ids := map[int64]bool{}
+	for _, part := range strings.Split(s, ",") {
+		if id, err := strconv.ParseInt(strings.TrimSpace(part), 10, 64); err == nil {
+			ids[id] = true
+		}
+	}
+	return ids
 }
 
 // App is shared by all handlers.
@@ -145,6 +162,9 @@ func main() {
 	if err := migrate(ctx, db, env("MIGRATIONS_DIR", "migrations")); err != nil {
 		log.Fatalf("migrations: %v", err)
 	}
+	if err := ensureTables(ctx, db); err != nil {
+		log.Fatalf("extra tables: %v", err)
+	}
 
 	go backupLoop(cfg.DatabaseURL)
 
@@ -157,10 +177,12 @@ func main() {
 
 	app := &App{cfg: cfg, bot: bot, db: db, texts: texts}
 	app.setCommands()
+	app.setMenuButton()
+	go app.serveWeb()
 
 	u := tg.NewUpdate(0)
 	u.Timeout = 60
-	u.AllowedUpdates = []string{"message", "callback_query"}
+	u.AllowedUpdates = []string{"message", "callback_query", "inline_query"}
 	for update := range bot.GetUpdatesChan(u) {
 		go app.handle(update)
 	}
@@ -176,7 +198,15 @@ func (a *App) handle(u tg.Update) {
 	ctx := context.Background()
 
 	switch {
+	case u.InlineQuery != nil:
+		if !isBlocked(ctx, a.db, u.InlineQuery.From.ID) {
+			a.onInline(ctx, u.InlineQuery)
+		}
 	case u.CallbackQuery != nil:
+		if isBlocked(ctx, a.db, u.CallbackQuery.From.ID) {
+			a.answer(u.CallbackQuery, a.texts.T(a.texts.pickLang(u.CallbackQuery.From.LanguageCode), "errors.blocked"))
+			return
+		}
 		a.onButton(ctx, u.CallbackQuery)
 	case u.Message != nil:
 		m := u.Message
@@ -184,7 +214,7 @@ func (a *App) handle(u tg.Update) {
 			a.onChatMigrated(ctx, m.Chat.ID, m.MigrateToChatID)
 			return
 		}
-		if !m.IsCommand() {
+		if !m.IsCommand() || (m.From != nil && isBlocked(ctx, a.db, m.From.ID)) {
 			return
 		}
 		// "/grow@OtherBot" is not for us.
@@ -198,7 +228,7 @@ func (a *App) handle(u tg.Update) {
 
 // setCommands fills the command menu in Telegram for every language.
 func (a *App) setCommands() {
-	names := []string{"grow", "top", "dod", "pvp", "stats", "loan", "language", "help"}
+	names := []string{"grow", "top", "dod", "pvp", "stats", "loan", "gender", "app", "language", "help"}
 	for _, lang := range a.texts.Langs() {
 		var cmds []tg.BotCommand
 		for _, n := range names {

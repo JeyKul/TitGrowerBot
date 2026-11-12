@@ -19,8 +19,14 @@ Commands
 * `/pvp <bet>` — challenge the chat; the winner takes the bet
 * `/stats` — your stats
 * `/loan` — negative length? reset it to zero and repay from future growth
+* `/gender` — she / he / they, and 🍒 tits or 🍆 dick
+* `/app` — open the web app
 * `/language` — chat admins pick the chat language
 * `/help`
+
+**Inline mode:** type `@TitGrowerBot` in any chat to grow, see the top, elect, check stats or
+take a loan; `@TitGrowerBot 5` starts a fight for 5. In supergroups this counts towards the same
+score as the normal commands. Turn it on once in @BotFather: `/setinline`.
 
 Project
 -------
@@ -29,13 +35,46 @@ Project
 | `main.go` | settings, startup, routing |
 | `game.go` | all commands and buttons |
 | `db.go` | all SQL |
+| `inline.go` | inline mode |
+| `web.go`, `web/index.html` | the web app and admin panel |
+| `backup.go` | daily backups |
 | `texts.go` | loads the locale files |
 | `locales/*.txt` | texts, one `key = text` per line |
 | `migrations/` | database schema (applied only to an empty database) |
 
+### Web app
+A Telegram Mini App. Players see their size in every chat, the tops, and pick their gender.
+Admins (`ADMIN_IDS`) also get an admin tab: search users, set lengths, block/unblock, delete.
+Blocked users are ignored by the bot and hidden from tops and elections.
+
+Telegram needs **https**. Set in `.env`:
+```
+WEB_URL=https://jey.kulovac.de/tits
+WEB_ADDR=127.0.0.1:8085
+ADMIN_IDS=706488778
+```
+Then forward `/tits` on your web server to the bot. **Caddy** (gets the certificate by itself):
+```
+jey.kulovac.de {
+    handle /tits* {
+        reverse_proxy 127.0.0.1:8085
+    }
+}
+```
+**nginx** (inside the `server { ... }` block for jey.kulovac.de that already has https):
+```
+location /tits {
+    proxy_pass http://127.0.0.1:8085;
+    proxy_set_header Host $host;
+}
+```
+The bot puts the app on its menu button in private chats; `/app` in a group links there.
+
 ### Editing texts
 Open `locales/en.txt` (or another language). `\n` is a line break, `{name}` is filled in
 by the bot, HTML tags like `<b>` work. A key missing in a language falls back to English.
+A key can have gender variants: `key.dick` for 🍆 players, `key.he` / `key.they` for pronouns,
+and `key.dick.she` / `key.dick.they`. Without a variant the plain key is used (🍒 + she).
 To add a language, copy `en.txt` to `<code>.txt` and translate it.
 
 Running

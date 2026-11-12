@@ -74,3 +74,82 @@ perks.loan-payout = rimborso del prestito
 errors.not_group_chat = Le tette crescono solo nei gruppi! Aggiungimi a un gruppo 🍒
 errors.group_account = Non puoi far crescere tette come gruppo o canale — disattiva la modalità anonima e riprova!
 errors.another_user = Non sono le tue tette, giù le mani! Questo pulsante è di qualcun altro.
+
+errors.blocked = Sei stata cacciata dalla fattoria delle tette 🚫
+
+# ---- /gender ----
+gender.description = Tette o cazzo? lei, lui o loro? Scegli il tuo
+gender.prompt = Cosa stai facendo crescere, troietta bisognosa? Ora: <b>{current}</b>\n\nScegli i pronomi e cosa vuoi gonfiare 🍒🍆
+gender.saved = Fatto, troietta~ Ora sei <b>{current}</b>. Vai a fare /grow a quelle tette 🍒💦
+gender.saved.dick = Fatto, troietta~ Ora sei <b>{current}</b>. Vai a fare /grow a quel cazzo grosso 🍆💦
+
+# ---- web app ----
+app.description = Apri l'app delle tette 📱
+app.button = 🍒 Apri l'app
+app.private = Tocca qui sotto: le tue tette in ogni chat, cosa fai crescere e altro 🍒📱
+app.group = L'app si apre in chat privata con me. Tocca qui sotto, troietta 😘
+
+# ---- inline ----
+inline.text = 🍒 Tocca il pulsante, troietta, e lo mostro a tutti~
+inline.button = 💦 Toccami!
+inline.titles.grow = 🍒 Fai crescere le tette
+inline.titles.grow.dick = 🍆 Fai crescere il cazzo
+inline.titles.top = 🏆 Classifica di questa chat
+inline.titles.dod = 👑 Tette del Giorno
+inline.titles.stats = 📊 Le tue statistiche
+inline.titles.loan = 💸 Prestito per le tette
+inline.titles.loan.dick = 💸 Prestito per il cazzo
+inline.titles.pvp = ⚔️ Lotta di tette per {bet} cc!
+inline.titles.pvp.dick = ⚔️ Lotta di cazzi per {bet} cm!
+inline.descriptions.grow = Una volta al giorno. Gonfiale, troietta
+inline.descriptions.grow.dick = Una volta al giorno. Pompalo, troietta
+inline.descriptions.top = Chi ha la merce più succosa qui?
+inline.descriptions.dod = Incorona la troietta più fortunata di oggi
+inline.descriptions.stats = La tua misura, lotte e record
+inline.descriptions.loan = Sotto zero? Fatti salvare
+
+# ---- pronomi (per le tette): .he — lui, .they — loro ----
+grow.tomorrow.he = Le tue tettone da troia sono ancora doloranti e gocciolanti, avido puttanello~
+grow.tomorrow.they = Le tue tettone da troia sono ancora doloranti e gocciolanti, avida creatura~
+pvp.errors.not_enough.initiator.he = Quelle tette non sono abbastanza pesanti per rischiare tanto, troietto bisognoso.
+pvp.errors.not_enough.initiator.they = Quelle tette non sono abbastanza pesanti per rischiare tanto, creatura bisognosa.
+pvp.errors.same_person.he = Sciocco troietto! Non puoi lottare contro le tue stesse tette! 😝
+pvp.errors.same_person.they = Sciocca creatura! Non puoi lottare contro le tue stesse tette! 😝
+loan.errors.positive_length.he = Le tue tette sono già sopra lo zero, troietto avido. I prestiti sono solo per i ragazzi davvero piatti.
+loan.errors.positive_length.they = Le tue tette sono già sopra lo zero, creatura avida. I prestiti sono solo per chi è davvero piatto.
+
+# ---- 🍆 cazzo (.dick — lui, .dick.she — lei, .dick.they — loro) ----
+grow.result.dick = {event} di <b>{incr} cm.</b> Ora hai <b>{length} cm di cazzo grosso e pulsante</b> 😩💦.
+grow.direction.grown.dick = 💦🍆 CAZZO SÌÌÌ~ il tuo cazzo da troia si è gonfiato
+grow.direction.shrunk.dick = Non sei abbastanza TROIA per un cazzo grande. Si è ristretto
+grow.tomorrow.dick = Il tuo cazzone da troia è ancora dolorante e gocciolante, avido puttanello~
+grow.tomorrow.dick.she = Il tuo cazzone da troia è ancora dolorante e gocciolante, avida puttanella~
+grow.tomorrow.dick.they = Il tuo cazzone da troia è ancora dolorante e gocciolante, avida creatura~
+top.line.dick = {n}|<b>{name}</b> — <b>{length} cm</b> di cazzo pulsante 🍆
+dod.result.dick = 🍆 <b>CAZZO DEL GIORNO</b> 🍆\n\nVince <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nQuel cazzo stupendo si è gonfiato di <b>{growth} cm</b> e ora è lungo ben <b>{length} cm</b> 😩💦
+dod.position.dick = Ora quel cazzo è <b>#{pos}</b> in classifica.
+pvp.results.start.dick = <b>{name}</b> tira fuori il cazzo e scommette <b>{bet} cm</b>! 🍆
+pvp.results.finish.dick = 🍆 <b>{winner_name}</b> vince lo scontro!\n\nIl suo cazzo ora è <b>{winner_length} cm</b> di gloriosa carne pulsante. A <b>{loser_name}</b> restano <b>{loser_length}</b> 😩\n\nLa posta era <b>{bet}</b>.
+pvp.results.position.winner.dick = Il cazzo di <b>{name}</b> ora è <b>#{pos}</b> in classifica.
+pvp.results.position.loser.dick = Il cazzo di <b>{name}</b> ora è <b>#{pos}</b> in classifica.
+pvp.results.withheld.dick = <b>{payout} cm</b> sono stati presi dal cazzo del vincitore per ripagare il prestito.
+pvp.errors.not_enough.initiator.dick = Quel cazzo non è abbastanza grosso per rischiare tanto, troietto bisognoso.
+pvp.errors.not_enough.initiator.dick.she = Quel cazzo non è abbastanza grosso per rischiare tanto, troietta bisognosa.
+pvp.errors.not_enough.initiator.dick.they = Quel cazzo non è abbastanza grosso per rischiare tanto, creatura bisognosa.
+pvp.errors.not_enough.acceptor.dick = Il tuo cazzetto non ha abbastanza cm per questa scommessa 😣
+pvp.errors.same_person.dick = Sciocco troietto! Non puoi lottare contro il tuo stesso cazzo! 😝
+pvp.errors.same_person.dick.she = Sciocca troietta! Non puoi lottare contro il tuo stesso cazzo! 😝
+pvp.errors.same_person.dick.they = Sciocca creatura! Non puoi lottare contro il tuo stesso cazzo! 😝
+stats.length.dick = Misura del cazzo: <b>{length} cm</b>\nPosizione in classifica: <b>#{pos}</b>
+stats.pvp.dick = Percentuale di vittorie: <b>{win_rate}</b>.\nLotte di cazzi: <b>{battles}</b>.\nVittorie: <b>{wins}</b>.\nSerie migliore: <b>{win_streak}</b>.\nCazzo vinto: <b>{acquired} cm</b>.\nCazzo perso: <b>{lost} cm</b>.
+stats.personal.dick = <i>Il tuo curriculum cazzuto:</i>\n— Chat in cui cresci: <b>{chats}</b>.\n— Cazzo più grande: <b>{max_length} cm</b>.\n— Cazzo totale in tutte le chat: <b>{total_length} cm</b>.
+loan.debt.dick = Debito di cazzo rimasto: <b>{debt} cm</b>
+loan.confirmation.text.dick = Il tuo triste cazzo raggrinzito tornerà a zero, ma ogni crescita futura sarà tassata del <b>{payout_percentage}</b> finché non ripaghi tutti i <b>{debt} cm</b>.
+loan.callback.success.dick = Il tuo prestito di emergenza per il cazzo è stato approvato!
+loan.callback.refused.dick = Il disperato richiedente ha rifiutato il prestito per il cazzo.
+loan.errors.positive_length.dick = Il tuo cazzo è già sopra lo zero, troietto avido. I prestiti sono solo per i ragazzi davvero minuscoli.
+loan.errors.positive_length.dick.she = Il tuo cazzo è già sopra lo zero, troietta avida. I prestiti sono solo per le ragazze davvero minuscole.
+loan.errors.positive_length.dick.they = Il tuo cazzo è già sopra lo zero, creatura avida. I prestiti sono solo per chi è davvero minuscolo.
+perks.top_line.dick = Questi bonus hanno toccato il tuo cazzo
+perks.help-pussies.dick = sostegno per i cazzetti
+perks.loan-payout.dick = rimborso del prestito

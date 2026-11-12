@@ -74,3 +74,82 @@ perks.loan-payout = выплата сиськокредита
 errors.not_group_chat = Сиськи растут только в группах! Добавь меня в группу 🍒
 errors.group_account = Нельзя растить сиськи от имени группы или канала — выключи анонимность и попробуй снова!
 errors.another_user = Это не твои сиськи, руки прочь! Кнопка принадлежит другому человеку.
+
+errors.blocked = Тебя выгнали с сиськофермы 🚫
+
+# ---- /gender ----
+gender.description = Сиськи или член? она, он или они? Выбери себя
+gender.prompt = Что ты растишь, жадная шлюшка? Сейчас: <b>{current}</b>\n\nВыбери местоимения и что будешь раздувать 🍒🍆
+gender.saved = Готово, шлюшка~ Теперь ты <b>{current}</b>. Иди делай /grow своим сиськам 🍒💦
+gender.saved.dick = Готово, шлюшка~ Теперь ты <b>{current}</b>. Иди делай /grow своему толстому члену 🍆💦
+
+# ---- web app ----
+app.description = Открыть сиськоприложение 📱
+app.button = 🍒 Открыть приложение
+app.private = Жми ниже: твои сиськи во всех чатах, выбор того, что растишь, и не только 🍒📱
+app.group = Приложение открывается в личке со мной. Жми ниже, шлюшка 😘
+
+# ---- inline ----
+inline.text = 🍒 Жми кнопку, шлюшка, и я покажу всем~
+inline.button = 💦 Жми!
+inline.titles.grow = 🍒 Отрастить сиськи
+inline.titles.grow.dick = 🍆 Отрастить член
+inline.titles.top = 🏆 Топ этого чата
+inline.titles.dod = 👑 Сиськи дня
+inline.titles.stats = 📊 Твоя статистика
+inline.titles.loan = 💸 Сиськокредит
+inline.titles.loan.dick = 💸 Членокредит
+inline.titles.pvp = ⚔️ Сиськобитва на {bet} см³!
+inline.titles.pvp.dick = ⚔️ Членобитва на {bet} см!
+inline.descriptions.grow = Раз в день. Раздуй их, шлюшка
+inline.descriptions.grow.dick = Раз в день. Накачай его, шлюшка
+inline.descriptions.top = У кого тут самое сочное добро?
+inline.descriptions.dod = Коронуй самую везучую шлюшку дня
+inline.descriptions.stats = Твой размер, битвы и рекорды
+inline.descriptions.loan = Ушла в минус? Возьми кредит
+
+# ---- местоимения (для сисек): .he — он, .they — они ----
+grow.tomorrow.he = Твои жирные шлюшьи сиськи ещё болят и текут, жадный шлюшонок~
+grow.tomorrow.they = Твои жирные шлюшьи сиськи ещё болят и текут, жадное создание~
+pvp.errors.not_enough.initiator.he = Эти сиськи слишком лёгкие для такой ставки, жадный шлюшонок.
+pvp.errors.not_enough.initiator.they = Эти сиськи слишком лёгкие для такой ставки, жадное создание.
+pvp.errors.same_person.he = Глупый шлюшонок! Нельзя драться со своими же сиськами! 😝
+pvp.errors.same_person.they = Глупое создание! Нельзя драться со своими же сиськами! 😝
+loan.errors.positive_length.he = Твои сиськи и так выше нуля, жадный шлюшонок. Кредиты только для совсем плоских.
+loan.errors.positive_length.they = Твои сиськи и так выше нуля, жадное создание. Кредиты только для совсем плоских.
+
+# ---- 🍆 член (.dick — он, .dick.she — она, .dick.they — они) ----
+grow.result.dick = {event} на <b>{incr} см.</b> Теперь у тебя <b>{length} см толстого, пульсирующего члена</b> 😩💦.
+grow.direction.grown.dick = 💦🍆 ДААААА, БЛЯТЬ~ твой шлюший член набух
+grow.direction.shrunk.dick = Ты недостаточно ШЛЮХА для большого члена. Он съёжился
+grow.tomorrow.dick = Твой жирный шлюший член ещё ноет и течёт, жадный шлюшонок~
+grow.tomorrow.dick.she = Твой жирный шлюший член ещё ноет и течёт, жадная шлюшка~
+grow.tomorrow.dick.they = Твой жирный шлюший член ещё ноет и течёт, жадное создание~
+top.line.dick = {n}|<b>{name}</b> — <b>{length} см</b> пульсирующего члена 🍆
+dod.result.dick = 🍆 <b>ЧЛЕН ДНЯ</b> 🍆\n\nПобеждает <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nЭтот шикарный член набух на <b>{growth} см</b> и теперь целых <b>{length} см</b> 😩💦
+dod.position.dick = Теперь этот член на <b>#{pos}</b> месте в топе.
+pvp.results.start.dick = <b>{name}</b> достаёт член и ставит <b>{bet} см</b>! 🍆
+pvp.results.finish.dick = 🍆 <b>{winner_name}</b> побеждает в битве!\n\nЕго член теперь — <b>{winner_length} см</b> роскошного пульсирующего мяса. У <b>{loser_name}</b> осталось <b>{loser_length}</b> 😩\n\nСтавка была <b>{bet}</b>.
+pvp.results.position.winner.dick = Член <b>{name}</b> теперь на <b>#{pos}</b> месте в топе.
+pvp.results.position.loser.dick = Член <b>{name}</b> теперь на <b>#{pos}</b> месте в топе.
+pvp.results.withheld.dick = <b>{payout} см</b> забрали с члена победителя в счёт долга.
+pvp.errors.not_enough.initiator.dick = Этот член слишком мал для такой ставки, жадный шлюшонок.
+pvp.errors.not_enough.initiator.dick.she = Этот член слишком мал для такой ставки, жадная шлюшка.
+pvp.errors.not_enough.initiator.dick.they = Этот член слишком мал для такой ставки, жадное создание.
+pvp.errors.not_enough.acceptor.dick = Твоему маленькому члену не хватает см для этой ставки 😣
+pvp.errors.same_person.dick = Глупый шлюшонок! Нельзя драться со своим же членом! 😝
+pvp.errors.same_person.dick.she = Глупая шлюшка! Нельзя драться со своим же членом! 😝
+pvp.errors.same_person.dick.they = Глупое создание! Нельзя драться со своим же членом! 😝
+stats.length.dick = Размер члена: <b>{length} см</b>\nМесто в топе: <b>#{pos}</b>
+stats.pvp.dick = Процент побед: <b>{win_rate}</b>.\nЧленобитв: <b>{battles}</b>.\nПобед: <b>{wins}</b>.\nЛучшая серия: <b>{win_streak}</b>.\nЧлена выиграно: <b>{acquired} см</b>.\nЧлена проиграно: <b>{lost} см</b>.
+stats.personal.dick = <i>Твоё личное членорезюме:</i>\n— Чатов, где ты растёшь: <b>{chats}</b>.\n— Самый большой член: <b>{max_length} см</b>.\n— Всего члена во всех чатах: <b>{total_length} см</b>.
+loan.debt.dick = Осталось вернуть: <b>{debt} см</b>
+loan.confirmation.text.dick = Твой грустный сморщенный член обнулится, но каждый рост будет облагаться налогом <b>{payout_percentage}</b>, пока не вернёшь все <b>{debt} см</b>.
+loan.callback.success.dick = Твой срочный членокредит одобрен!
+loan.callback.refused.dick = Отчаянный заёмщик отказался от членокредита.
+loan.errors.positive_length.dick = Твой член и так выше нуля, жадный шлюшонок. Кредиты только для совсем крошечных.
+loan.errors.positive_length.dick.she = Твой член и так выше нуля, жадная шлюшка. Кредиты только для совсем крошечных.
+loan.errors.positive_length.dick.they = Твой член и так выше нуля, жадное создание. Кредиты только для совсем крошечных.
+perks.top_line.dick = Эти бонусы потрогали твой член
+perks.help-pussies.dick = поддержка крошечных
+perks.loan-payout.dick = выплата членокредита

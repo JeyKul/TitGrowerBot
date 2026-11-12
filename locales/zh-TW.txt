@@ -74,3 +74,64 @@ perks.loan-payout = 奶子貸款還款
 errors.not_group_chat = 奶子只在群裡長！把我加進群吧 🍒
 errors.group_account = 不能以群組或頻道身分養奶子——關閉匿名模式再試一次！
 errors.another_user = 這不是你的奶子，別亂摸！這個按鈕屬於別人。
+
+errors.blocked = 你被踢出奶子農場了 🚫
+
+# ---- /gender ----
+gender.description = 奶子還是雞巴？她、他還是他們？選你的
+gender.prompt = 你在養什麼，飢渴的小騷貨？現在：<b>{current}</b>\n\n選你的代詞和你想脹大的東西 🍒🍆
+gender.saved = 好了，小騷貨~ 你現在是 <b>{current}</b>。快去給奶子 /grow 🍒💦
+gender.saved.dick = 好了，小騷貨~ 你現在是 <b>{current}</b>。快去給大雞巴 /grow 🍆💦
+
+# ---- web app ----
+app.description = 打開奶子應用 📱
+app.button = 🍒 打開應用
+app.private = 點下面：看你在所有群裡的奶子、改你養的東西等等 🍒📱
+app.group = 應用會在和我的私聊裡打開。點下面，小騷貨 😘
+
+# ---- inline ----
+inline.text = 🍒 點按鈕，小騷貨，我就給大家看~
+inline.button = 💦 點我！
+inline.titles.grow = 🍒 讓奶子長大
+inline.titles.grow.dick = 🍆 讓雞巴長大
+inline.titles.top = 🏆 本群排行
+inline.titles.dod = 👑 今日奶王
+inline.titles.stats = 📊 你的數據
+inline.titles.loan = 💸 奶子貸款
+inline.titles.loan.dick = 💸 雞巴貸款
+inline.titles.pvp = ⚔️ 賭 {bet} cc 的奶子大戰！
+inline.titles.pvp.dick = ⚔️ 賭 {bet} 公分的雞巴大戰！
+inline.descriptions.grow = 一天一次。讓它們脹起來，小騷貨
+inline.descriptions.grow.dick = 一天一次。把它擼大，小騷貨
+inline.descriptions.top = 這裡誰的貨最多汁？
+inline.descriptions.dod = 加冕今天最走運的小騷貨
+inline.descriptions.stats = 你的尺寸、對戰和紀錄
+inline.descriptions.loan = 負數了？來救急
+
+# ---- 🍆 雞巴 ----
+grow.result.dick = {event} <b>{incr} 公分。</b>現在你有 <b>{length} 公分又粗又跳的雞巴</b> 😩💦。
+grow.direction.grown.dick = 💦🍆 幹啊啊啊爽~ 你的騷雞巴脹大了
+grow.direction.shrunk.dick = 你還不夠騷，配不上大雞巴。它縮小了
+grow.tomorrow.dick = 你那根肥騷雞巴還在痠痛流水呢，貪心的小騷貨~
+top.line.dick = {n}|<b>{name}</b> — <b>{length} 公分</b> 跳動的雞巴 🍆
+dod.result.dick = 🍆 <b>今日屌王</b> 🍆\n\n<b><a href="tg://user?id={uid}">{name}</a></b> 勝出！\n\n那根絕美的雞巴脹大了 <b>{growth} 公分</b>，現在足足有 <b>{length} 公分</b> 😩💦
+dod.position.dick = 這根雞巴現在排名第 <b>#{pos}</b>。
+pvp.results.start.dick = <b>{name}</b> 掏出雞巴，押下 <b>{bet} 公分</b>！🍆
+pvp.results.finish.dick = 🍆 <b>{winner_name}</b> 贏下了大戰！\n\nTa 的雞巴現在有 <b>{winner_length} 公分</b> 的華麗跳動肉棒。<b>{loser_name}</b> 只剩下 <b>{loser_length}</b> 😩\n\n賭注是 <b>{bet}</b>。
+pvp.results.position.winner.dick = <b>{name}</b> 的雞巴現在排名第 <b>#{pos}</b>。
+pvp.results.position.loser.dick = <b>{name}</b> 的雞巴現在排名第 <b>#{pos}</b>。
+pvp.results.withheld.dick = 已從贏家的雞巴上扣除 <b>{payout} 公分</b> 用於還貸。
+pvp.errors.not_enough.initiator.dick = 這根雞巴太小了，押不起這麼多，飢渴的小騷貨。
+pvp.errors.not_enough.acceptor.dick = 你的小雞巴不夠這個賭注 😣
+pvp.errors.same_person.dick = 傻乎乎的小騷貨！你不能和自己的雞巴打！😝
+stats.length.dick = 雞巴尺寸：<b>{length} 公分</b>\n排行榜位置：<b>#{pos}</b>
+stats.pvp.dick = 勝率：<b>{win_rate}</b>。\n雞巴大戰：<b>{battles}</b>。\n勝場：<b>{wins}</b>。\n最佳連勝：<b>{win_streak}</b>。\n贏得雞巴：<b>{acquired} 公分</b>。\n失去雞巴：<b>{lost} 公分</b>。
+stats.personal.dick = <i>你的個人雞巴履歷：</i>\n— 你在長的群：<b>{chats}</b>。\n— 最大的雞巴：<b>{max_length} 公分</b>。\n— 所有群的雞巴總長：<b>{total_length} 公分</b>。
+loan.debt.dick = 剩餘雞巴債務：<b>{debt} 公分</b>
+loan.confirmation.text.dick = 你那根可憐皺巴巴的雞巴會被歸零，但以後每次成長都會扣 <b>{payout_percentage}</b>，直到還清全部 <b>{debt} 公分</b>。
+loan.callback.success.dick = 你的緊急雞巴貸款已核准！
+loan.callback.refused.dick = 絕望的小借款人拒絕了雞巴貸款。
+loan.errors.positive_length.dick = 你的雞巴已經在零以上了，貪心小騷貨。貸款只給真正的小雞巴。
+perks.top_line.dick = 這些加成摸過你的雞巴
+perks.help-pussies.dick = 小雞巴扶持
+perks.loan-payout.dick = 雞巴貸款還款

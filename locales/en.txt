@@ -74,3 +74,68 @@ perks.loan-payout = tit loan repayment
 errors.not_group_chat = Tits only grow in group chats! Add me to a group 🍒
 errors.group_account = You can't grow tits as a group or channel — turn off anonymous mode and try again!
 errors.another_user = These aren't your tits, hands off! This button belongs to someone else.
+
+errors.blocked = You've been kicked off the tit farm 🚫
+
+# ---- /gender ----
+gender.description = Tits or dick? she, he or they? Pick yours
+gender.prompt = What are you growing, you needy slut? Right now: <b>{current}</b>\n\nPick your pronouns and what you want to swell 🍒🍆
+gender.saved = Done, slut~ You're now <b>{current}</b>. Go /grow those tits 🍒💦
+gender.saved.dick = Done, slut~ You're now <b>{current}</b>. Go /grow that fat cock 🍆💦
+
+# ---- web app ----
+app.description = Open the tit app 📱
+app.button = 🍒 Open the app
+app.private = Tap below to see your tits in every chat, change what you grow and more 🍒📱
+app.group = The app opens in a private chat with me. Tap below, slut 😘
+
+# ---- inline mode (@bot in any chat) ----
+inline.text = 🍒 Tap the button, slut, and I'll show everyone~
+inline.button = 💦 Tap me!
+inline.titles.grow = 🍒 Grow your tits
+inline.titles.grow.dick = 🍆 Grow your cock
+inline.titles.top = 🏆 Top of this chat
+inline.titles.dod = 👑 Titties of the Day
+inline.titles.stats = 📊 Your stats
+inline.titles.loan = 💸 Tit loan
+inline.titles.loan.dick = 💸 Cock loan
+inline.titles.pvp = ⚔️ Tit fight for {bet} cc!
+inline.titles.pvp.dick = ⚔️ Cock fight for {bet} cm!
+inline.descriptions.grow = Once a day. Swell them up, slut
+inline.descriptions.grow.dick = Once a day. Pump it up, slut
+inline.descriptions.top = Who has the juiciest goods here?
+inline.descriptions.dod = Crown today's luckiest slut
+inline.descriptions.stats = Your size, fights and records
+inline.descriptions.loan = Below zero? Get bailed out
+
+# ---- 🍆 variants: used for players who grow a dick (.dick), with .she/.they for pronouns ----
+grow.result.dick = {event} by <b>{incr} cm.</b> Now you're packing <b>{length} cm of thick, throbbing cock</b> 😩💦.
+grow.direction.grown.dick = 💦🍆 FUUUUCK YES~ your slutty cock swelled
+grow.direction.shrunk.dick = You're not SLUT enough for a big cock. It has shrunken
+grow.tomorrow.dick = Your fat slutty cock is still sore and dripping, you greedy whore~
+top.line.dick = {n}|<b>{name}</b> — <b>{length} cm</b> of throbbing cock 🍆
+dod.result.dick = 🍆 <b>COCK OF THE DAY</b> 🍆\n\n<b><a href="tg://user?id={uid}">{name}</a></b> wins!\n\nThat gorgeous cock swelled by <b>{growth} cm</b> and is now a juicy <b>{length} cm</b> 😩💦
+dod.position.dick = That cock is now ranked <b>#{pos}</b> on the leaderboard.
+pvp.results.start.dick = <b>{name}</b> whipped out their cock with a <b>{bet} cm</b> bet! 🍆
+pvp.results.finish.dick = 🍆 <b>{winner_name}</b> wins the clash!\n\nTheir cock is now <b>{winner_length} cm</b> of glorious throbbing meat. <b>{loser_name}</b> is left with <b>{loser_length}</b> 😩\n\nThe wager was <b>{bet}</b>.
+pvp.results.position.winner.dick = <b>{name}</b>'s cock now sits at <b>#{pos}</b> on the leaderboard.
+pvp.results.position.loser.dick = <b>{name}</b>'s cock now sits at <b>#{pos}</b> on the leaderboard.
+pvp.results.withheld.dick = <b>{payout} cm</b> was taken from the winner’s cock to repay their loan.
+pvp.errors.not_enough.initiator.dick = That cock isn't big enough to risk that much, needy slut.
+pvp.errors.not_enough.acceptor.dick = Your little cock doesn't have enough for that bet 😣
+pvp.errors.same_person.dick = Silly little slut whore! You can't fight your own cock! 😝
+stats.length.dick = Cock size: <b>{length} cm</b>\nLeaderboard position: <b>#{pos}</b>
+stats.pvp.dick = Win rate: <b>{win_rate}</b>.\nCock fights: <b>{battles}</b>.\nWins: <b>{wins}</b>.\nBest streak: <b>{win_streak}</b>.\nCock gained: <b>{acquired} cm</b>.\nCock lost: <b>{lost} cm</b>.
+stats.personal.dick = <i>Your personal cock résumé:</i>\n— Chats where you grow: <b>{chats}</b>.\n— Biggest cock: <b>{max_length} cm</b>.\n— Total cock across all chats: <b>{total_length} cm</b>.
+loan.debt.dick = Cock debt remaining: <b>{debt} cm</b>
+loan.confirmation.text.dick = Your sad, shrivelled cock will be reset to zero, but every future growth is taxed by <b>{payout_percentage}</b> until you repay all <b>{debt} cm</b>.
+loan.callback.success.dick = Your emergency cock loan has been approved!
+loan.callback.refused.dick = The desperate little borrower refused the cock loan.
+loan.errors.positive_length.dick = Your cock is already above zero, greedy slut. Loans are for truly tiny boys only.
+loan.errors.positive_length.dick.she = Your cock is already above zero, greedy slut. Loans are for truly tiny girls only.
+loan.errors.positive_length.dick.they = Your cock is already above zero, greedy slut. Loans are for truly tiny sluts only.
+loan.errors.positive_length.he = Your tits are already above zero, greedy slut. Loans are for truly flat boys only.
+loan.errors.positive_length.they = Your tits are already above zero, greedy slut. Loans are for truly flat sluts only.
+perks.top_line.dick = These perks touched your cock
+perks.help-pussies.dick = tiny-dick support
+perks.loan-payout.dick = cock loan repayment
