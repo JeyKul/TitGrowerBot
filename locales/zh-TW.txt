@@ -79,7 +79,7 @@ errors.blocked = 你被踢出奶子農場了 🚫
 
 # ---- /gender ----
 gender.description = 奶子還是雞巴？她、他還是他們？選你的
-gender.prompt = 你在養什麼，飢渴的小騷貨？現在：<b>{current}</b>\n\n選你的代詞和你想脹大的東西 🍒🍆
+gender.prompt = 你在養什麼，飢渴的小騷貨？現在：<b>{current}</b>\n\n選你的代詞和你想脹大的東西 🍒🍆\n\n<i>切換 🍒↔🍆 會讓新的從零開始。舊的尺寸會保存，切回來就恢復~</i>
 gender.saved = 好了，小騷貨~ 你現在是 <b>{current}</b>。快去給奶子 /grow 🍒💦
 gender.saved.dick = 好了，小騷貨~ 你現在是 <b>{current}</b>。快去給大雞巴 /grow 🍆💦
 

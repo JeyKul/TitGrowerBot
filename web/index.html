@@ -107,6 +107,7 @@ async function showMe() {
     chips.append(c);
   });
   wrap.append(chips);
+  wrap.append($(`<div class="sub" style="margin:6px 4px">Switching 🍒↔🍆 starts the new one from zero. Your old size is kept and comes back if you switch back.</div>`));
 
   wrap.append($(`<h2>Your chats</h2>`));
   const list = $(`<div class="card"></div>`);

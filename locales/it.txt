@@ -79,7 +79,7 @@ errors.blocked = Sei stata cacciata dalla fattoria delle tette 🚫
 
 # ---- /gender ----
 gender.description = Tette o cazzo? lei, lui o loro? Scegli il tuo
-gender.prompt = Cosa stai facendo crescere, troietta bisognosa? Ora: <b>{current}</b>\n\nScegli i pronomi e cosa vuoi gonfiare 🍒🍆
+gender.prompt = Cosa stai facendo crescere, troietta bisognosa? Ora: <b>{current}</b>\n\nScegli i pronomi e cosa vuoi gonfiare 🍒🍆\n\n<i>Passare 🍒↔🍆 fa ripartire il nuovo da zero. La vecchia misura resta al sicuro e torna se cambi di nuovo~</i>
 gender.saved = Fatto, troietta~ Ora sei <b>{current}</b>. Vai a fare /grow a quelle tette 🍒💦
 gender.saved.dick = Fatto, troietta~ Ora sei <b>{current}</b>. Vai a fare /grow a quel cazzo grosso 🍆💦
 

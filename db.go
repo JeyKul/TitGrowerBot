@@ -79,6 +79,14 @@ func ensureTables(ctx context.Context, db *pgxpool.Pool) error {
 			pronoun varchar(8) NOT NULL DEFAULT 'she',
 			body    varchar(8) NOT NULL DEFAULT 'tits'
 		);
+		-- Sizes parked while a player grows the other body (see setGender).
+		CREATE TABLE IF NOT EXISTS Body_Saves (
+			uid     bigint NOT NULL,
+			chat_id bigint NOT NULL,
+			body    varchar(8) NOT NULL,
+			length  bigint NOT NULL,
+			PRIMARY KEY (uid, chat_id, body)
+		);
 		CREATE TABLE IF NOT EXISTS Blocked_Users (
 			uid        bigint PRIMARY KEY,
 			blocked_at timestamptz NOT NULL DEFAULT now()
@@ -106,10 +114,37 @@ func getGender(ctx context.Context, db *pgxpool.Pool, uid int64) Gender {
 	return g
 }
 
+// setGender saves the choice. Switching tits <-> dick keeps separate progress: the current sizes
+// of the old body are parked in Body_Saves and the new body's parked sizes come back (or 0).
 func setGender(ctx context.Context, db *pgxpool.Pool, uid int64, g Gender) error {
-	_, err := db.Exec(ctx, `INSERT INTO User_Settings(uid, pronoun, body) VALUES ($1, $2, $3)
-		ON CONFLICT (uid) DO UPDATE SET pronoun = $2, body = $3`, uid, g.Pron, g.Body)
-	return err
+	old := getGender(ctx, db, uid)
+	tx, err := db.Begin(ctx)
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback(ctx)
+	if old.Body != g.Body {
+		steps := []struct {
+			sql  string
+			body string
+		}{
+			{`INSERT INTO Body_Saves(uid, chat_id, body, length) SELECT uid, chat_id, $2, length FROM Tits WHERE uid = $1
+				ON CONFLICT (uid, chat_id, body) DO UPDATE SET length = EXCLUDED.length`, old.Body},
+			{`UPDATE Tits t SET bonus_attempts = bonus_attempts + 1, length = coalesce((SELECT b.length FROM Body_Saves b
+				WHERE b.uid = t.uid AND b.chat_id = t.chat_id AND b.body = $2), 0) WHERE t.uid = $1`, g.Body},
+			{`DELETE FROM Body_Saves WHERE uid = $1 AND body = $2`, g.Body},
+		}
+		for _, st := range steps {
+			if _, err := tx.Exec(ctx, st.sql, uid, st.body); err != nil {
+				return err
+			}
+		}
+	}
+	if _, err := tx.Exec(ctx, `INSERT INTO User_Settings(uid, pronoun, body) VALUES ($1, $2, $3)
+		ON CONFLICT (uid) DO UPDATE SET pronoun = $2, body = $3`, uid, g.Pron, g.Body); err != nil {
+		return err
+	}
+	return tx.Commit(ctx)
 }
 
 func isBlocked(ctx context.Context, db *pgxpool.Pool, uid int64) bool {
@@ -158,6 +193,7 @@ func deleteUser(ctx context.Context, db *pgxpool.Pool, uid int64) error {
 		"DELETE FROM Battle_Stats WHERE uid = $1",
 		"DELETE FROM Tits WHERE uid = $1",
 		"DELETE FROM User_Settings WHERE uid = $1",
+		"DELETE FROM Body_Saves WHERE uid = $1",
 		"DELETE FROM Users WHERE uid = $1",
 	} {
 		if _, err := tx.Exec(ctx, q, uid); err != nil && pgCode(err) != "42P01" { // 42P01: table missing

@@ -79,7 +79,7 @@ errors.blocked = You've been kicked off the tit farm 🚫
 
 # ---- /gender ----
 gender.description = Tits or dick? she, he or they? Pick yours
-gender.prompt = What are you growing, you needy slut? Right now: <b>{current}</b>\n\nPick your pronouns and what you want to swell 🍒🍆
+gender.prompt = What are you growing, you needy slut? Right now: <b>{current}</b>\n\nPick your pronouns and what you want to swell 🍒🍆\n\n<i>Switching 🍒↔🍆 starts the new one from zero. Your old size is kept safe and comes back if you switch back~</i>
 gender.saved = Done, slut~ You're now <b>{current}</b>. Go /grow those tits 🍒💦
 gender.saved.dick = Done, slut~ You're now <b>{current}</b>. Go /grow that fat cock 🍆💦
 
