@@ -51,7 +51,7 @@ Telegram needs **https**. Set in `.env`:
 ```
 WEB_URL=https://jey.kulovac.de/tits
 WEB_ADDR=127.0.0.1:8085
-ADMIN_IDS=706488778
+ADMIN_IDS=123456789
 ```
 Then forward `/tits` on your web server to the bot. **Caddy** (gets the certificate by itself):
 ```
