@@ -47,6 +47,17 @@ docker compose up -d --build
 
 Without Docker: `go run .` with `BOT_TOKEN` and `DATABASE_URL` set.
 
+### Backups
+The `backup` container writes `backups/db-<date>.sql.gz` on start and once a day,
+and deletes files older than `BACKUP_KEEP_DAYS`. Backup by hand:
+```bash
+docker compose exec postgres sh -c 'pg_dump -U "$POSTGRES_USER" "$POSTGRES_DB"' | gzip > manual.sql.gz
+```
+Restore into an empty database (a fresh `data/` folder), with the bot stopped:
+```bash
+gunzip -c backups/db-XXXX.sql.gz | docker compose exec -T postgres sh -c 'psql -U "$POSTGRES_USER" "$POSTGRES_DB"'
+```
+
 ### Moving from the old Rust bot
 Point `DATABASE_URL` at the old database. No migration is needed; the bot sees the
 existing tables and does not touch the schema. Old PvP and loan buttons keep working.

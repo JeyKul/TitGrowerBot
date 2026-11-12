@@ -1,3 +1,5 @@
 .env
 /bot
 /TitGrowerBot
+data/
+backups/

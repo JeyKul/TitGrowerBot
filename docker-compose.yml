@@ -1,15 +1,18 @@
 services:
   bot:
     build: .
+    container_name: titgrowerbot
     restart: unless-stopped
     env_file: .env
     environment:
       - DATABASE_URL=postgres://${POSTGRES_USER:?error}:${POSTGRES_PASSWORD:?error}@postgres:5432/${POSTGRES_DB:?error}
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   postgres:
     image: postgres:14.5-alpine
+    container_name: titgrowerbot-postgresql
     restart: unless-stopped
     environment:
       - POSTGRES_DB
@@ -17,7 +20,36 @@ services:
       - POSTGRES_PASSWORD
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ./data:/var/lib/postgresql/data   # same folder as the old Rust setup
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-volumes:
-  postgres-data:
+  # Dumps the database to ./backups on start and then once a day.
+  # Keeps the last BACKUP_KEEP_DAYS days.
+  backup:
+    image: postgres:14.5-alpine
+    container_name: titgrowerbot-backup
+    restart: unless-stopped
+    environment:
+      - PGHOST=postgres
+      - PGUSER=${POSTGRES_USER}
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+      - PGDATABASE=${POSTGRES_DB}
+      - KEEP_DAYS=${BACKUP_KEEP_DAYS:-14}
+    volumes:
+      - ./backups:/backups
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        while true; do
+          f=/backups/db-$$(date +%F_%H%M).sql.gz
+          if pg_dump --no-owner | gzip > $$f.tmp; then mv $$f.tmp $$f; echo "backup ok: $$f"; else echo "backup FAILED"; fi
+          find /backups -name 'db-*' -mtime +$$KEEP_DAYS -delete
+          sleep 86400
+        done
+    depends_on:
+      postgres:
+        condition: service_healthy
