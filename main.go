@@ -71,7 +71,31 @@ func envBool(key string, def bool) bool {
 	return v
 }
 
+// loadDotEnv reads KEY=VALUE lines from a .env file in the current folder.
+// Variables already set in the environment win.
+func loadDotEnv() {
+	data, err := os.ReadFile(".env")
+	if err != nil {
+		return
+	}
+	for _, line := range strings.Split(string(data), "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+		k, v, ok := strings.Cut(line, "=")
+		if !ok {
+			continue
+		}
+		k, v = strings.TrimSpace(strings.TrimPrefix(k, "export ")), strings.Trim(strings.TrimSpace(v), `"'`)
+		if _, set := os.LookupEnv(k); !set {
+			os.Setenv(k, v)
+		}
+	}
+}
+
 func loadConfig() Config {
+	loadDotEnv()
 	return Config{
 		Token:            env("BOT_TOKEN", env("TELOXIDE_TOKEN", "")),
 		DatabaseURL:      env("DATABASE_URL", ""),

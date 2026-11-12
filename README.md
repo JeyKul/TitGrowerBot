@@ -45,7 +45,7 @@ cp .env.example .env   # then set BOT_TOKEN and the password
 docker compose up -d --build
 ```
 
-Without Docker: `go run .` with `BOT_TOKEN` and `DATABASE_URL` set.
+Without Docker: put `BOT_TOKEN` and `DATABASE_URL` in `.env` (or the environment) and run `go run .`
 
 ### Backups
 The `backup` container writes `backups/db-<date>.sql.gz` on start and once a day,
