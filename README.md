@@ -48,7 +48,10 @@ docker compose up -d --build
 Without Docker: put `BOT_TOKEN` and `DATABASE_URL` in `.env` (or the environment) and run `go run .`
 
 ### Backups
-The `backup` container writes `backups/db-<date>.sql.gz` on start and once a day,
+The bot backs up the database itself: on start and every 24 hours it runs `pg_dump`
+(needs the PostgreSQL client installed) into `BACKUP_DIR` (default `backups/`) and
+deletes files older than `BACKUP_KEEP_DAYS` (default 14, `0` = off).
+With Docker, the `backup` container does this instead: it writes `backups/db-<date>.sql.gz` on start and once a day,
 and deletes files older than `BACKUP_KEEP_DAYS`. Backup by hand:
 ```bash
 docker compose exec postgres sh -c 'pg_dump -U "$POSTGRES_USER" "$POSTGRES_DB"' | gzip > manual.sql.gz

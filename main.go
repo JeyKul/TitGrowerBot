@@ -146,6 +146,8 @@ func main() {
 		log.Fatalf("migrations: %v", err)
 	}
 
+	go backupLoop(cfg.DatabaseURL)
+
 	bot, err := tg.NewBotAPI(cfg.Token)
 	if err != nil {
 		log.Fatalf("telegram: %v", err)
