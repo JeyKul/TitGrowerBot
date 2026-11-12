@@ -2,7 +2,7 @@ package main
 
 // All SQL lives here. The schema is the old one (see migrations/), so the old database works as is.
 //
-// Note on the Dicks table: a database trigger refuses a second UPDATE of a row on the same day
+// Note on the Tits table: a database trigger refuses a second UPDATE of a row on the same day
 // unless bonus_attempts > 0, and every UPDATE uses up one bonus attempt. So any change that is
 // not the daily /grow must do "bonus_attempts = bonus_attempts + 1".
 
@@ -24,8 +24,8 @@ import (
 )
 
 const (
-	errGrownToday = "GD0E1" // raised by the trigger on Dicks
-	errDodChosen  = "GD0E2" // raised by the trigger on Dick_of_Day
+	errGrownToday = "GD0E1" // raised by the trigger on Tits
+	errDodChosen  = "GD0E2" // raised by the trigger on Titties_of_Day
 )
 
 func pgCode(err error) string {
@@ -39,7 +39,7 @@ func pgCode(err error) string {
 // migrate creates the schema on an empty database. An existing database is left alone.
 func migrate(ctx context.Context, db *pgxpool.Pool, dir string) error {
 	var exists bool
-	if err := db.QueryRow(ctx, "SELECT to_regclass('public.dicks') IS NOT NULL").Scan(&exists); err != nil {
+	if err := db.QueryRow(ctx, "SELECT to_regclass('public.tits') IS NOT NULL").Scan(&exists); err != nil {
 		return err
 	}
 	if exists {
@@ -139,7 +139,7 @@ func position(ctx context.Context, q querier, chat, uid int64) (int64, error) {
 	var pos int64
 	err := q.QueryRow(ctx, `SELECT position FROM (
 			SELECT uid, ROW_NUMBER() OVER (ORDER BY length DESC, updated_at DESC, name) AS position
-			FROM Dicks JOIN Users USING (uid) WHERE chat_id = $1
+			FROM Tits JOIN Users USING (uid) WHERE chat_id = $1
 		) t WHERE uid = $2`, chat, uid).Scan(&pos)
 	return pos, err
 }
@@ -149,7 +149,7 @@ func getPlayer(ctx context.Context, db *pgxpool.Pool, tgChat, uid int64) (*Playe
 	err := db.QueryRow(ctx, `SELECT name, length, updated_at, position FROM (
 			SELECT uid, name, d.length, d.updated_at,
 				ROW_NUMBER() OVER (ORDER BY d.length DESC, d.updated_at DESC, name) AS position
-			FROM Dicks d JOIN Users USING (uid) JOIN Chats c ON c.id = d.chat_id
+			FROM Tits d JOIN Users USING (uid) JOIN Chats c ON c.id = d.chat_id
 			WHERE c.chat_id = $1
 		) t WHERE uid = $2`, tgChat, uid).Scan(&p.Name, &p.Length, &p.GrownAt, &p.Position)
 	if errors.Is(err, pgx.ErrNoRows) {
@@ -161,7 +161,7 @@ func getPlayer(ctx context.Context, db *pgxpool.Pool, tgChat, uid int64) (*Playe
 func getTop(ctx context.Context, db *pgxpool.Pool, cfg Config, tgChat int64, offset, limit int) ([]Player, error) {
 	rows, err := db.Query(ctx, `SELECT uid, name, d.length, d.updated_at,
 			ROW_NUMBER() OVER (ORDER BY d.length DESC, d.updated_at DESC, name)
-		FROM Dicks d JOIN Users USING (uid) JOIN Chats c ON c.id = d.chat_id
+		FROM Tits d JOIN Users USING (uid) JOIN Chats c ON c.id = d.chat_id
 		WHERE c.chat_id = $1
 		  AND (NOT $4 OR d.length != 0 OR d.updated_at > now() - make_interval(days => $5))
 		OFFSET $2 LIMIT $3`, tgChat, offset, limit, cfg.HideInactiveZero, cfg.InactivityDays)
@@ -178,7 +178,7 @@ func getTop(ctx context.Context, db *pgxpool.Pool, cfg Config, tgChat int64, off
 // lockLength reads a length and locks the row until the transaction ends. ok=false if no row.
 func lockLength(ctx context.Context, tx pgx.Tx, chat, uid int64) (length int64, grownToday bool, ok bool, err error) {
 	err = tx.QueryRow(ctx, `SELECT length, date(updated_at) = current_date AND bonus_attempts = 0
-		FROM Dicks WHERE chat_id = $1 AND uid = $2 FOR UPDATE`, chat, uid).Scan(&length, &grownToday)
+		FROM Tits WHERE chat_id = $1 AND uid = $2 FOR UPDATE`, chat, uid).Scan(&length, &grownToday)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return 0, false, false, nil
 	}
@@ -188,7 +188,7 @@ func lockLength(ctx context.Context, tx pgx.Tx, chat, uid int64) (length int64, 
 // addLength changes a length outside the daily /grow (DoD, PvP, loans).
 func addLength(ctx context.Context, tx pgx.Tx, chat, uid, change int64) (int64, error) {
 	var l int64
-	err := tx.QueryRow(ctx, `UPDATE Dicks SET length = length + $3, bonus_attempts = bonus_attempts + 1
+	err := tx.QueryRow(ctx, `UPDATE Tits SET length = length + $3, bonus_attempts = bonus_attempts + 1
 		WHERE chat_id = $1 AND uid = $2 RETURNING length`, chat, uid, change).Scan(&l)
 	return l, err
 }
@@ -291,7 +291,7 @@ func saveBattle(ctx context.Context, tx pgx.Tx, chat, winner, loser, bet int64) 
 
 func todaysDod(ctx context.Context, db *pgxpool.Pool, chat int64) (string, error) {
 	var name string
-	err := db.QueryRow(ctx, `SELECT u.name FROM Dick_of_Day d JOIN Users u ON u.uid = d.winner_uid
+	err := db.QueryRow(ctx, `SELECT u.name FROM Titties_of_Day d JOIN Users u ON u.uid = d.winner_uid
 		WHERE d.chat_id = $1 AND d.created_at = current_date`, chat).Scan(&name)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return "", nil
@@ -303,7 +303,7 @@ func todaysDod(ctx context.Context, db *pgxpool.Pool, chat int64) (string, error
 func randomActivePlayer(ctx context.Context, db *pgxpool.Pool, chat int64, inactivityDays int, richExclusion float64) (uid int64, name string, err error) {
 	err = db.QueryRow(ctx, `WITH ranked AS (
 			SELECT uid, name, PERCENT_RANK() OVER (ORDER BY length) AS rank
-			FROM Dicks d JOIN Users USING (uid)
+			FROM Tits d JOIN Users USING (uid)
 			WHERE d.chat_id = $1 AND d.updated_at > now() - make_interval(days => $2)
 		) SELECT uid, name FROM ranked WHERE rank <= $3 ORDER BY random() LIMIT 1`,
 		chat, inactivityDays, 1-richExclusion).Scan(&uid, &name)
@@ -314,7 +314,7 @@ func randomActivePlayer(ctx context.Context, db *pgxpool.Pool, chat int64, inact
 }
 
 func personalStats(ctx context.Context, db *pgxpool.Pool, uid int64) (chats, maxLen, total int64, err error) {
-	err = db.QueryRow(ctx, "SELECT count(*), coalesce(max(length), 0), coalesce(sum(length), 0)::bigint FROM Dicks WHERE uid = $1", uid).
+	err = db.QueryRow(ctx, "SELECT count(*), coalesce(max(length), 0), coalesce(sum(length), 0)::bigint FROM Tits WHERE uid = $1", uid).
 		Scan(&chats, &maxLen, &total)
 	return
 }

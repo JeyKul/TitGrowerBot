@@ -202,8 +202,8 @@ func (a *App) cmdGrow(ctx context.Context, m *tg.Message, lang string) error {
 	}
 
 	var newLength int64
-	err = tx.QueryRow(ctx, `INSERT INTO Dicks(uid, chat_id, length, updated_at) VALUES ($1, $2, $3, now())
-		ON CONFLICT (uid, chat_id) DO UPDATE SET length = Dicks.length + $3, updated_at = now()
+	err = tx.QueryRow(ctx, `INSERT INTO Tits(uid, chat_id, length, updated_at) VALUES ($1, $2, $3, now())
+		ON CONFLICT (uid, chat_id) DO UPDATE SET length = Tits.length + $3, updated_at = now()
 		RETURNING length`, m.From.ID, chat, change).Scan(&newLength)
 	if pgCode(err) == errGrownToday {
 		a.reply(m, a.texts.T(lang, "grow.tomorrow")+a.timeLeft(lang), nil)
@@ -325,7 +325,7 @@ func (a *App) cmdDod(ctx context.Context, m *tg.Message, lang string) error {
 	if err != nil {
 		return err
 	}
-	_, err = tx.Exec(ctx, "INSERT INTO Dick_of_Day(chat_id, winner_uid) VALUES ($1, $2)", chat, uid)
+	_, err = tx.Exec(ctx, "INSERT INTO Titties_of_Day(chat_id, winner_uid) VALUES ($1, $2)", chat, uid)
 	if pgCode(err) == errDodChosen {
 		// someone else ran /dod at the same moment
 		winner, _ := todaysDod(ctx, a.db, chat)
