@@ -1,6 +1,9 @@
-# en texts. Format: key = text. Use \n for new line, {name} for values.
+# English texts. Format: key = text. Use \n for a new line, {name} for values the bot fills in.
 
 help.description = I'll help you, my friend
+help.text = 🍒 Want the biggest, heaviest tits in the chat? Of course you do. /grow them once a day in every chat you're in and climb the leaderboard!\n\nEach /grow changes your tits by <b>{min}</b> to <b>{max}</b> cc. /top shows the juiciest pairs in the chat.\n\nEvery day one active player is crowned <i>Titties of the Day</i> with /dod and gets bonus cc. Only players who grew in the last week can win.\n\nFeeling brave? Bet your cc against a friend with /pvp &lt;cc&gt;. The winner takes the bet, the loser loses it.\n\nTits in the negatives? /loan resets them to zero, and you pay it back from future growth. /stats shows your numbers.
+
+greeting = Hello
 
 language.description = Change the interface language
 language.prompt = Choose your language:
@@ -10,69 +13,64 @@ language.chat.success = Done! Everyone in this chat will now see me in the selec
 language.chat.reset = Done! The chat language was cleared — everyone will see me in their own language again.
 language.chat.auto_button = 🌐 Auto (each user's own)
 
-grow.description = Grow your dick!
-grow.result = Your dick has {event} by <b>{incr} cm</b> and now it is <b>{length} cm</b> long.
-grow.direction.grown = grown
-grow.direction.shrunk = shrunk
+grow.description = Grow your TITS!
+grow.result = {event} by <b>{incr} cc.</b> Now you have <b>{length} cc of heavy, jiggling tit meat </b> 😩🫧.
+grow.direction.grown = 💦🍒 FUUUUCK YES~ massive whore tits ballooned
+grow.direction.shrunk = Youre not SLUT enough to get big tits. They have shrunken
 grow.position = Your position in the top is <b>{pos}</b>.
-grow.tomorrow = You have already played with your dick today.
+grow.tomorrow = Your fat slutty tits are still sore and leaking, you greedy whore~
 
-top.description = Get the biggest dicks of the chat
-top.title = Top of the biggest dicks:
-top.line = {n}|<b>{name}</b> — <b>{length}</b> cm
-top.ending = <i>[+] means a grower hasn't grown his dick today yet.</i>
-top.ending_inactive = <i>[~] means a grower hasn't grown his dick for more than {days} days.</i>
-top.empty = No one is in the game yet :(
+top.description = Rank the biggest, sluttiest tits in this chat
+top.title = 🍒 <b>TOP HEAVY SLUTTY TITS</b> 🍒
+top.line = {n}|<b>{name}</b> — <b>{length} cc</b> of bouncing tit meat
+top.ending = <i>[+] means this needy slut has not fed her tits today yet.</i>
+top.ending_inactive = <i>[~] means these tits have been ignored for more than {days} days.</i>
+top.empty = No one has joined the tit farm yet. Be the first greedy slut 😩🍒
 
-dod.description = Elect the Dick of a Day
-dod.result = The Dick of the Day is <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nHis dick has become longer for <b>{growth} cm</b> and is <b>{length}</b> cm long now.
-dod.position = His position in the top is <b>{pos}</b>.
-dod.already_chosen = The Dick of the Day has been already chosen for today! It's <b>{name}</b>.
-dod.no_candidates = There is no candidates for election. In this chat nobody is in the game yet 😢
+dod.description = Crown today's fattest, bounciest tits
+dod.result = 🍒 <b>TITTIES OF THE DAY</b> 🍒\n\n<b><a href="tg://user?id={uid}">{name}</a></b> wins!\n\nThose gorgeous tits swelled by <b>{growth} cc</b> and now hold a juicy <b>{length} cc</b> 😩🫧
+dod.position = Their tits are now ranked <b>#{pos}</b> on the leaderboard.
+dod.already_chosen = Today’s Titties of the Day have already been crowned: <b>{name}</b> 🍒
+dod.no_candidates = No juicy candidates yet. Nobody in this chat has started growing tits 😢
 
-pvp.description = Fight with your friend's dick!
-pvp.results.start = <b>{name}</b> challenged the chat with a bet of <b>{bet} cm</b>!
-pvp.results.finish = The winner is <b>{winner_name}</b>! His dick is now <b>{winner_length} cm</b> long. The loser's one is <b>{loser_length}</b>.\nThe bet was <b>{bet} cm</b>.
-pvp.results.position.winner = <b>{name}</b>'s position in the top is <b>{pos}</b>.
-pvp.results.position.loser = <b>{name}</b>'s position in the top is <b>{pos}</b>.
-pvp.results.stats.text = Win rate of the <b>winner</b> — <b>{winner_win_rate}</b>.\nHis current win streak — <b>{winner_win_streak}</b>, max win streak — <b>{winner_win_streak_max}</b>.\nWin rate of the <b>loser</b> — <b>{loser_win_rate}</b>.
-pvp.results.stats.lost_win_streak = The streak of <b>{lost_win_streak}</b> victories in a row was lost.
-pvp.results.withheld = <b>{payout} cm</b> were withheld from the winner to pay off the loan.
-pvp.button = Attack!
-pvp.errors.no_args = Call the command with a number of centimeters you're willing to bet.
-pvp.errors.not_enough.initiator = Meh. The initiator's dick is not long enough for such a big bet!
-pvp.errors.not_enough.acceptor = Your gun is not long enough 😣
-pvp.errors.same_person = You cannot fight with yourself!
-pvp.errors.battle_already_in_progress = The fight is in progress already! The message will be updated in a moment…
+pvp.description = Put your tits on the line against a friend
+pvp.results.start = <b>{name}</b> threw their tits into the ring with a <b>{bet} cc</b> bet! 🍒
+pvp.results.finish = 🍒 <b>{winner_name}</b> wins the tit clash!\n\nTheir tits are now <b>{winner_length} cc</b> of glorious bouncing meat. <b>{loser_name}</b> is left with <b>{loser_length} cc</b> 😩\n\nThe wager was <b>{bet} cc</b>.
+pvp.results.position.winner = <b>{name}</b>'s tits now sit at <b>#{pos}</b> on the leaderboard.
+pvp.results.position.loser = <b>{name}</b>'s tits now sit at <b>#{pos}</b> on the leaderboard.
+pvp.results.stats.text = Winner’s win rate: <b>{winner_win_rate}</b>.\nCurrent streak: <b>{winner_win_streak}</b>; best streak: <b>{winner_win_streak_max}</b>.\nLoser’s win rate: <b>{loser_win_rate}</b>.
+pvp.results.stats.lost_win_streak = A streak of <b>{lost_win_streak}</b> wins just got crushed 😩
+pvp.results.withheld = <b>{payout} cc</b> was taken from the winner’s tits to repay their loan.
+pvp.button = 🍒 TIT FIGHT!
+pvp.errors.no_args = Name how many cc of tit meat you are willing to bet.
+pvp.errors.not_enough.initiator = Those tits are not heavy enough to risk that much, needy slut.
+pvp.errors.not_enough.acceptor = Your little tits do not have enough cc for that bet 😣
+pvp.errors.same_person = Silly little cunt slut whore! You cannot fight your own tits! 😝
+pvp.errors.battle_already_in_progress = A tit fight is already happening! The message will update in a moment…
 
 stats.description = Statistics
-stats.length = Length: <b>{length}</b>\nPosition in the top: <b>{pos}</b>
-stats.pvp = Win rate: <b>{win_rate}</b>.\nFights: <b>{battles}</b>.\nWins: <b>{wins}</b>.\nMax win streak: <b>{win_streak}</b>.\nAcquired length: <b>{acquired} cm</b>.\nLost length: <b>{lost} cm</b>.
-stats.notice = The collection of statistics started on July 2, 2024.
-stats.personal = <i>Your personal statistics:</i>\n— Number of the chats in which you play: <b>{chats}</b>.\n— Maximum length: <b>{max_length}</b>.\n— Sum of dicks across all the chats: <b>{total_length}</b>.
+stats.length = Tit size: <b>{length} cc</b>\nLeaderboard position: <b>#{pos}</b>
+stats.pvp = Win rate: <b>{win_rate}</b>.\nTit fights: <b>{battles}</b>.\nWins: <b>{wins}</b>.\nBest streak: <b>{win_streak}</b>.\nTit meat gained: <b>{acquired} cc</b>.\nTit meat lost: <b>{lost} cc</b>.
+stats.notice = Tit-fight statistics have been tracked since July 30, 2026.
+stats.personal = <i>Your personal tit résumé:</i>\n— Chats where you grow: <b>{chats}</b>.\n— Biggest pair: <b>{max_length} cc</b>.\n— Total tit meat across all chats: <b>{total_length} cc</b>.
 
-loan.description = Minus? Take a loan!
-loan.debt = Left to pay <b>{debt} cm</b>
-loan.confirmation.text = Your deep hole will be reset to zero, but each growth will be lowered by <b>{payout_percentage}</b> until all <b>{debt} cm</b> is repaid.
-loan.confirmation.buttons.agree = I'm in!
-loan.confirmation.buttons.disagree = Disagree
-loan.callback.success = The microloan has been issued successfully!
-loan.callback.refused = The patient refused gender reassignment on credit.
-loan.callback.payout_ratio_changed = The payout rate has been changed since you sent the loan application. Please, invoke the command again.
-loan.errors.positive_length = Sorry, man, this social initiative is supposed only for girls have very very deep craves. I cannot make your big bro even longer :(
-
-errors.another_user = This message was sent by another person.
-
-greeting = Hello
+loan.description = Tits in the negatives? Take a loan!
+loan.debt = Tit debt remaining: <b>{debt} cc</b>
+loan.confirmation.text = Your sad, empty tits will be reset to zero, but every future growth is taxed by <b>{payout_percentage}</b> until you repay all <b>{debt} cc</b>.
+loan.confirmation.buttons.agree = 💦 Give me the loan!
+loan.confirmation.buttons.disagree = No thanks
+loan.callback.success = Your emergency tit loan has been approved!
+loan.callback.refused = The desperate little borrower refused the tit loan.
+loan.callback.payout_ratio_changed = The repayment rate changed after you opened this loan. Send the command again.
+loan.errors.positive_length = Your tits are already above zero, greedy slut. Loans are for truly empty girls only.
 
 next_day.none =  Come back tomorrow!
 next_day.some = \n\nNext attempt in <b>{hours}</b>h <b>{minutes}</b>m.
 
-perks.top_line = The following perks affected the result
-perks.help-pussies = deep hole
-perks.loan-payout = micro-loaner
+perks.top_line = These perks touched your tits
+perks.help-pussies = flat-chest support
+perks.loan-payout = tit loan repayment
 
-errors.not_group_chat = This bot is supposed to do its mission in group chats only!
-errors.group_account = You can't play on behalf of a group or channel — switch off anonymous mode and try again!
-
-help.text = Do you want to have the biggest dick in the world? I'm sure you do. Just /grow it once a day in every chat you're in! Get on the top of the leaderboard!\n\nThe growth range for the command is between <b>{min}</b> and <b>{max}</b> cm. Use the /top command to show the top of the biggest weapons in a chat.\n\nAlso, there is a daily election of <i>the Dick of the Day</i> in every chat. This title brings its owner some bonus centimeters additionally. Only active players who have grown their cucumber at least once in the last week participate in the election.\n\nIf you want to make your little bro even longer and is ready to get some risk for this opportunity, you may fight with your friends. Just place a bet via /pvp command! The winner will get the specified number of centimeters. The looser will lose theirs. It's simple.
+errors.not_group_chat = Tits only grow in group chats! Add me to a group 🍒
+errors.group_account = You can't grow tits as a group or channel — turn off anonymous mode and try again!
+errors.another_user = These aren't your tits, hands off! This button belongs to someone else.

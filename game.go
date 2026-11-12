@@ -603,7 +603,7 @@ func (a *App) btnPvp(ctx context.Context, q *tg.CallbackQuery, parts []string, l
 	winName, _ := userName(ctx, a.db, winner)
 	loseName, _ := userName(ctx, a.db, loser)
 	text := a.texts.T(lang, "pvp.results.finish", "winner_name", esc(winName), "winner_length", winnerLen,
-		"loser_length", loserLen, "bet", bet) +
+		"loser_name", esc(loseName), "loser_length", loserLen, "bet", bet) +
 		"\n\n" + a.texts.T(lang, "pvp.results.position.winner", "name", esc(winName), "pos", winPos) +
 		"\n" + a.texts.T(lang, "pvp.results.position.loser", "name", esc(loseName), "pos", losePos)
 	if withheld > 0 {

@@ -1,70 +1,76 @@
-# zh-TW texts. Format: key = text. Use \n for new line, {name} for values.
+# 繁體中文文字。格式：鍵 = 文字。\n 表示換行，{name} 是機器人填入的值。
 
-language.description = 變更介面語言
-language.prompt = 請選擇你的語言：
-language.errors.admins_only = 只有群組管理員才能變更群組語言。
-language.chat.prompt = 請為整個群組選擇語言：
-language.chat.success = 完成！現在我會用這種語言回覆本群所有人。
-language.chat.reset = 完成！群組語言已清除 —— 我會重新依每個人自己的語言回覆。
-language.chat.auto_button = 🌐 自動（各自的語言）
-
-grow.result = 你的老二已經<b>{incr} 公分</b> {event}，現在長度為<b>{length} 公分</b>。
-grow.direction.grown = 增長了
-grow.direction.shrunk = 縮短了
-grow.position = 你在排行榜上的位置是<b>{pos}</b>。
-grow.tomorrow = 你今天已經玩過你的老二了。
-
-top.title = 最大的老二排行榜：
-top.line = {n}|<b>{name}</b> — <b>{length}</b> 公分
-top.ending = <i>[+] 表示一個成長者今天還沒有增長他的老二。</i>
-top.ending_inactive = <i>[~] 表示一個成長者超過 {days} 天沒有增長他的老二了。</i>
-top.empty = 還沒有人加入遊戲 :(
-
-dod.result = 今日老二是<b><a href="tg://user?id={uid}">{name}</a></b>！\n\n他的老二增長了<b>{growth} 公分</b>，現在長度為<b>{length}</b> 公分。
-dod.position = 他在排行榜上的位置是<b>{pos}</b>。
-dod.already_chosen = 今日老二已經被選出來了！是<b>{name}</b>。
-dod.no_candidates = 沒有候選人可以選舉。在這個聊天中還沒有人加入遊戲 😢
-
-pvp.results.start = <b>{name}</b> 向聊天發起了一個<b>{bet} 公分</b>的挑戰！
-pvp.results.finish = 勝利者是<b>{winner_name}</b>！他的老二現在長度為<b>{winner_length} 公分</b>。失敗者的老二長度為<b>{loser_length}</b>。\n賭注是<b>{bet} 公分</b>。
-pvp.results.position.winner = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
-pvp.results.position.loser = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
-pvp.results.stats.text = <b>勝利者</b>的勝率 — <b>{winner_win_rate}</b>。\n他當前的連勝 — <b>{winner_win_streak}</b>，最大連勝 — <b>{winner_win_streak_max}</b>。\n<b>失敗者</b>的勝率 — <b>{loser_win_rate}</b>。
-pvp.results.stats.lost_win_streak = <b>{lost_win_streak}</b> 連勝被終結了。
-pvp.results.withheld = <b>{payout} 公分</b> 從勝利者那裡被扣留以償還貸款。
-pvp.button = PK！
-pvp.errors.no_args = 發起PK要下注。
-pvp.errors.not_enough.initiator = 呃。發起者的老二不夠長，無法下這麼大的賭注！
-pvp.errors.not_enough.acceptor = 你的老二不夠長 😣
-pvp.errors.same_person = 你不能和自己PK！
-pvp.errors.battle_already_in_progress = 已經在對戰了！結果稍後就會更新……
-
-stats.length = 長度: <b>{length}</b>\n在排行榜上的位置: <b>{pos}</b>
-stats.pvp = 勝率: <b>{win_rate}</b>。\n戰鬥次數: <b>{battles}</b>。\n勝利次數: <b>{wins}</b>。\n最大連勝: <b>{win_streak}</b>。\n獲得長度: <b>{acquired} 公分</b>。\n失去長度: <b>{lost} 公分</b>。
-stats.notice = 統計收集從2024年7月2日開始。
-stats.personal = <i>你的個人統計:</i>\n— 你參與的遊戲聊天數量: <b>{chats}</b>。\n— 最大長度: <b>{max_length}</b>。\n— 所有聊天中的老二總長度: <b>{total_length}</b>。
-
-loan.debt = 還需償還 <b>{debt} 公分</b>
-loan.confirmation.text = 你的長度將重設為零，但每次增長將減少 <b>{payout_percentage}</b>，直到償還所有 <b>{debt} 公分</b>。
-loan.confirmation.buttons.agree = 我同意！
-loan.confirmation.buttons.disagree = 不同意
-loan.callback.success = 小額貸款已成功發放！
-loan.callback.refused = 拒絕了信用變性方案。
-loan.callback.payout_ratio_changed = 自你發送貸款申請以來，支付率已更改。請重新調用該命令。
-loan.errors.positive_length = 抱歉，兄弟，這個提案只針對那些有非常非常深渴望的女孩。我不能讓你的大兄弟變得更長 :(
-
-errors.another_user = 此訊息由其他人發送。
+help.description = 我會幫你的，朋友
+help.text = 🍒 想擁有群裡最大、最重的奶子嗎？當然想。每天在每個群裡用一次 /grow，衝上排行榜！\n\n每次 /grow 會讓你的奶子變化 <b>{min}</b> 到 <b>{max}</b> cc。/top 顯示群裡最多汁的一對對。\n\n每天會用 /dod 選出一位活躍玩家成為<i>今日奶王</i>，獲得額外 cc。只有最近一週長過的玩家才能參選。\n\n夠膽嗎？用 /pvp &lt;cc&gt; 和朋友賭你的 cc。贏家拿走賭注，輸家失去賭注。\n\n奶子變成負數了？/loan 把它們歸零，之後從成長中慢慢還。/stats 查看你的數據。
 
 greeting = 你好
 
-next_day.none =  回去玩老二，明天再來！
-next_day.some = \n\n下次嘗試在 <b>{hours}</b>小時 <b>{minutes}</b>分鐘後。
+language.description = 更改介面語言
+language.prompt = 選擇你的語言：
+language.errors.admins_only = 只有群管理員可以更改群語言。
+language.chat.prompt = 為整個群選擇語言：
+language.chat.success = 完成！現在群裡所有人都會看到所選語言。
+language.chat.reset = 完成！群語言已清除——每個人會重新看到自己的語言。
+language.chat.auto_button = 🌐 自動（各用各的）
 
-perks.top_line = 以下特權影響了結果
-perks.help-pussies = 深洞
-perks.loan-payout = 貸款人
+grow.description = 讓你的奶子長大！
+grow.result = {event} <b>{incr} cc。</b>現在你有 <b>{length} cc 沉甸甸、晃悠悠的奶肉</b> 😩🫧。
+grow.direction.grown = 💦🍒 幹啊啊啊爽~ 騷貨的巨乳膨脹了
+grow.direction.shrunk = 你還不夠騷，配不上大奶子。它們縮小了
+grow.position = 你在排行榜上的位置是 <b>{pos}</b>。
+grow.tomorrow = 你那對肥騷奶子還在痠痛流水呢，貪心的小騷貨~
 
-errors.not_group_chat = 此機器人僅在群聊中執行任務！
-errors.group_account = 不能以群組或頻道的身份遊玩——請關閉匿名模式後重試！
+top.description = 群裡最大最騷的奶子排行
+top.title = 🍒 <b>最重最騷奶子排行榜</b> 🍒
+top.line = {n}|<b>{name}</b> — <b>{length} cc</b> 彈跳的奶肉
+top.ending = <i>[+] 表示這個飢渴的小騷貨今天還沒餵過她的奶子。</i>
+top.ending_inactive = <i>[~] 表示這對奶子已經超過 {days} 天沒人理了。</i>
+top.empty = 還沒人加入奶子農場。來當第一個貪心小騷貨吧 😩🍒
 
-help.text = 想拥有世界上最大的丁丁吗？我相信你想。只需在你所在的每个群里每天用一次 /grow（增长）！冲上排行榜的顶端吧！\n\n该指令的增长范围是 <b>{min}</b> 到 <b>{max}</b> 厘米。使用 /top 指令可以显示群里最大的丁丁排行榜。\n\n此外，每个群每天都会选出一位<i>今日丁丁</i>。这个称号会给它的主人额外增加一些奖励厘米数。只有在过去一周内至少增长过一次丁丁的活跃玩家才能参加评选。\n\n如果你想让你的小兄弟变得更长，并且愿意为此承担一点风险，你可以和朋友们决斗。只需通过 /pvp 指令下注！胜利者将获得指定的厘米数，失败者将失去它们。就这么简单。
+dod.description = 加冕今天最肥最彈的奶子
+dod.result = 🍒 <b>今日奶王</b> 🍒\n\n<b><a href="tg://user?id={uid}">{name}</a></b> 勝出！\n\n那對絕美的奶子脹大了 <b>{growth} cc</b>，現在足足有 <b>{length} cc</b> 😩🫧
+dod.position = 這對奶子現在排名第 <b>#{pos}</b>。
+dod.already_chosen = 今天的奶王已經加冕了：<b>{name}</b> 🍒
+dod.no_candidates = 還沒有多汁的候選人。這個群裡還沒人開始養奶子 😢
+
+pvp.description = 和朋友拿奶子對賭
+pvp.results.start = <b>{name}</b> 以 <b>{bet} cc</b> 的賭注把奶子甩上擂台！🍒
+pvp.results.finish = 🍒 <b>{winner_name}</b> 贏下了奶子大戰！\n\nTa 的奶子現在有 <b>{winner_length} cc</b> 的華麗彈跳奶肉。<b>{loser_name}</b> 只剩下 <b>{loser_length} cc</b> 😩\n\n賭注是 <b>{bet} cc</b>。
+pvp.results.position.winner = <b>{name}</b> 的奶子現在排名第 <b>#{pos}</b>。
+pvp.results.position.loser = <b>{name}</b> 的奶子現在排名第 <b>#{pos}</b>。
+pvp.results.stats.text = 贏家勝率：<b>{winner_win_rate}</b>。\n目前連勝：<b>{winner_win_streak}</b>；最佳連勝：<b>{winner_win_streak_max}</b>。\n輸家勝率：<b>{loser_win_rate}</b>。
+pvp.results.stats.lost_win_streak = 一個 <b>{lost_win_streak}</b> 連勝剛剛被輾碎了 😩
+pvp.results.withheld = 已從贏家的奶子上扣除 <b>{payout} cc</b> 用於還貸。
+pvp.button = 🍒 奶子大戰！
+pvp.errors.no_args = 說說你願意押多少 cc 的奶肉。
+pvp.errors.not_enough.initiator = 這對奶子太輕了，押不起這麼多，飢渴的小騷貨。
+pvp.errors.not_enough.acceptor = 你的小奶子不夠這個賭注的 cc 😣
+pvp.errors.same_person = 傻乎乎的小騷貨！你不能和自己的奶子打！😝
+pvp.errors.battle_already_in_progress = 奶子大戰已經在進行了！訊息馬上更新…
+
+stats.description = 統計
+stats.length = 奶子大小：<b>{length} cc</b>\n排行榜位置：<b>#{pos}</b>
+stats.pvp = 勝率：<b>{win_rate}</b>。\n奶子大戰：<b>{battles}</b>。\n勝場：<b>{wins}</b>。\n最佳連勝：<b>{win_streak}</b>。\n贏得奶肉：<b>{acquired} cc</b>。\n失去奶肉：<b>{lost} cc</b>。
+stats.notice = 奶子大戰統計自 2026 年 7 月 30 日開始記錄。
+stats.personal = <i>你的個人奶子履歷：</i>\n— 你在長的群：<b>{chats}</b>。\n— 最大的一對：<b>{max_length} cc</b>。\n— 所有群的奶肉總量：<b>{total_length} cc</b>。
+
+loan.description = 奶子負數了？來貸款吧！
+loan.debt = 剩餘奶子債務：<b>{debt} cc</b>
+loan.confirmation.text = 你那對可憐空空的奶子會被歸零，但以後每次成長都會扣 <b>{payout_percentage}</b>，直到還清全部 <b>{debt} cc</b>。
+loan.confirmation.buttons.agree = 💦 給我貸款！
+loan.confirmation.buttons.disagree = 不用了
+loan.callback.success = 你的緊急奶子貸款已核准！
+loan.callback.refused = 絕望的小借款人拒絕了奶子貸款。
+loan.callback.payout_ratio_changed = 你申請後還款比例變了。請重新傳送指令。
+loan.errors.positive_length = 你的奶子已經在零以上了，貪心小騷貨。貸款只給真正平胸的女孩。
+
+next_day.none =  明天再來！
+next_day.some = \n\n下次嘗試還要 <b>{hours}</b> 小時 <b>{minutes}</b> 分鐘。
+
+perks.top_line = 這些加成摸過你的奶子
+perks.help-pussies = 平胸扶持
+perks.loan-payout = 奶子貸款還款
+
+errors.not_group_chat = 奶子只在群裡長！把我加進群吧 🍒
+errors.group_account = 不能以群組或頻道身分養奶子——關閉匿名模式再試一次！
+errors.another_user = 這不是你的奶子，別亂摸！這個按鈕屬於別人。

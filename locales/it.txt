@@ -1,78 +1,76 @@
-# it texts. Format: key = text. Use \n for new line, {name} for values.
+# Testi italiani. Formato: chiave = testo. \n = a capo, {name} = valore inserito dal bot.
 
-help.description = Ti aiuterò, mio amico
-
-language.description = Cambia la lingua dell'interfaccia
-language.prompt = Scegli la tua lingua:
-language.errors.admins_only = Solo gli amministratori della chat possono cambiare la lingua della chat.
-language.chat.prompt = Scegli la lingua per tutta questa chat:
-language.chat.success = Fatto! Ora rispondo a tutti in questa chat nella lingua selezionata.
-language.chat.reset = Fatto! La lingua della chat è stata azzerata — risponderò di nuovo a ciascuno nella propria lingua.
-language.chat.auto_button = 🌐 Auto (lingua di ciascuno)
-
-grow.description = Fai crescere il tuo pene!
-grow.result = Il tuo pene è {event} di <b>{incr} cm</b> e ora è lungo <b>{length} cm</b>.
-grow.direction.grown = cresciuto
-grow.direction.shrunk = rimpicciolito
-grow.position = La tua posizione nella classifica è <b>{pos}</b>.
-grow.tomorrow = Hai già giocato con il tuo pene oggi.
-
-top.description = Mostra i peni più grandi del gruppo
-top.title = Classifica dei peni più grandi:
-top.line = {n}|<b>{name}</b> — <b>{length}</b> cm
-top.ending = <i>[+] significa che un giocatore non ha ancora fatto crescere il suo pene oggi.</i>
-top.ending_inactive = <i>[~] significa che un giocatore non ha fatto crescere il suo pene per più di {days} giorni.</i>
-top.empty = Nessuno sta giocando :(
-
-dod.description = Eleggi il Pene del Giorno
-dod.result = Il Pene del Giorno è <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nIl suo pene è cresciuto di <b>{growth} cm</b> e ora è lungo <b>{length}</b> cm.
-dod.position = La sua posizione nella classifica è <b>{pos}</b>.
-dod.already_chosen = Il Pene del Giorno è già stato scelto oggi! Si tratta di <b>{name}</b>.
-dod.no_candidates = Non ci sono candidati per l'elezione, in questo gruppo non gioca nessuno 😢
-
-pvp.description = Combatti con il pene del tuo amico!
-pvp.results.start = <b>{name}</b> ha sfidato il gruppo con una scommessa di <b>{bet} cm</b>!
-pvp.results.finish = Il vincitore è <b>{winner_name}</b>! Il suo pene ora è lungo <b>{winner_length} cm</b>. Quello del giocatore perdente è ora di <b>{loser_length}</b>.\nLa scommessa era di <b>{bet} cm</b>.
-pvp.results.position.winner = La posizione nella classifica di <b>{name}</b> è <b>{pos}</b>.
-pvp.results.position.loser = La posizione nella classifica di <b>{name}</b> è <b>{pos}</b>.
-pvp.results.stats.text = Tasso di vittoria del <b>vincitore</b> — <b>{winner_win_rate}</b>.\nLa sua serie di vittorie attuale — <b>{winner_win_streak}</b>, serie di vittorie massima — <b>{winner_win_streak_max}</b>.\nTasso di vittoria del <b>perdente</b> — <b>{loser_win_rate}</b>.
-pvp.results.stats.lost_win_streak = La serie di <b>{lost_win_streak}</b> vittorie di fila è stata persa.
-pvp.results.withheld = <b>{payout} cm</b> sono stati trattenuti dal vincitore per pagare il debito.
-pvp.button = Attacca!
-pvp.errors.no_args = Chiama il comando con un numero di centimetri che sei disposto a scommettere.
-pvp.errors.not_enough.initiator = Meh. Il pene dello sfidante non è lungo abbastanza per una tale scommessa!
-pvp.errors.not_enough.acceptor = Il tuo membro non è abbastanza lungo 😣
-pvp.errors.same_person = Non puoi sfidarti da solo!
-pvp.errors.battle_already_in_progress = La battaglia è già in corso! Il messaggio verrà aggiornato in un momento…
-
-stats.description = Statistiche
-stats.length = Lunghezza: <b>{length}</b>\nPosizione in classifica: <b>{pos}</b>
-stats.pvp = Tasso di vittoria: <b>{win_rate}</b>.\nSfide: <b>{battles}</b>.\nVittorie: <b>{wins}</b>.\nSerie di vittorie massima: <b>{win_streak}</b>.\nLunghezza acquisita: <b>{acquired} cm</b>.\nLunghezza persa: <b>{lost} cm</b>.
-stats.notice = La raccolta delle statistiche è iniziata il 2 Luglio 2024.
-stats.personal = <i>Le tue statistiche personali:</i>\n— Numero di gruppi in cui giochi: <b>{chats}</b>.\n— Lunghezza massima raggiunta: <b>{max_length}</b>.\n— Somma dei tuoi peni in tutti i gruppi: <b>{total_length}</b>.
-
-loan.description = Debito? Prendi un prestito!
-loan.debt = Ti rimangono da pagare <b>{debt} cm</b>
-loan.confirmation.text = Il tuo debito verrà resettato, ma ogni crescita del tuo pene sarà ridotta del <b>{payout_percentage}</b> finché il debito di <b>{debt} cm</b> non sarà saldato.
-loan.confirmation.buttons.agree = Va bene!
-loan.confirmation.buttons.disagree = No, grazie
-loan.callback.success = Il microprestito è stato emesso con successo!
-loan.callback.refused = Il paziente ha rifiutato il cambio di genere per credito.
-loan.callback.payout_ratio_changed = Il tasso di rimborso è stato modificato poiché hai inviato la domanda di prestito. Rimanda il comando.
-loan.errors.positive_length = Mi dispiace, amico, questa iniziativa sociale è pensata solo per ragazze con desideri molto, molto profondi. Non posso far diventare il tuo amico ancora più grande :(
-
-errors.another_user = Questo messaggio è stato inviato da un'altra persona.
+help.description = Ti aiuterò, amica mia
+help.text = 🍒 Vuoi le tette più grandi e pesanti della chat? Certo che sì. Usa /grow una volta al giorno in ogni chat e scala la classifica!\n\nOgni /grow cambia le tue tette da <b>{min}</b> a <b>{max}</b> cc. /top mostra le coppie più succose della chat.\n\nOgni giorno un giocatore attivo viene incoronato <i>Tette del Giorno</i> con /dod e riceve cc bonus. Partecipa solo chi è cresciuto nell'ultima settimana.\n\nTi senti coraggiosa? Scommetti i tuoi cc contro un'amica con /pvp &lt;cc&gt;. Chi vince prende la posta, chi perde la perde.\n\nTette in negativo? /loan le riporta a zero e ripaghi il debito con la crescita futura. /stats mostra i tuoi numeri.
 
 greeting = Ciao
+
+language.description = Cambia la lingua dell'interfaccia
+language.prompt = Scegli la lingua:
+language.errors.admins_only = Solo gli amministratori possono cambiare la lingua della chat.
+language.chat.prompt = Scegli la lingua per tutta la chat:
+language.chat.success = Fatto! Ora tutti in questa chat mi vedono nella lingua scelta.
+language.chat.reset = Fatto! La lingua della chat è stata azzerata — ognuno mi vede di nuovo nella propria lingua.
+language.chat.auto_button = 🌐 Auto (ognuno la sua)
+
+grow.description = Fai crescere le TETTE!
+grow.result = {event} di <b>{incr} cc.</b> Ora hai <b>{length} cc di carne di tetta pesante e ballonzolante</b> 😩🫧.
+grow.direction.grown = 💦🍒 CAZZO SÌÌÌ~ le tue enormi tette da troia si sono gonfiate
+grow.direction.shrunk = Non sei abbastanza TROIA per avere tette grandi. Si sono ristrette
+grow.position = La tua posizione in classifica è <b>{pos}</b>.
+grow.tomorrow = Le tue tettone da troia sono ancora doloranti e gocciolanti, avida puttanella~
+
+top.description = Classifica delle tette più grandi e troie della chat
+top.title = 🍒 <b>TOP TETTE PESANTI DA TROIA</b> 🍒
+top.line = {n}|<b>{name}</b> — <b>{length} cc</b> di carne di tetta che rimbalza
+top.ending = <i>[+] significa che questa troietta bisognosa oggi non ha ancora nutrito le sue tette.</i>
+top.ending_inactive = <i>[~] significa che queste tette sono ignorate da più di {days} giorni.</i>
+top.empty = Nessuno è ancora entrato nella fattoria delle tette. Sii la prima troietta avida 😩🍒
+
+dod.description = Incorona le tette più grasse e sode di oggi
+dod.result = 🍒 <b>TETTE DEL GIORNO</b> 🍒\n\nVince <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nQuelle tette stupende si sono gonfiate di <b>{growth} cc</b> e ora contengono ben <b>{length} cc</b> 😩🫧
+dod.position = Ora quelle tette sono <b>#{pos}</b> in classifica.
+dod.already_chosen = Le Tette del Giorno di oggi sono già state incoronate: <b>{name}</b> 🍒
+dod.no_candidates = Nessuna candidata succosa. In questa chat nessuno ha ancora iniziato a far crescere le tette 😢
+
+pvp.description = Metti in gioco le tue tette contro un'amica
+pvp.results.start = <b>{name}</b> butta le sue tette sul ring con una scommessa di <b>{bet} cc</b>! 🍒
+pvp.results.finish = 🍒 <b>{winner_name}</b> vince lo scontro di tette!\n\nLe sue tette ora sono <b>{winner_length} cc</b> di gloriosa carne che rimbalza. A <b>{loser_name}</b> restano <b>{loser_length} cc</b> 😩\n\nLa posta era <b>{bet} cc</b>.
+pvp.results.position.winner = Le tette di <b>{name}</b> ora sono <b>#{pos}</b> in classifica.
+pvp.results.position.loser = Le tette di <b>{name}</b> ora sono <b>#{pos}</b> in classifica.
+pvp.results.stats.text = Percentuale di vittorie del vincitore: <b>{winner_win_rate}</b>.\nSerie attuale: <b>{winner_win_streak}</b>; serie migliore: <b>{winner_win_streak_max}</b>.\nPercentuale di vittorie del perdente: <b>{loser_win_rate}</b>.
+pvp.results.stats.lost_win_streak = Una serie di <b>{lost_win_streak}</b> vittorie è appena stata schiacciata 😩
+pvp.results.withheld = <b>{payout} cc</b> sono stati presi dalle tette del vincitore per ripagare il prestito.
+pvp.button = 🍒 LOTTA DI TETTE!
+pvp.errors.no_args = Di' quanti cc di carne di tetta vuoi scommettere.
+pvp.errors.not_enough.initiator = Quelle tette non sono abbastanza pesanti per rischiare tanto, troietta bisognosa.
+pvp.errors.not_enough.acceptor = Le tue tettine non hanno abbastanza cc per questa scommessa 😣
+pvp.errors.same_person = Sciocca troietta! Non puoi lottare contro le tue stesse tette! 😝
+pvp.errors.battle_already_in_progress = È già in corso una lotta di tette! Il messaggio si aggiornerà tra un attimo…
+
+stats.description = Statistiche
+stats.length = Misura delle tette: <b>{length} cc</b>\nPosizione in classifica: <b>#{pos}</b>
+stats.pvp = Percentuale di vittorie: <b>{win_rate}</b>.\nLotte di tette: <b>{battles}</b>.\nVittorie: <b>{wins}</b>.\nSerie migliore: <b>{win_streak}</b>.\nCarne di tetta vinta: <b>{acquired} cc</b>.\nCarne di tetta persa: <b>{lost} cc</b>.
+stats.notice = Le statistiche delle lotte di tette sono registrate dal 30 luglio 2026.
+stats.personal = <i>Il tuo curriculum tettoso:</i>\n— Chat in cui cresci: <b>{chats}</b>.\n— Coppia più grande: <b>{max_length} cc</b>.\n— Carne di tetta totale in tutte le chat: <b>{total_length} cc</b>.
+
+loan.description = Tette in negativo? Prendi un prestito!
+loan.debt = Debito di tette rimasto: <b>{debt} cc</b>
+loan.confirmation.text = Le tue tristi tette vuote torneranno a zero, ma ogni crescita futura sarà tassata del <b>{payout_percentage}</b> finché non ripaghi tutti i <b>{debt} cc</b>.
+loan.confirmation.buttons.agree = 💦 Dammi il prestito!
+loan.confirmation.buttons.disagree = No, grazie
+loan.callback.success = Il tuo prestito di emergenza per le tette è stato approvato!
+loan.callback.refused = La disperata richiedente ha rifiutato il prestito per le tette.
+loan.callback.payout_ratio_changed = Il tasso di rimborso è cambiato dopo la tua richiesta. Invia di nuovo il comando.
+loan.errors.positive_length = Le tue tette sono già sopra lo zero, troietta avida. I prestiti sono solo per le ragazze davvero piatte.
 
 next_day.none =  Torna domani!
 next_day.some = \n\nProssimo tentativo tra <b>{hours}</b>h <b>{minutes}</b>m.
 
-perks.top_line = I seguenti vantaggi hanno influenzato il risultato:
-perks.help-pussies = buco profondo
-perks.loan-payout = micro-loaner
+perks.top_line = Questi bonus hanno toccato le tue tette
+perks.help-pussies = sostegno per le piatte
+perks.loan-payout = rimborso del prestito
 
-errors.not_group_chat = Questo bot può svolgere la sua missione solo nei gruppi!
-errors.group_account = Non puoi giocare per conto di un gruppo o canale — disattiva la modalità anonima e riprova!
-
-help.text = Vuoi avere il pene più grande del mondo? Sono sicuro di sì. Basta far crescere il tuo /grow una volta al giorno in ogni gruppo in cui ti trovi! Sali in cima alla classifica!\n\nL'intervallo di crescita per il comando va da <b>{min}</b> a <b>{max}</b> cm. Usa il comando /top per mostrare la classifica dei peni più grandi in un gruppo.\n\nInoltre, ogni giorno viene eletto <i>il Pene del Giorno</i> in ogni gruppo. Questo titolo porta al suo proprietario alcuni centimetri bonus in più. Solo i giocatori attivi che hanno fatto crescere il loro cetriolo almeno una volta nell'ultima settimana partecipano all'elezione.\n\nSe vuoi rendere il tuo fratellino ancora più lungo e sei pronto a correre qualche rischio per questa opportunità, puoi combattere con i tuoi amici. Basta piazzare una scommessa con il comando /pvp! Il vincitore riceverà il numero di centimetri specificato. Il perdente li perderà. È semplice.
+errors.not_group_chat = Le tette crescono solo nei gruppi! Aggiungimi a un gruppo 🍒
+errors.group_account = Non puoi far crescere tette come gruppo o canale — disattiva la modalità anonima e riprova!
+errors.another_user = Non sono le tue tette, giù le mani! Questo pulsante è di qualcun altro.
