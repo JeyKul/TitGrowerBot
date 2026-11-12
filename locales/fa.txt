@@ -1,0 +1,78 @@
+# fa texts. Format: key = text. Use \n for new line, {name} for values.
+
+help.description = کمکت میکنم دوست من
+
+language.description = تغییر زبان رابط کاربری
+language.prompt = زبان خود را انتخاب کنید:
+language.errors.admins_only = فقط مدیران گروه می‌توانند زبان گفتگو را تغییر دهند.
+language.chat.prompt = زبان کل این گفتگو را انتخاب کنید:
+language.chat.success = انجام شد! از این پس به همهٔ اعضای این گفتگو به زبان انتخاب‌شده پاسخ می‌دهم.
+language.chat.reset = انجام شد! زبان گفتگو پاک شد — دوباره به هر کس به زبان خودش پاسخ می‌دهم.
+language.chat.auto_button = 🌐 خودکار (زبان هر کاربر)
+
+grow.description = کیرتو کلفت کن!
+grow.result = کیرت {event} و <b>{incr} سانت</b> تغییر کرده، الان طولش <b>{length} سانت</b> شده.
+grow.direction.grown = کلفت شد
+grow.direction.shrunk = نازک شد
+grow.position = رتبه‌ت توی جدول <b>{pos}</b> هست.
+grow.tomorrow = امروز به اندازه کافی با کیرت بازی کردی.
+
+top.description = کلفت ترین کیر های توی چتو ببین
+top.title = لیست کیر کلفتا:
+top.line = {n}|<b>{name}</b> — <b>{length}</b> سانت
+top.ending = <i>[+] یعنی یه کیر کلفت کن امروز کیرشو کلفت نکرده.</i>
+top.ending_inactive = <i>[~] یعنی یه کیر کلفت کن بیش از {days} روز کیرشو کلفت نکرده.</i>
+top.empty = متاسفانه هیچکس توی بازی نیست :(
+
+dod.description = کیر روز رو انتخاب کن
+dod.result = کیر روز متعلق به <b><a href="tg://user?id={uid}">{name}</a></b> هست!\n\nکیرش <b>{growth} سانت</b> بلندتر شده و الان <b>{length}</b> سانته.
+dod.position = موقعیتش توی جدول <b>{pos}</b> هست.
+dod.already_chosen = کیر روز امروز انتخاب شده و <b>{name}</b> بوده.
+dod.no_candidates = هیچ نامزدی برای انتخابات وجود نداره. هنوز کسی توی این چت وارد بازی نشده 😢
+
+pvp.description = با دوستت کیربازی کن!
+pvp.results.start = <b>{name}</b> چت رو به چالش کشید و شرط بست روی <b>{bet} سانت</b>!
+pvp.results.finish = برنده <b>{winner_name}</b> شد! کیرش الان <b>{winner_length} سانت</b> شده. بازنده هم <b>{loser_length}</b> سانته.\nمبلغ شرط <b>{bet} سانت</b> بود.
+pvp.results.position.winner = رتبه <b>{name}</b> در جدول <b>{pos}</b> هست.
+pvp.results.position.loser = رتبه <b>{name}</b> در جدول <b>{pos}</b> هست.
+pvp.results.stats.text = نرخ برد <b>winner</b> — <b>{winner_win_rate}</b>.\nسری بردهای فعلیش — <b>{winner_win_streak}</b> و بیشترین سری برد — <b>{winner_win_streak_max}</b>.\nنرخ برد <b>loser</b> — <b>{loser_win_rate}</b>.
+pvp.results.stats.lost_win_streak = سری پیروزی‌های <b>{lost_win_streak}</b> تا به حال شکسته شد.
+pvp.results.withheld = <b>{payout} سانت</b> از برد به‌عنوان پرداخت قرض از برنده نگه داشته شد.
+pvp.button = کیرشو قطع کن!
+pvp.errors.no_args = برای استفاده از دستور، باید یک یه عدد به سانتی‌متر برای شرط‌بندی وارد کنی.
+pvp.errors.not_enough.initiator = اخ که کیر شخص شروع‌کننده برای این شرط کافی نیست!
+pvp.errors.not_enough.acceptor = کیرت به اندازه کافی کلفت نیست 😣
+pvp.errors.same_person = نمی‌تونی با خودت مبارزه کنی!
+pvp.errors.battle_already_in_progress = مبارزه در حال انجامه! پیام به‌زودی آپدیت میشه…
+
+stats.description = آمار
+stats.length = طول: <b>{length}</b>\nرتبه در جدول: <b>{pos}</b>
+stats.pvp = نرخ برد: <b>{win_rate}</b>.\nمبارزات: <b>{battles}</b>.\nبردها: <b>{wins}</b>.\nبیشترین سری برد: <b>{win_streak}</b>.\nطول به‌دست‌آمده: <b>{acquired} سانت</b>.\nطول از دست رفته: <b>{lost} سانت</b>.
+stats.notice = جمع‌آوری آمار از 2 جولای 2024 شروع شده.
+stats.personal = <i>آمار شخصی شما:</i>\n— تعداد چت‌هایی که توش بازی می‌کنی: <b>{chats}</b>.\n— بیشترین طول: <b>{max_length}</b>.\n— مجموع طول آلت‌ها در تمام چت‌ها: <b>{total_length}</b>.
+
+loan.description = کیرت منفیه؟ یه وام بگیر!
+loan.debt = مقدار باقی‌مانده برای پرداخت <b>{debt} سانت</b> هست.
+loan.confirmation.text = کص عمیقت دوباره تبدیل به کیر میشه، اما هر رشد جدید به میزان <b>{payout_percentage}</b> کاهش پیدا میکنه تا زمانی که تمام <b>{debt} سانت</b> پرداخت بشه.
+loan.confirmation.buttons.agree = حله!
+loan.confirmation.buttons.disagree = موافق نیستم
+loan.callback.success = وام جور شد، ایول!
+loan.callback.refused = طرف حاضر نشد رو اعتبار تغییر جنسیت بده!
+loan.callback.payout_ratio_changed = نرخ پرداخت عوض شده، دوباره امتحان کن ببین چی میشه!
+loan.errors.positive_length = داداش شرمنده، این طرح فقط برای دختراست که یه کص عمیق دارن. نمی‌تونم کیرتو از اینی که هست بلندتر کنم :(
+
+errors.another_user = این پیام رو یه نفر دیگه فرستاده.
+
+greeting = سلام
+
+next_day.none =  فردا برگرد!
+next_day.some = \n\nدفعه بعدی تو <b>{hours}</b> ساعت و <b>{minutes}</b> دقیقه.
+
+perks.top_line = این قابلیت‌ها روی نتیجه تأثیر گذاشتن:
+perks.help-pussies = حفره عمیق
+perks.loan-payout = وام خور
+
+errors.not_group_chat = این بات فقط توی گروه‌ها کار می‌کنه!
+errors.group_account = نمی‌تونی به‌جای گروه یا کانال بازی کنی — حالت ناشناس رو خاموش کن و دوباره امتحان کن!
+
+help.text = می‌خوای بزرگ‌ترین آلت دنیا رو داشته باشی؟ مطمئنم که آره. فقط کافیه هر روز یه بار توی هر گروهی که هستی /grow (رشد بده) رو بزنی! برو بالای جدول رتبه‌بندی!\n\nبازهٔ رشد این دستور بین <b>{min}</b> تا <b>{max}</b> سانتی‌متر است. برای نمایش جدول بزرگ‌ترین آلت‌های گروه از دستور /top استفاده کن.\n\nهمچنین، هر روز در هر گروه <i>آلت روز</i> انتخاب می‌شود. این عنوان به صاحبش چند سانتی‌متر جایزه هم می‌دهد. فقط بازیکنان فعالی که حداقل یک بار در هفتهٔ گذشته خیارشون رو رشد داده باشند، در این انتخاب شرکت می‌کنند.\n\nاگه می‌خوای داداش کوچولوت رو حتی بلندتر کنی و حاضری برای این فرصت ریسک کنی، می‌تونی با دوستات مبارزه کنی. کافیه با دستور /pvp شرط ببندی! برنده تعداد سانتی‌متر مشخص‌شده رو می‌گیره. بازنده هم اونها رو از دست می‌ده. خیلی ساده است.

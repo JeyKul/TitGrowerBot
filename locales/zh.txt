@@ -1,0 +1,78 @@
+# zh texts. Format: key = text. Use \n for new line, {name} for values.
+
+help.description = 有什么问题吗
+
+language.description = 更改界面语言
+language.prompt = 请选择你的语言：
+language.errors.admins_only = 只有群管理员才能更改群聊语言。
+language.chat.prompt = 请为整个群聊选择语言：
+language.chat.success = 完成！现在我会用这种语言回复本群所有人。
+language.chat.reset = 完成！群聊语言已清除 —— 我会重新按每个人自己的语言回复。
+language.chat.auto_button = 🌐 自动（各自的语言）
+
+grow.description = 让你的丁丁变大！
+grow.result = 你的丁丁已经<b>{incr} 厘米</b> {event}，现在长度为<b>{length} 厘米</b>。
+grow.direction.grown = 增长了
+grow.direction.shrunk = 缩短了
+grow.position = 你在排行榜上的位置是<b>{pos}</b>。
+grow.tomorrow = 你今天已经玩过你的丁丁了。
+
+top.description = 获取聊天中最大的丁丁
+top.title = 最大的丁丁排行榜：
+top.line = {n}|<b>{name}</b> — <b>{length}</b> 厘米
+top.ending = <i>[+] 表示一个牛子怪今天还没有增长他的丁丁。</i>
+top.ending_inactive = <i>[~] 表示一个牛子怪超过 {days} 天没有增长他的丁丁了。</i>
+top.empty = 还没有人加入游戏 :(
+
+dod.description = 选举今日丁丁
+dod.result = 今日丁丁是<b><a href="tg://user?id={uid}">{name}</a></b>！\n\n他的丁丁增长了<b>{growth} 厘米</b>，现在长度为<b>{length}</b> 厘米。
+dod.position = 他在排行榜上的位置是<b>{pos}</b>。
+dod.already_chosen = 今日丁丁已经被选出来了！是<b>{name}</b>。
+dod.no_candidates = 没有候选人可以选举。在这个聊天中还没有人加入游戏 😢
+
+pvp.description = 斗鸡！
+pvp.results.start = <b>{name}</b> 向聊天发起了一个<b>{bet} 厘米</b>的挑战！
+pvp.results.finish = 胜利者是<b>{winner_name}</b>！他的丁丁现在长度为<b>{winner_length} 厘米</b>。失败者的丁丁长度为<b>{loser_length}</b>。\n赌注是<b>{bet} 厘米</b>。
+pvp.results.position.winner = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
+pvp.results.position.loser = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
+pvp.results.stats.text = <b>胜利者</b>的胜率 — <b>{winner_win_rate}</b>。\n他当前的连胜 — <b>{winner_win_streak}</b>，最大连胜 — <b>{winner_win_streak_max}</b>。\n<b>失败者</b>的胜率 — <b>{loser_win_rate}</b>。
+pvp.results.stats.lost_win_streak = <b>{lost_win_streak}</b> 连胜被终结了。
+pvp.results.withheld = <b>{payout} 厘米</b> 从胜利者那里被扣留以偿还贷款。
+pvp.button = 斗鸡！
+pvp.errors.no_args = 发起斗鸡要下注。
+pvp.errors.not_enough.initiator = 呃。发起者的丁丁不够长，无法下这么大的赌注！
+pvp.errors.not_enough.acceptor = 你的枪不够长 😣
+pvp.errors.same_person = 你不能和自己斗鸡！
+pvp.errors.battle_already_in_progress = 已经在斗鸡！结果立等可取
+
+stats.description = 统计
+stats.length = 长度: <b>{length}</b>\n在排行榜上的位置: <b>{pos}</b>
+stats.pvp = 胜率: <b>{win_rate}</b>。\n战斗次数: <b>{battles}</b>。\n胜利次数: <b>{wins}</b>。\n最大连胜: <b>{win_streak}</b>。\n获得长度: <b>{acquired} 厘米</b>。\n失去长度: <b>{lost} 厘米</b>。
+stats.notice = 统计收集从2024年7月2日开始。
+stats.personal = <i>你的个人统计:</i>\n— 你参与的游戏聊天数量: <b>{chats}</b>。\n— 最大长度: <b>{max_length}</b>。\n— 所有聊天中的丁丁总长度: <b>{total_length}</b>。
+
+loan.description = 负数？申请贷款！
+loan.debt = 还需偿还 <b>{debt} 厘米</b>
+loan.confirmation.text = 你的浦西将被重置为零，但每次增长将减少 <b>{payout_percentage}</b>，直到偿还所有 <b>{debt} 厘米</b>。
+loan.confirmation.buttons.agree = 我同意！
+loan.confirmation.buttons.disagree = 不同意
+loan.callback.success = 小额贷款已成功发放！
+loan.callback.refused = 患者拒绝了信用性别重置。
+loan.callback.payout_ratio_changed = 自你发送贷款申请以来，支付率已更改。请重新调用该命令。
+loan.errors.positive_length = 抱歉，兄弟，这个提案只针对那些有非常非常深渴望的女孩。我不能让你的大兄弟变得更长 :(
+
+errors.another_user = 此消息由其他人发送。
+
+greeting = 你好
+
+next_day.none =  回去玩丁丁，明天再来！
+next_day.some = \n\n下次尝试在 <b>{hours}</b>小时 <b>{minutes}</b>分钟后。
+
+perks.top_line = 以下特权影响了结果
+perks.help-pussies = 深洞
+perks.loan-payout = 小贷人员
+
+errors.not_group_chat = 此机器人仅在群聊中执行任务！
+errors.group_account = 不能以群组或频道的身份游玩——请关闭匿名模式后重试！
+
+help.text = 想拥有世界上最大的丁丁吗？我相信你想。只需在你所在的每个群里每天用一次 /grow（增长）！冲上排行榜的顶端吧！\n\n该指令的增长范围是 <b>{min}</b> 到 <b>{max}</b> 厘米。使用 /top 指令可以显示群里最大的丁丁排行榜。\n\n此外，每个群每天都会选出一位<i>今日丁丁</i>。这个称号会给它的主人额外增加一些奖励厘米数。只有在过去一周内至少增长过一次丁丁的活跃玩家才能参加评选。\n\n如果你想让你的小兄弟变得更长，并且愿意为此承担一点风险，你可以和朋友们决斗。只需通过 /pvp 指令下注！胜利者将获得指定的厘米数，失败者将失去它们。就这么简单。

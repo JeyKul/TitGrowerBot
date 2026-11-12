@@ -1,0 +1,78 @@
+# en texts. Format: key = text. Use \n for new line, {name} for values.
+
+help.description = I'll help you, my friend
+
+language.description = Change the interface language
+language.prompt = Choose your language:
+language.errors.admins_only = Only chat administrators can change the chat language.
+language.chat.prompt = Choose the language for this whole chat:
+language.chat.success = Done! Everyone in this chat will now see me in the selected language.
+language.chat.reset = Done! The chat language was cleared — everyone will see me in their own language again.
+language.chat.auto_button = 🌐 Auto (each user's own)
+
+grow.description = Grow your dick!
+grow.result = Your dick has {event} by <b>{incr} cm</b> and now it is <b>{length} cm</b> long.
+grow.direction.grown = grown
+grow.direction.shrunk = shrunk
+grow.position = Your position in the top is <b>{pos}</b>.
+grow.tomorrow = You have already played with your dick today.
+
+top.description = Get the biggest dicks of the chat
+top.title = Top of the biggest dicks:
+top.line = {n}|<b>{name}</b> — <b>{length}</b> cm
+top.ending = <i>[+] means a grower hasn't grown his dick today yet.</i>
+top.ending_inactive = <i>[~] means a grower hasn't grown his dick for more than {days} days.</i>
+top.empty = No one is in the game yet :(
+
+dod.description = Elect the Dick of a Day
+dod.result = The Dick of the Day is <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nHis dick has become longer for <b>{growth} cm</b> and is <b>{length}</b> cm long now.
+dod.position = His position in the top is <b>{pos}</b>.
+dod.already_chosen = The Dick of the Day has been already chosen for today! It's <b>{name}</b>.
+dod.no_candidates = There is no candidates for election. In this chat nobody is in the game yet 😢
+
+pvp.description = Fight with your friend's dick!
+pvp.results.start = <b>{name}</b> challenged the chat with a bet of <b>{bet} cm</b>!
+pvp.results.finish = The winner is <b>{winner_name}</b>! His dick is now <b>{winner_length} cm</b> long. The loser's one is <b>{loser_length}</b>.\nThe bet was <b>{bet} cm</b>.
+pvp.results.position.winner = <b>{name}</b>'s position in the top is <b>{pos}</b>.
+pvp.results.position.loser = <b>{name}</b>'s position in the top is <b>{pos}</b>.
+pvp.results.stats.text = Win rate of the <b>winner</b> — <b>{winner_win_rate}</b>.\nHis current win streak — <b>{winner_win_streak}</b>, max win streak — <b>{winner_win_streak_max}</b>.\nWin rate of the <b>loser</b> — <b>{loser_win_rate}</b>.
+pvp.results.stats.lost_win_streak = The streak of <b>{lost_win_streak}</b> victories in a row was lost.
+pvp.results.withheld = <b>{payout} cm</b> were withheld from the winner to pay off the loan.
+pvp.button = Attack!
+pvp.errors.no_args = Call the command with a number of centimeters you're willing to bet.
+pvp.errors.not_enough.initiator = Meh. The initiator's dick is not long enough for such a big bet!
+pvp.errors.not_enough.acceptor = Your gun is not long enough 😣
+pvp.errors.same_person = You cannot fight with yourself!
+pvp.errors.battle_already_in_progress = The fight is in progress already! The message will be updated in a moment…
+
+stats.description = Statistics
+stats.length = Length: <b>{length}</b>\nPosition in the top: <b>{pos}</b>
+stats.pvp = Win rate: <b>{win_rate}</b>.\nFights: <b>{battles}</b>.\nWins: <b>{wins}</b>.\nMax win streak: <b>{win_streak}</b>.\nAcquired length: <b>{acquired} cm</b>.\nLost length: <b>{lost} cm</b>.
+stats.notice = The collection of statistics started on July 2, 2024.
+stats.personal = <i>Your personal statistics:</i>\n— Number of the chats in which you play: <b>{chats}</b>.\n— Maximum length: <b>{max_length}</b>.\n— Sum of dicks across all the chats: <b>{total_length}</b>.
+
+loan.description = Minus? Take a loan!
+loan.debt = Left to pay <b>{debt} cm</b>
+loan.confirmation.text = Your deep hole will be reset to zero, but each growth will be lowered by <b>{payout_percentage}</b> until all <b>{debt} cm</b> is repaid.
+loan.confirmation.buttons.agree = I'm in!
+loan.confirmation.buttons.disagree = Disagree
+loan.callback.success = The microloan has been issued successfully!
+loan.callback.refused = The patient refused gender reassignment on credit.
+loan.callback.payout_ratio_changed = The payout rate has been changed since you sent the loan application. Please, invoke the command again.
+loan.errors.positive_length = Sorry, man, this social initiative is supposed only for girls have very very deep craves. I cannot make your big bro even longer :(
+
+errors.another_user = This message was sent by another person.
+
+greeting = Hello
+
+next_day.none =  Come back tomorrow!
+next_day.some = \n\nNext attempt in <b>{hours}</b>h <b>{minutes}</b>m.
+
+perks.top_line = The following perks affected the result
+perks.help-pussies = deep hole
+perks.loan-payout = micro-loaner
+
+errors.not_group_chat = This bot is supposed to do its mission in group chats only!
+errors.group_account = You can't play on behalf of a group or channel — switch off anonymous mode and try again!
+
+help.text = Do you want to have the biggest dick in the world? I'm sure you do. Just /grow it once a day in every chat you're in! Get on the top of the leaderboard!\n\nThe growth range for the command is between <b>{min}</b> and <b>{max}</b> cm. Use the /top command to show the top of the biggest weapons in a chat.\n\nAlso, there is a daily election of <i>the Dick of the Day</i> in every chat. This title brings its owner some bonus centimeters additionally. Only active players who have grown their cucumber at least once in the last week participate in the election.\n\nIf you want to make your little bro even longer and is ready to get some risk for this opportunity, you may fight with your friends. Just place a bet via /pvp command! The winner will get the specified number of centimeters. The looser will lose theirs. It's simple.

@@ -1,0 +1,78 @@
+# ru texts. Format: key = text. Use \n for new line, {name} for values.
+
+help.description = Я обязательно помогу тебе, друг
+
+language.description = Сменить язык интерфейса
+language.prompt = Выберите язык:
+language.errors.admins_only = Менять язык чата могут только администраторы.
+language.chat.prompt = Выберите язык для всего чата:
+language.chat.success = Готово! Теперь я отвечаю всем участникам чата на выбранном языке.
+language.chat.reset = Готово! Язык чата сброшен — снова отвечаю каждому на его языке.
+language.chat.auto_button = 🌐 Авто (у каждого свой)
+
+grow.description = Вырасти пиписю!
+grow.result = Твоя пися {event} на <b>{incr}</b> см и теперь её длина составляет <b>{length} см</b>.
+grow.direction.grown = выросла
+grow.direction.shrunk = скукожилась
+grow.position = Ты занимаешь <b>{pos}</b> место в топе.
+grow.tomorrow = Ты уже играл с пиписей сегодня.
+
+top.description = Узнай рейтинг самых больших волын в чате
+top.title = Топ самых больших пиписек:
+top.line = {n}|<b>{name}</b> — <b>{length}</b> см
+top.ending = <i>[+] значит, что гровер не растил ещё свою пипиську сегодня.</i>
+top.ending_inactive = <i>[~] значит, что гровер не растил свою пипиську более {days} дней.</i>
+top.empty = Никто пока не участвует в игре :(
+
+dod.description = Выбор Писюна Дня
+dod.result = Пам-пам-пам! Писюн Дня — <b><a href="tg://user?id={uid}">{name}</a></b>!\n\nЕго пиписик вырос на <b>{growth} см</b> и теперь длиной <b>{length}</b> см.
+dod.position = Он занимает <b>{pos}</b> место в топе.
+dod.already_chosen = Писюн Дня уже был выбран на сегодня! Это <b>{name}</b>.
+dod.no_candidates = Не из кого выбирать: в этом чате ещё никто не участвует в игре 😢
+
+pvp.description = Сражайся с пипирками друзей!
+pvp.results.start = <b>{name}</b> бросил чату вызов со ставкой <b>{bet} см</b>!
+pvp.results.finish = Победитель — <b>{winner_name}</b>! Его пипирик теперь равен <b>{winner_length} см</b>, а проигравшего — <b>{loser_length} см</b>.\nСтавка была <b>{bet} см</b>.
+pvp.results.position.winner = <b>{name}</b> занимает <b>{pos}</b> место в топе.
+pvp.results.position.loser = <b>{name}</b> занимает <b>{pos}</b> место в топе.
+pvp.results.stats.text = Процент выигрышей <b>победителя</b> — <b>{winner_win_rate}</b>.\nЕго текущая серия побед — <b>{winner_win_streak}</b>, максимальная — <b>{winner_win_streak_max}</b>.\nПроцент выигрышей <b>проигравшего</b> — <b>{loser_win_rate}</b>.
+pvp.results.stats.lost_win_streak = Прервалась серия из <b>{lost_win_streak}</b> побед подряд.
+pvp.results.withheld = <b>{payout} см</b> было удержано с победителя для погашения задолженности.
+pvp.button = Атаковать!
+pvp.errors.no_args = Вызови команду с числом сантиметров, которые готов поставить.
+pvp.errors.not_enough.initiator = Пфф. Стрючок инициатора слишком короткий для такой ставки!
+pvp.errors.not_enough.acceptor = Твоя волына слишком коротка 😣
+pvp.errors.same_person = Нельзя биться с самим собой!
+pvp.errors.battle_already_in_progress = Сражение уже началось! Сообщение обновится через мгновение…
+
+stats.description = Статистика
+stats.length = Длина: <b>{length}</b>\nПозиция в топе: <b>{pos}</b>
+stats.pvp = Процент выигрышей: <b>{win_rate}</b>.\nСыгранных боёв: <b>{battles}</b>.\nПобед: <b>{wins}</b>.\nМаксимум побед подряд: <b>{win_streak}</b>.\nВыиграно: <b>{acquired} см</b>.\nПроиграно: <b>{lost} см</b>.
+stats.notice = Статистика начала собираться со 2 июля 2024.
+stats.personal = <i>Персональная статистика:</i>\n— Количество чатов: <b>{chats}</b>.\n— Максимальная длина: <b>{max_length}</b>.\n— Сумма писюнов среди всех чатов: <b>{total_length}</b>.
+
+loan.description = Минус? Возьми кредит!
+loan.debt = Осталось выплатить <b>{debt} см</b>
+loan.confirmation.text = Твоя пропасть будет обнулена, но размер каждого прироста снизится на <b>{payout_percentage}</b> до выплаты всех <b>{debt} см</b>.
+loan.confirmation.buttons.agree = Согласен
+loan.confirmation.buttons.disagree = Я пас
+loan.callback.success = Микрозайм успешно предоставлен!
+loan.callback.refused = Пациент отказался от смены пола в кредит.
+loan.callback.payout_ratio_changed = С момента подачи заявления ставка выплаты изменилась. Пожалуйста, вызовите команду ещё раз.
+loan.errors.positive_length = Операции по увеличению братюни в кредит не проводим! Социальная программа действует только чтобы помочь выбраться из бездонной глубины!
+
+errors.another_user = Сообщение было отправлено другим человеком.
+
+greeting = Приветствую
+
+next_day.none =  Возвращайся завтра!
+next_day.some = \n\nСледующая попытка через <b>{hours}</b> ч. <b>{minutes}</b> мин.
+
+perks.top_line = На результат повлияли следующие перки
+perks.help-pussies = глубокая нора
+perks.loan-payout = микрозаймер
+
+errors.not_group_chat = Бот выполняет свою миссию только в групповых чатах!
+errors.group_account = Нельзя играть от имени группы или канала — отключите анонимный режим и попробуйте снова!
+
+help.text = Ты же хочешь иметь самую большую пипиську в мире? Я уверен, что да. Просто /grow (расти) его раз в день в каждом чате! Поднимись на вершину рейтинга!\n\nДлина при вызове команды изменяется на случайное значение в диапазоне от <b>{min}</b> до <b>{max}</b> см. Вывести рейтинг можно с помощью команды /top.\n\nТакже раз в сутки в каждом чате можно выбрать <i>Писюн Дня</i>, который в качестве бонуса получит дополнительные сантиметры. В избрании участвуют только активные гроверы, которые растили свой огурчик хотя бы раз за последнюю неделю.\n\nЕсли хочешь сделать своего братишку ещё длиннее и готов ради этого пойти на риск, можешь сразиться с друзьями. Просто сделай ставку с помощью команды /pvp! Победитель получит указанное количество сантиметров, проигравший — потеряет. Всё просто.

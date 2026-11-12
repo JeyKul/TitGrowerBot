@@ -1,0 +1,70 @@
+# zh-TW texts. Format: key = text. Use \n for new line, {name} for values.
+
+language.description = 變更介面語言
+language.prompt = 請選擇你的語言：
+language.errors.admins_only = 只有群組管理員才能變更群組語言。
+language.chat.prompt = 請為整個群組選擇語言：
+language.chat.success = 完成！現在我會用這種語言回覆本群所有人。
+language.chat.reset = 完成！群組語言已清除 —— 我會重新依每個人自己的語言回覆。
+language.chat.auto_button = 🌐 自動（各自的語言）
+
+grow.result = 你的老二已經<b>{incr} 公分</b> {event}，現在長度為<b>{length} 公分</b>。
+grow.direction.grown = 增長了
+grow.direction.shrunk = 縮短了
+grow.position = 你在排行榜上的位置是<b>{pos}</b>。
+grow.tomorrow = 你今天已經玩過你的老二了。
+
+top.title = 最大的老二排行榜：
+top.line = {n}|<b>{name}</b> — <b>{length}</b> 公分
+top.ending = <i>[+] 表示一個成長者今天還沒有增長他的老二。</i>
+top.ending_inactive = <i>[~] 表示一個成長者超過 {days} 天沒有增長他的老二了。</i>
+top.empty = 還沒有人加入遊戲 :(
+
+dod.result = 今日老二是<b><a href="tg://user?id={uid}">{name}</a></b>！\n\n他的老二增長了<b>{growth} 公分</b>，現在長度為<b>{length}</b> 公分。
+dod.position = 他在排行榜上的位置是<b>{pos}</b>。
+dod.already_chosen = 今日老二已經被選出來了！是<b>{name}</b>。
+dod.no_candidates = 沒有候選人可以選舉。在這個聊天中還沒有人加入遊戲 😢
+
+pvp.results.start = <b>{name}</b> 向聊天發起了一個<b>{bet} 公分</b>的挑戰！
+pvp.results.finish = 勝利者是<b>{winner_name}</b>！他的老二現在長度為<b>{winner_length} 公分</b>。失敗者的老二長度為<b>{loser_length}</b>。\n賭注是<b>{bet} 公分</b>。
+pvp.results.position.winner = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
+pvp.results.position.loser = <b>{name}</b> 在排行榜上的位置是<b>{pos}</b>。
+pvp.results.stats.text = <b>勝利者</b>的勝率 — <b>{winner_win_rate}</b>。\n他當前的連勝 — <b>{winner_win_streak}</b>，最大連勝 — <b>{winner_win_streak_max}</b>。\n<b>失敗者</b>的勝率 — <b>{loser_win_rate}</b>。
+pvp.results.stats.lost_win_streak = <b>{lost_win_streak}</b> 連勝被終結了。
+pvp.results.withheld = <b>{payout} 公分</b> 從勝利者那裡被扣留以償還貸款。
+pvp.button = PK！
+pvp.errors.no_args = 發起PK要下注。
+pvp.errors.not_enough.initiator = 呃。發起者的老二不夠長，無法下這麼大的賭注！
+pvp.errors.not_enough.acceptor = 你的老二不夠長 😣
+pvp.errors.same_person = 你不能和自己PK！
+pvp.errors.battle_already_in_progress = 已經在對戰了！結果稍後就會更新……
+
+stats.length = 長度: <b>{length}</b>\n在排行榜上的位置: <b>{pos}</b>
+stats.pvp = 勝率: <b>{win_rate}</b>。\n戰鬥次數: <b>{battles}</b>。\n勝利次數: <b>{wins}</b>。\n最大連勝: <b>{win_streak}</b>。\n獲得長度: <b>{acquired} 公分</b>。\n失去長度: <b>{lost} 公分</b>。
+stats.notice = 統計收集從2024年7月2日開始。
+stats.personal = <i>你的個人統計:</i>\n— 你參與的遊戲聊天數量: <b>{chats}</b>。\n— 最大長度: <b>{max_length}</b>。\n— 所有聊天中的老二總長度: <b>{total_length}</b>。
+
+loan.debt = 還需償還 <b>{debt} 公分</b>
+loan.confirmation.text = 你的長度將重設為零，但每次增長將減少 <b>{payout_percentage}</b>，直到償還所有 <b>{debt} 公分</b>。
+loan.confirmation.buttons.agree = 我同意！
+loan.confirmation.buttons.disagree = 不同意
+loan.callback.success = 小額貸款已成功發放！
+loan.callback.refused = 拒絕了信用變性方案。
+loan.callback.payout_ratio_changed = 自你發送貸款申請以來，支付率已更改。請重新調用該命令。
+loan.errors.positive_length = 抱歉，兄弟，這個提案只針對那些有非常非常深渴望的女孩。我不能讓你的大兄弟變得更長 :(
+
+errors.another_user = 此訊息由其他人發送。
+
+greeting = 你好
+
+next_day.none =  回去玩老二，明天再來！
+next_day.some = \n\n下次嘗試在 <b>{hours}</b>小時 <b>{minutes}</b>分鐘後。
+
+perks.top_line = 以下特權影響了結果
+perks.help-pussies = 深洞
+perks.loan-payout = 貸款人
+
+errors.not_group_chat = 此機器人僅在群聊中執行任務！
+errors.group_account = 不能以群組或頻道的身份遊玩——請關閉匿名模式後重試！
+
+help.text = 想拥有世界上最大的丁丁吗？我相信你想。只需在你所在的每个群里每天用一次 /grow（增长）！冲上排行榜的顶端吧！\n\n该指令的增长范围是 <b>{min}</b> 到 <b>{max}</b> 厘米。使用 /top 指令可以显示群里最大的丁丁排行榜。\n\n此外，每个群每天都会选出一位<i>今日丁丁</i>。这个称号会给它的主人额外增加一些奖励厘米数。只有在过去一周内至少增长过一次丁丁的活跃玩家才能参加评选。\n\n如果你想让你的小兄弟变得更长，并且愿意为此承担一点风险，你可以和朋友们决斗。只需通过 /pvp 指令下注！胜利者将获得指定的厘米数，失败者将失去它们。就这么简单。
