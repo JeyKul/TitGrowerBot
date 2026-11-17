@@ -16,10 +16,7 @@ language.chat.auto_button = 🌐 Auto (each user's own)
 
 grow.description = Grow your TITS!
 grow.result = {event} by <b>{incr} cc.</b> Now you have <b>{length} cc of heavy, jiggling tit meat </b> 😩🫧.
-grow.direction.grown = 💦🍒 FUUUUCK YES~ massive whore tits ballooned
-grow.direction.shrunk = Youre not SLUT enough to get big tits. They have shrunken
 grow.position = Your position in the top is <b>{pos}</b>.
-grow.tomorrow = Your fat slutty tits are still sore and leaking, you greedy whore~
 
 top.description = Rank the biggest, sluttiest tits in this chat
 top.title = 🍒 <b>TOP HEAVY SLUTTY TITS</b> 🍒
@@ -111,9 +108,6 @@ inline.descriptions.loan = Below zero? Get bailed out
 
 # ---- 🍆 variants: used for players who grow a dick (.dick), with .she/.they for pronouns ----
 grow.result.dick = {event} by <b>{incr} cm.</b> Now you're packing <b>{length} cm of thick, throbbing cock</b> 😩💦.
-grow.direction.grown.dick = 💦🍆 FUUUUCK YES~ your slutty cock swelled
-grow.direction.shrunk.dick = You're not SLUT enough for a big cock. It has shrunken
-grow.tomorrow.dick = Your fat slutty cock is still sore and dripping, you greedy whore~
 top.line.dick = {n}|<b>{name}</b> — <b>{length} cm</b> of throbbing cock 🍆
 dod.result.dick = 🍆 <b>COCK OF THE DAY</b> 🍆\n\n<b><a href="tg://user?id={uid}">{name}</a></b> wins!\n\nThat gorgeous cock swelled by <b>{growth} cm</b> and is now a juicy <b>{length} cm</b> 😩💦
 dod.position.dick = That cock is now ranked <b>#{pos}</b> on the leaderboard.
@@ -150,69 +144,229 @@ admin.grow_not_used = <b>{name}</b> hasn't grown here today, nothing to reset.
 admin.loan_cleared = ✅ The loan of <b>{name}</b> is gone ({debt} forgiven).
 admin.no_loan = <b>{name}</b> has no loan in this chat.
 
-# ---- random variants: add key.1, key.2, ... and the bot picks one each time ----
+# ==== Grow texts. Each key has variants .1 .2 ... and one is picked at random each time. ====
+# Body/pronoun suffixes go before the number: key.dick, key.he, key.dick.they.3
+# {pet} = girl / boy / pet, by the player's pronoun.
+grow.direction.grown = 💦🍒 FUUUUCK YES~ massive whore tits ballooned
 grow.direction.grown.1 = 💦🍒 Ohhh~ those greedy slut tits got even fatter
 grow.direction.grown.2 = 🍒✨ Look at them bounce! Your tits swelled up
+grow.direction.grown.3 = 🎈 Someone call NASA, your tits just inflated
+grow.direction.grown.4 = 📈 Breaking news: tit stocks are UP. They grew
+grow.direction.grown.5 = 🧪 The scientists were right, the potion worked. Your tits grew
+grow.direction.grown.6 = 🍞 Like dough in a warm oven, your tits rose
+grow.direction.grown.7 = 🌱 You watered them with pure slut energy and they sprouted
+grow.direction.grown.8 = 🚨 Bra alert! Your tits expanded
+grow.direction.grown.9 = 🏠 Your landlord called, your tits need more space. They grew
+
+grow.direction.shrunk = Youre not SLUT enough to get big tits. They have shrunken
 grow.direction.shrunk.1 = 😢🍒 Poor little tits... they deflated
 grow.direction.shrunk.2 = Not slutty enough today, your tits shrank
+grow.direction.shrunk.3 = 📉 The tit market crashed. Your portfolio shrank
+grow.direction.shrunk.4 = 🧦 Washed them on hot by accident. Your tits shrank
+grow.direction.shrunk.5 = 🎈 Someone poked them with a pin. Your tits lost air
+grow.direction.shrunk.6 = 🧊 It was cold today. That's the excuse. Your tits shrank
+grow.direction.shrunk.7 = 🕵️ A tit thief struck in the night. Your tits got robbed
+grow.direction.shrunk.8 = 🙈 They got shy and hid. Your tits retreated
+grow.direction.shrunk.9 = 💸 You forgot to pay your tit tax. They got taxed
+
+grow.direction.grown.dick = 💦🍆 FUUUUCK YES~ your slutty cock swelled
 grow.direction.grown.dick.1 = 💦🍆 Ohhh~ that greedy slut cock got even thicker
 grow.direction.grown.dick.2 = 🍆✨ Look at it throb! Your cock grew
+grow.direction.grown.dick.3 = 🚀 Houston, we have liftoff. Your cock extended
+grow.direction.grown.dick.4 = 📏 Get the ruler! Your cock stretched
+grow.direction.grown.dick.5 = 🧪 The sketchy spam email pills actually worked. Your cock grew
+grow.direction.grown.dick.6 = 🌭 The hot dog vendor is jealous. Your cock grew
+grow.direction.grown.dick.7 = 🔭 Like a telescope, your cock extended
+grow.direction.grown.dick.8 = 🏗️ Construction is going great. Your cock got an extension
+grow.direction.grown.dick.9 = 🎺 Play the fanfare! Your cock grew
+
+grow.direction.shrunk.dick = You're not SLUT enough for a big cock. It has shrunken
 grow.direction.shrunk.dick.1 = 😢🍆 Poor little cock... it shrivelled
 grow.direction.shrunk.dick.2 = Not slutty enough today, your cock shrank
-grow.tomorrow.1 = Your tits need a break, greedy slut. Come back tomorrow~
-grow.tomorrow.dick.1 = Your cock needs a break, greedy slut. Come back tomorrow~
+grow.direction.shrunk.dick.3 = 🥶 Did you go swimming in cold water? Your cock shrank
+grow.direction.shrunk.dick.4 = 🐢 It saw the others and pulled back in like a turtle. It shrank
+grow.direction.shrunk.dick.5 = 📉 Cock stocks crashed. Your investment shrank
+grow.direction.shrunk.dick.6 = 🔧 Someone loosened a screw. Your cock got shorter
+grow.direction.shrunk.dick.7 = 🧦 Washed it on hot by accident. Your cock shrank
+grow.direction.shrunk.dick.8 = 🙈 Stage fright. Your cock hid
+grow.direction.shrunk.dick.9 = 🦝 A raccoon snuck in at night. Your cock got nibbled down
 
-# ---- teasing line after a grow (optional, delete a key to turn it off) ----
-# Pronoun variants: plain = 🍒 she, .he / .they = 🍒 he / they,
-# .dick = 🍆 he, .dick.she / .dick.they = 🍆 she / they. Numbers (.1, .2, ...) go last.
-grow.tease.grown = Mmm~ they're getting so heavy, good girl. Imagine how big they'll be tomorrow 😩
+grow.tomorrow = Your fat slutty tits are still sore and leaking, you greedy whore~
+grow.tomorrow.1 = Your tits need a break, greedy slut. Come back tomorrow~
+grow.tomorrow.2 = 🛑 The tit growth center is closed for today. Opening hours: tomorrow.
+grow.tomorrow.3 = 🔋 Your tits are recharging. Battery: 3%.
+grow.tomorrow.4 = 🧘 Your tits are at a meditation retreat. Do not disturb.
+grow.tomorrow.5 = 📵 Your tits have left you on read.
+grow.tomorrow.6 = 😴 Shhh, they're sleeping. Both of them. Let them rest.
+grow.tomorrow.7 = 🎫 Take a number. Your tits are booked until tomorrow.
+grow.tomorrow.8 = ⚖️ Union rules: tits only work one shift a day.
+grow.tomorrow.9 = 🍳 You can't rush perfection. Or tits.
+
+grow.tomorrow.dick = Your fat slutty cock is still sore and dripping, you greedy whore~
+grow.tomorrow.dick.1 = Your cock needs a break, greedy slut. Come back tomorrow~
+grow.tomorrow.dick.2 = 🛑 The cock growth center is closed for today. Opening hours: tomorrow.
+grow.tomorrow.dick.3 = 🔋 Your cock is recharging. Battery: 3%.
+grow.tomorrow.dick.4 = 🧘 Your cock is at a meditation retreat. Do not disturb.
+grow.tomorrow.dick.5 = 📵 Your cock has left you on read.
+grow.tomorrow.dick.6 = 😴 Shhh, it's sleeping. Let it rest, you animal.
+grow.tomorrow.dick.7 = 🎫 Take a number. Your cock is booked until tomorrow.
+grow.tomorrow.dick.8 = ⚖️ Union rules: cocks only work one shift a day.
+grow.tomorrow.dick.9 = 🩹 Stop touching it. It needs time to heal.
+
+# ---- teasing line after a grow (optional, delete the keys to turn it off) ----
+grow.tease.grown = Mmm~ they're getting so heavy, good {pet}. Imagine how big they'll be tomorrow 😩
 grow.tease.grown.1 = Everyone in the chat is staring at them now~ Don't you dare skip tomorrow.
-grow.tease.grown.2 = Bigger every single day... you love feeding them, don't you? 🫧
-grow.tease.grown.3 = Just a little more and they'll be the biggest in the whole chat~ Keep going, girl.
-grow.tease.grown.he = Mmm~ look at you, good boy. They're getting so heavy, imagine tomorrow 😩
-grow.tease.grown.he.1 = Who knew a boy could grow tits like that~ Don't you dare skip tomorrow.
-grow.tease.grown.he.2 = Bigger every single day... you love feeding them, don't you, boy? 🫧
-grow.tease.grown.they = Mmm~ good pet. They're getting so heavy, imagine how big tomorrow 😩
-grow.tease.grown.they.1 = Everyone in the chat is staring at them now~ Don't you dare skip tomorrow.
-grow.tease.grown.they.2 = Bigger every single day... you love feeding them, don't you? 🫧
-grow.tease.grown.dick = Mmm~ good boy, it's getting so thick. Imagine how big it'll be tomorrow 😩
-grow.tease.grown.dick.1 = Everyone in the chat is staring at it now~ Don't you dare skip tomorrow.
-grow.tease.grown.dick.2 = Bigger every single day... you love pumping it, don't you? 💦
-grow.tease.grown.dick.3 = Just a little more and it'll be the biggest in the whole chat~ Keep going, boy.
-grow.tease.grown.dick.she = Mmm~ good girl, it's getting so thick. Imagine how big it'll be tomorrow 😩
-grow.tease.grown.dick.she.1 = Bigger every single day... you love pumping it, don't you, girl? 💦
-grow.tease.grown.dick.they = Mmm~ good pet, it's getting so thick. Imagine how big it'll be tomorrow 😩
-grow.tease.grown.dick.they.1 = Bigger every single day... you love pumping it, don't you? 💦
-grow.tease.shrunk = Aww, don't pout~ Come back tomorrow and make them grow again, good girl.
+grow.tease.grown.2 = Bigger every single day... you love feeding them, don't you, {pet}? 🫧
+grow.tease.grown.3 = Just a little more and they'll be the biggest in the whole chat~ Keep going, {pet}.
+grow.tease.grown.4 = Your back is starting to hurt, isn't it? Worth it. Come back tomorrow~
+grow.tease.grown.5 = Your bra just filed a complaint. Ignore it and grow again tomorrow, good {pet}.
+grow.tease.grown.6 = Somewhere, a chiropractor smiled. Keep going~
+grow.tease.grown.7 = Your tits have more followers than you now. Feed them tomorrow, {pet}.
+grow.tease.grown.8 = The others are getting nervous~ Tomorrow, make them even more nervous.
+grow.tease.grown.9 = Imagine running down the stairs with those. Now imagine it tomorrow, even bigger~
+
+grow.tease.shrunk = Aww, don't pout~ Come back tomorrow and make them grow again, good {pet}.
 grow.tease.shrunk.1 = They need you. Don't you dare give up on them now~ 🥺
 grow.tease.shrunk.2 = Shhh, it's just a bad day. Tomorrow they'll bounce back even bigger~
-grow.tease.shrunk.he = Aww, don't pout, boy~ Come back tomorrow and make them grow again.
-grow.tease.shrunk.he.1 = They need you. Don't you dare give up on them now~ 🥺
-grow.tease.shrunk.they = Aww, don't pout, pet~ Come back tomorrow and make them grow again.
-grow.tease.shrunk.they.1 = They need you. Don't you dare give up on them now~ 🥺
-grow.tease.shrunk.dick = Aww, don't pout, boy~ Come back tomorrow and make it grow again.
+grow.tease.shrunk.3 = Even the best tits have bad days. Tomorrow you'll show them, {pet}.
+grow.tease.shrunk.4 = They're not smaller, they're just... more aerodynamic now. Come back tomorrow~
+grow.tease.shrunk.5 = Look on the bright side: you can see your feet again. Grow them back tomorrow~
+grow.tease.shrunk.6 = It's a comeback story, {pet}. Every hero needs a sad chapter.
+grow.tease.shrunk.7 = Don't worry, nobody noticed. (Everybody noticed.) Fix it tomorrow~
+grow.tease.shrunk.8 = Your tits are just taking a strategic step back. Tomorrow they charge~
+grow.tease.shrunk.9 = Cry about it, then come back tomorrow and grow, good {pet}.
+
+grow.tease.grown.dick = Mmm~ good {pet}, it's getting so thick. Imagine how big it'll be tomorrow 😩
+grow.tease.grown.dick.1 = Everyone in the chat is staring at it now~ Don't you dare skip tomorrow.
+grow.tease.grown.dick.2 = Bigger every single day... you love pumping it, don't you, {pet}? 💦
+grow.tease.grown.dick.3 = Just a little more and it'll be the biggest in the whole chat~ Keep going, {pet}.
+grow.tease.grown.dick.4 = Your pants just filed a complaint. Ignore them and grow again tomorrow~
+grow.tease.grown.dick.5 = At this rate you'll need a permit for it. Come back tomorrow, good {pet}.
+grow.tease.grown.dick.6 = Your cock has more followers than you now. Feed it tomorrow~
+grow.tease.grown.dick.7 = The others are getting nervous~ Tomorrow, make them even more nervous.
+grow.tease.grown.dick.8 = Careful, it's starting to have its own gravity. More tomorrow~
+grow.tease.grown.dick.9 = Doorways are going to be a problem soon. Worth it. See you tomorrow, {pet}~
+
+grow.tease.shrunk.dick = Aww, don't pout, {pet}~ Come back tomorrow and make it grow again.
 grow.tease.shrunk.dick.1 = It needs you. Don't you dare give up on it now~ 🥺
 grow.tease.shrunk.dick.2 = Shhh, it's just a bad day. Tomorrow it'll come back even thicker~
-grow.tease.shrunk.dick.she = Aww, don't pout, girl~ Come back tomorrow and make it grow again.
-grow.tease.shrunk.dick.they = Aww, don't pout, pet~ Come back tomorrow and make it grow again.
+grow.tease.shrunk.dick.3 = It's not small, it's travel size. Grow it back tomorrow~
+grow.tease.shrunk.dick.4 = Every hero needs a sad chapter, {pet}. This is yours.
+grow.tease.shrunk.dick.5 = Don't worry, nobody noticed. (Everybody noticed.) Fix it tomorrow~
+grow.tease.shrunk.dick.6 = It's just shy today. Tomorrow it'll be brave again~
+grow.tease.shrunk.dick.7 = It's a tactical retreat. Tomorrow it charges~
+grow.tease.shrunk.dick.8 = Cry about it, then come back tomorrow and grow, good {pet}.
+grow.tease.shrunk.dick.9 = Size isn't everything. (It is here, though.) Come back tomorrow~
 
 # ---- size lines after a grow: size.<tits|dick>.under<N> / over<N> (N can be negative) ----
 # "under" tiers are checked first (smallest N first), then "over" (biggest N first); the first match wins.
-# Then as always: .she/.he/.they for pronouns, .1 .2 ... for random variants. {length} = the new size.
+# Pronoun variants: size.dick.under5.she. {length} = the new size.
 size.dick.under0 = 🕳️ Below zero... it's hiding inside you, poor thing. Feed it!
 size.dick.under0.1 = 🥺 A negative cock? That's not a cock, that's a cry for help~
+size.dick.under0.2 = 🧭 Your cock is so negative it's pointing inwards. Impressive, honestly.
+size.dick.under0.3 = 🔍 Missing: one cock. Last seen: before you started playing.
+size.dick.under0.4 = 🏦 Your cock is in debt. The bank wants to talk to you.
+size.dick.under0.5 = 🪐 It went in so deep it's on the other side of the planet now.
+size.dick.under0.6 = 📉 Your cock size is now a temperature in Siberia.
+size.dick.under0.7 = 🫥 Schrödinger's cock: it exists and it doesn't. Mostly doesn't.
+size.dick.under0.8 = 🧮 Mathematicians are confused. Physicists are confused. You should be too.
+size.dick.under0.9 = 👻 It's a ghost cock now. Some say you can still feel it.
+
 size.dick.under5 = 🦐 Ohh, poor little shrimp~ So tiny, so cute, so desperate to grow.
-size.dick.under5.1 = 🤏 Is it in the room with us right now? Keep pumping, little one~
-size.dick.under5.she = 🦐 Ohh, poor little shrimp girl~ So tiny, so cute, so desperate to grow.
+size.dick.under5.1 = 🤏 Is it in the room with us right now? Keep pumping~
+size.dick.under5.2 = 🔬 We found it! Under the microscope. Barely.
+size.dick.under5.3 = 🐛 It's not a cock, it's a caterpillar with a dream.
+size.dick.under5.4 = 🥜 Peanut energy. Adorable peanut energy.
+size.dick.under5.5 = 🍫 Fun size. Like the candy bars. Nobody's favourite.
+size.dick.under5.6 = 🐜 An ant just walked by and felt superior.
+size.dick.under5.7 = 📎 Your cock and a paperclip walk into a bar. The paperclip wins.
+size.dick.under5.8 = 🌱 It's still in its seedling phase. Be patient with it, {pet}.
+size.dick.under5.9 = 🔎 It's giving "terms and conditions" font size.
+
 size.dick.over20 = 🍆 Holy fuck, that's a real cock now~ Everyone's looking.
 size.dick.over20.1 = 😳 {length} cm?! Careful where you swing that thing~
+size.dick.over20.2 = 📏 The ruler asked for a bigger ruler.
+size.dick.over20.3 = 🥖 That's a baguette. You're carrying a baguette.
+size.dick.over20.4 = 🚪 Knock knock. Who's there? Your cock, ten seconds before you.
+size.dick.over20.5 = 🦒 It's got a neck now. Like a giraffe.
+size.dick.over20.6 = 🪑 It needs its own chair at dinner.
+size.dick.over20.7 = 🧳 Airlines will charge you extra for that.
+size.dick.over20.8 = 🎻 People keep asking if that's an instrument case.
+size.dick.over20.9 = 🐎 Horse energy. Pure horse energy.
+
 size.dick.over50 = 🐍 That's not a cock anymore, that's a monster. Absolutely obscene~
+size.dick.over50.1 = 🏛️ It has its own Wikipedia page now.
+size.dick.over50.2 = 🚧 Local authorities have closed the road for it.
+size.dick.over50.3 = 🐉 Dragon slayers are being called in.
+size.dick.over50.4 = 🛰️ Visible from space. Confirmed by NASA.
+size.dick.over50.5 = 🗺️ It shows up on Google Maps.
+size.dick.over50.6 = 🎪 The circus called. They want it as the main act.
+size.dick.over50.7 = 🧣 You can wear it as a scarf in winter.
+size.dick.over50.8 = 🪜 You need a ladder to see the tip.
+size.dick.over50.9 = 🚂 Choo choo. That's a train now.
+
 size.dick.over100 = 🚀 {length} cm. Scientists want to study it. Legends will be told.
+size.dick.over100.1 = 🌍 It has its own weather system.
+size.dick.over100.2 = ⛪ People have started praying to it.
+size.dick.over100.3 = 🌉 The city wants to use it as a bridge.
+size.dick.over100.4 = 📜 Ancient prophecies spoke of this cock.
+size.dick.over100.5 = 🌕 It's in orbit. Small moons are forming around it.
+size.dick.over100.6 = 👑 Kings bow. Queens faint. The chat trembles.
+size.dick.over100.7 = 🏔️ Mountaineers are planning an expedition to the tip.
+size.dick.over100.8 = 🧭 It has its own time zone now.
+size.dick.over100.9 = 🌌 {length} cm. It is no longer a cock. It is a concept.
+
 size.tits.under0 = 🕳️ Below zero... where did they go? Feed them, you poor thing!
 size.tits.under0.1 = 🥺 Negative tits? That's a cry for help, babe~
+size.tits.under0.2 = 🔍 Missing: two tits. Last seen: before you started playing.
+size.tits.under0.3 = 🏦 Your tits are in debt. The bank wants to talk to you.
+size.tits.under0.4 = 🌑 They're not flat, they're craters. Like the moon.
+size.tits.under0.5 = 📉 Your cup size is now a temperature in Siberia.
+size.tits.under0.6 = 🧮 Mathematicians are confused. Your bra is confused.
+size.tits.under0.7 = 🫥 Schrödinger's tits: they exist and they don't. Mostly don't.
+size.tits.under0.8 = 👻 Ghost tits. Some say you can still feel them jiggle.
+size.tits.under0.9 = 🥄 They're not tits, they're two spoons facing the wrong way.
+
 size.tits.under5 = 🫐 Two tiny little blueberries~ So cute, so desperate to grow.
 size.tits.under5.1 = 🤏 Flat as a board, but we believe in you, cutie~
+size.tits.under5.2 = 🛹 Skateboarders want to ride on your chest.
+size.tits.under5.3 = 🔬 We found them! Under the microscope. Barely.
+size.tits.under5.4 = 🥜 Two peanuts. Two adorable peanuts.
+size.tits.under5.5 = 📄 Printer paper called. It feels thick next to you.
+size.tits.under5.6 = 🍳 Two fried eggs. Sunny side up, at least.
+size.tits.under5.7 = 🐜 An ant just walked by and felt superior.
+size.tits.under5.8 = 🌱 They're still in their seedling phase. Be patient with them, {pet}.
+size.tits.under5.9 = 🧈 Like butter spread over too much bread.
+
 size.tits.over20 = 🍒 Mmm, now those are a real handful~ Everyone's staring.
 size.tits.over20.1 = 😳 {length} cc?! They're bursting out of your shirt~
+size.tits.over20.2 = 🍈 Two melons walked into the chat and everyone went quiet.
+size.tits.over20.3 = 👕 Your shirt buttons are in danger. Stand back.
+size.tits.over20.4 = 🏀 Dribble-ready. Both of them.
+size.tits.over20.5 = 🛟 Built-in floaties. You'll never drown.
+size.tits.over20.6 = 👀 People are making eye contact... with them.
+size.tits.over20.7 = 🧲 They have their own magnetic field now.
+size.tits.over20.8 = 🎈 The party is here. Two balloons, fully inflated.
+size.tits.over20.9 = 🐄 The farm called. They're impressed.
+
 size.tits.over50 = 🍉 Absolute melons. They need their own zip code~
+size.tits.over50.1 = 🏛️ They have their own Wikipedia page now.
+size.tits.over50.2 = 🚧 Doorframes are a problem now. Turn sideways.
+size.tits.over50.3 = 🛰️ Visible from space. Confirmed by NASA.
+size.tits.over50.4 = 🗺️ They show up on Google Maps.
+size.tits.over50.5 = 🪑 They need their own seats on the bus.
+size.tits.over50.6 = 🌊 When they bounce, the tides change.
+size.tits.over50.7 = 🏋️ That's not a chest, that's a workout.
+size.tits.over50.8 = 🎪 The circus called. They want them as the main act.
+size.tits.over50.9 = 🌋 Geologists have classified them as mountains.
+
 size.tits.over100 = 🚀 {length} cc. Gravity has given up. Legends will be told.
+size.tits.over100.1 = 🌍 They have their own weather system.
+size.tits.over100.2 = ⛪ People have started praying to them.
+size.tits.over100.3 = 🌕 Two new moons have been discovered. Oh wait.
+size.tits.over100.4 = 📜 Ancient prophecies spoke of these tits.
+size.tits.over100.5 = 🏔️ Mountaineers are planning an expedition.
+size.tits.over100.6 = 👑 Kings bow. Queens faint. The chat trembles.
+size.tits.over100.7 = 🧭 They have their own time zones. One each.
+size.tits.over100.8 = 🛸 Aliens landed and asked for directions to them.
+size.tits.over100.9 = 🌌 {length} cc. They are no longer tits. They are a concept.

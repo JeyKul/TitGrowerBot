@@ -18,6 +18,8 @@ import (
 // Lines starting with # are comments. Write \n for a line break and
 // {name} for a value the bot fills in. Missing keys fall back to English.
 //
+// {pet} works in every text about a player: girl, boy or pet, by their pronoun.
+//
 // Any key can have random variants: key.1, key.2, ... (any numbers, gaps are fine).
 // Each time, one of key, key.1, key.2, ... is picked. Only key.1 without key works too.
 type Texts struct {
@@ -138,6 +140,7 @@ func findSizeTiers(kv map[string]string) map[string][]sizeTier {
 // Size is the line of a language for a length, or "" if no tier matches.
 // Pronoun variants: size.dick.under5.they wins over size.dick.under5 for a they-player.
 func (t *Texts) Size(lang string, g Gender, length int64, args ...any) string {
+	args = append(args, "pet", petWord(g))
 	for _, tier := range t.sizes[lang][g.Body] {
 		if (tier.under && length < tier.n) || (!tier.under && length > tier.n) {
 			if t.hasKey(lang, tier.key+"."+g.Pron) {
@@ -188,6 +191,7 @@ func (t *Texts) T(lang, key string, args ...any) string {
 //
 // The most specific variant that exists wins: key.<body>.<pron>, key.<body>, key.<pron>, key.
 func (t *Texts) G(lang string, g Gender, key string, args ...any) string {
+	args = append(args, "pet", petWord(g))
 	var tries []string
 	if g.Body == "dick" {
 		tries = append(tries, key+".dick."+g.Pron, key+".dick")
@@ -204,6 +208,11 @@ func (t *Texts) G(lang string, g Gender, key string, args ...any) string {
 		}
 	}
 	return t.T(lang, key, args...)
+}
+
+// petWord fills {pet}: "good {pet}" is good girl / good boy / good pet.
+func petWord(g Gender) string {
+	return map[string]string{"she": "girl", "he": "boy"}[g.Pron] + map[string]string{"they": "pet"}[g.Pron]
 }
 
 func (t *Texts) hasKey(lang, key string) bool { _, ok := t.m[lang][key]; return ok }
