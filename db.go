@@ -117,12 +117,17 @@ func getGender(ctx context.Context, db *pgxpool.Pool, uid int64) Gender {
 // setGender saves the choice. Switching tits <-> dick keeps separate progress: the current sizes
 // of the old body are parked in Body_Saves and the new body's parked sizes come back (or 0).
 func setGender(ctx context.Context, db *pgxpool.Pool, uid int64, g Gender) error {
-	old := getGender(ctx, db, uid)
 	tx, err := db.Begin(ctx)
 	if err != nil {
 		return err
 	}
 	defer tx.Rollback(ctx)
+	// Two taps at once would both see the old body and swap twice, overwriting the parked sizes.
+	if _, err := tx.Exec(ctx, "SELECT pg_advisory_xact_lock($1::bigint)", uid); err != nil {
+		return err
+	}
+	old := defaultGender
+	_ = tx.QueryRow(ctx, "SELECT pronoun, body FROM User_Settings WHERE uid = $1", uid).Scan(&old.Pron, &old.Body)
 	if old.Body != g.Body {
 		steps := []struct {
 			sql  string

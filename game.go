@@ -168,7 +168,7 @@ func (a *App) onCommand(ctx context.Context, m *tg.Message) {
 		r, err = a.grow(ctx, act)
 	case "top":
 		r, err = a.top(ctx, act, 0)
-	case "dod", "dick_of_day", "tod":
+	case "dod", "tit_of_day", "tits_of_day", "titties_of_day", "tod", "dick_of_day", "cock_of_day", "cod":
 		r, err = a.dod(ctx, act)
 	case "pvp", "battle", "attack", "fight":
 		bet, perr := strconv.ParseInt(strings.TrimSpace(m.CommandArguments()), 10, 32)
