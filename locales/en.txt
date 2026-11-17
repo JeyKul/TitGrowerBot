@@ -161,3 +161,37 @@ grow.direction.shrunk.dick.1 = 😢🍆 Poor little cock... it shrivelled
 grow.direction.shrunk.dick.2 = Not slutty enough today, your cock shrank
 grow.tomorrow.1 = Your tits need a break, greedy slut. Come back tomorrow~
 grow.tomorrow.dick.1 = Your cock needs a break, greedy slut. Come back tomorrow~
+
+# ---- teasing line after a grow (optional, delete a key to turn it off) ----
+# Pronoun variants: plain = 🍒 she, .he / .they = 🍒 he / they,
+# .dick = 🍆 he, .dick.she / .dick.they = 🍆 she / they. Numbers (.1, .2, ...) go last.
+grow.tease.grown = Mmm~ they're getting so heavy, good girl. Imagine how big they'll be tomorrow 😩
+grow.tease.grown.1 = Everyone in the chat is staring at them now~ Don't you dare skip tomorrow.
+grow.tease.grown.2 = Bigger every single day... you love feeding them, don't you? 🫧
+grow.tease.grown.3 = Just a little more and they'll be the biggest in the whole chat~ Keep going, girl.
+grow.tease.grown.he = Mmm~ look at you, good boy. They're getting so heavy, imagine tomorrow 😩
+grow.tease.grown.he.1 = Who knew a boy could grow tits like that~ Don't you dare skip tomorrow.
+grow.tease.grown.he.2 = Bigger every single day... you love feeding them, don't you, boy? 🫧
+grow.tease.grown.they = Mmm~ good pet. They're getting so heavy, imagine how big tomorrow 😩
+grow.tease.grown.they.1 = Everyone in the chat is staring at them now~ Don't you dare skip tomorrow.
+grow.tease.grown.they.2 = Bigger every single day... you love feeding them, don't you? 🫧
+grow.tease.grown.dick = Mmm~ good boy, it's getting so thick. Imagine how big it'll be tomorrow 😩
+grow.tease.grown.dick.1 = Everyone in the chat is staring at it now~ Don't you dare skip tomorrow.
+grow.tease.grown.dick.2 = Bigger every single day... you love pumping it, don't you? 💦
+grow.tease.grown.dick.3 = Just a little more and it'll be the biggest in the whole chat~ Keep going, boy.
+grow.tease.grown.dick.she = Mmm~ good girl, it's getting so thick. Imagine how big it'll be tomorrow 😩
+grow.tease.grown.dick.she.1 = Bigger every single day... you love pumping it, don't you, girl? 💦
+grow.tease.grown.dick.they = Mmm~ good pet, it's getting so thick. Imagine how big it'll be tomorrow 😩
+grow.tease.grown.dick.they.1 = Bigger every single day... you love pumping it, don't you? 💦
+grow.tease.shrunk = Aww, don't pout~ Come back tomorrow and make them grow again, good girl.
+grow.tease.shrunk.1 = They need you. Don't you dare give up on them now~ 🥺
+grow.tease.shrunk.2 = Shhh, it's just a bad day. Tomorrow they'll bounce back even bigger~
+grow.tease.shrunk.he = Aww, don't pout, boy~ Come back tomorrow and make them grow again.
+grow.tease.shrunk.he.1 = They need you. Don't you dare give up on them now~ 🥺
+grow.tease.shrunk.they = Aww, don't pout, pet~ Come back tomorrow and make them grow again.
+grow.tease.shrunk.they.1 = They need you. Don't you dare give up on them now~ 🥺
+grow.tease.shrunk.dick = Aww, don't pout, boy~ Come back tomorrow and make it grow again.
+grow.tease.shrunk.dick.1 = It needs you. Don't you dare give up on it now~ 🥺
+grow.tease.shrunk.dick.2 = Shhh, it's just a bad day. Tomorrow it'll come back even thicker~
+grow.tease.shrunk.dick.she = Aww, don't pout, girl~ Come back tomorrow and make it grow again.
+grow.tease.shrunk.dick.they = Aww, don't pout, pet~ Come back tomorrow and make it grow again.

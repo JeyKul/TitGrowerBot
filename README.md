@@ -80,6 +80,8 @@ and `key.dick.she` / `key.dick.they`. Without a variant the plain key is used (ð
 For variety, give any key numbered alternatives: `key.1`, `key.2`, `key.3`, ... (also for
 gender variants, e.g. `grow.direction.grown.dick.2`). Each time one of them, or the plain key, is
 picked at random. Add as many as you like, the bot counts them when it starts.
+`grow.tease.grown` / `grow.tease.shrunk` add an optional teasing line after a grow; a language
+without these keys just doesn't show one.
 To add a language, copy `en.txt` to `<code>.txt` and translate it.
 
 Running

@@ -292,8 +292,13 @@ func (a *App) grow(ctx context.Context, act Act) (Reply, error) {
 	if abs < 0 {
 		abs = -abs
 	}
+	// an optional teasing line, only if this language has one
+	tease := ""
+	if key := "grow.tease." + event[len("grow.direction."):]; a.texts.hasKey(act.Lang, key) {
+		tease = "\n\n<i>" + a.me(act, key) + "</i>"
+	}
 	return text(a.me(act, "grow.result", "event", a.me(act, event), "incr", abs, "length", newLength) +
-		"\n" + a.me(act, "grow.position", "pos", pos) + perksText + a.timeLeft(act.Lang)), nil
+		"\n" + a.me(act, "grow.position", "pos", pos) + tease + perksText + a.timeLeft(act.Lang)), nil
 }
 
 func (a *App) top(ctx context.Context, act Act, page int) (Reply, error) {
