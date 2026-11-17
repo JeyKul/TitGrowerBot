@@ -3,9 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand/v2"
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -14,8 +16,12 @@ import (
 // A locale file is locales/<lang>.txt with one "key = text" per line.
 // Lines starting with # are comments. Write \n for a line break and
 // {name} for a value the bot fills in. Missing keys fall back to English.
+//
+// Any key can have random variants: key.1, key.2, ... (any numbers, gaps are fine).
+// Each time, one of key, key.1, key.2, ... is picked. Only key.1 without key works too.
 type Texts struct {
-	m map[string]map[string]string
+	m    map[string]map[string]string
+	alts map[string]map[string][]string // lang -> key -> all its texts, when it has variants
 }
 
 func loadTexts(dir string) (*Texts, error) {
@@ -23,14 +29,14 @@ func loadTexts(dir string) (*Texts, error) {
 	if err != nil {
 		return nil, err
 	}
-	t := &Texts{m: map[string]map[string]string{}}
+	t := &Texts{m: map[string]map[string]string{}, alts: map[string]map[string][]string{}}
 	for _, f := range files {
 		lang := strings.TrimSuffix(filepath.Base(f), ".txt")
 		kv, err := parseTextFile(f)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %w", f, err)
 		}
-		t.m[lang] = kv
+		t.m[lang], t.alts[lang] = groupVariants(kv)
 	}
 	if _, ok := t.m["en"]; !ok {
 		return nil, fmt.Errorf("no en.txt in %s", dir)
@@ -62,6 +68,36 @@ func parseTextFile(path string) (map[string]string, error) {
 	return kv, sc.Err()
 }
 
+// groupVariants finds the numbered variants (key.1, key.2, ...) and removes them from kv.
+// A key that only has numbered variants gets the first one as its plain text.
+func groupVariants(kv map[string]string) (map[string]string, map[string][]string) {
+	nums := map[string][]int{}
+	for k := range kv {
+		i := strings.LastIndexByte(k, '.')
+		if n, err := strconv.Atoi(k[i+1:]); i > 0 && err == nil && n >= 0 {
+			nums[k[:i]] = append(nums[k[:i]], n)
+		}
+	}
+	alts := map[string][]string{}
+	for base, ns := range nums {
+		sort.Ints(ns)
+		var list []string
+		if s, ok := kv[base]; ok {
+			list = append(list, s)
+		}
+		for _, n := range ns {
+			k := base + "." + strconv.Itoa(n)
+			list = append(list, kv[k])
+			delete(kv, k)
+		}
+		kv[base] = list[0]
+		if len(list) > 1 {
+			alts[base] = list
+		}
+	}
+	return kv, alts
+}
+
 // Langs lists the loaded languages, sorted.
 func (t *Texts) Langs() []string {
 	var out []string
@@ -78,10 +114,14 @@ func (t *Texts) Has(lang string) bool { _, ok := t.m[lang]; return ok }
 func (t *Texts) T(lang, key string, args ...any) string {
 	s, ok := t.m[lang][key]
 	if !ok {
-		s, ok = t.m["en"][key]
+		lang = "en"
+		s, ok = t.m[lang][key]
 		if !ok {
 			return key
 		}
+	}
+	if list := t.alts[lang][key]; len(list) > 1 {
+		s = list[rand.IntN(len(list))]
 	}
 	for i := 0; i+1 < len(args); i += 2 {
 		s = strings.ReplaceAll(s, "{"+fmt.Sprint(args[i])+"}", fmt.Sprint(args[i+1]))
