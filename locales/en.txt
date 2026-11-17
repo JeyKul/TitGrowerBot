@@ -139,3 +139,12 @@ loan.errors.positive_length.they = Your tits are already above zero, greedy slut
 perks.top_line.dick = These perks touched your cock
 perks.help-pussies.dick = tiny-dick support
 perks.loan-payout.dick = cock loan repayment
+
+# ---- bot admin commands (ADMIN_IDS) ----
+admin.not_allowed = Only bot admins can do that.
+admin.no_target = Reply to a message of the player with /{cmd}, or write /{cmd} &lt;user id&gt;.
+admin.not_playing = I don't know that player.
+admin.grow_reset = ✅ <b>{name}</b> can /grow again today.
+admin.grow_not_used = <b>{name}</b> hasn't grown here today, nothing to reset.
+admin.loan_cleared = ✅ The loan of <b>{name}</b> is gone ({debt} forgiven).
+admin.no_loan = <b>{name}</b> has no loan in this chat.

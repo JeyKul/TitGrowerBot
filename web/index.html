@@ -194,7 +194,7 @@ async function showUser(uid, back) {
   if (!u.chats.length) list.append($(`<div class="empty">Not playing anywhere</div>`));
   u.chats.forEach(c => {
     const r = $(`<div class="row"><div class="grow"><div class="title">${esc(c.title || 'Chat #' + c.chat)}</div>
-      <div class="sub">#${c.pos} of ${c.players}</div></div>
+      <div class="sub">#${c.pos} of ${c.players}${c.grown_today ? ' · grown today' : ''}${c.debt ? ' · loan ' + c.debt : ''}</div></div>
       <input class="small" type="number" inputmode="numeric" value="${c.length}"><button class="btn">Save</button></div>`);
     const inp = r.querySelector('input');
     r.querySelector('button').onclick = async () => {
@@ -203,6 +203,19 @@ async function showUser(uid, back) {
       try { await api('admin/length', {uid: u.uid, chat: c.chat, length}); haptic(); showUser(uid, back); } catch (e) { showErr(e); }
     };
     list.append(r);
+    if (c.grown_today || c.debt) {
+      const extra = $(`<div class="actions" style="padding:0 12px 10px"></div>`);
+      const act = (label, path, msg) => {
+        const btn = $(`<button class="btn ghost">${label}</button>`);
+        btn.onclick = () => confirmThen(msg, async () => {
+          try { await api(path, {uid: u.uid, chat: c.chat}); haptic(); showUser(uid, back); } catch (e) { showErr(e); }
+        });
+        extra.append(btn);
+      };
+      if (c.grown_today) act('Allow grow again', 'admin/resetgrow', `Let ${u.name} /grow once more today here? Their size stays.`);
+      if (c.debt) act('Clear loan', 'admin/clearloan', `Forgive the ${c.debt} loan of ${u.name} here?`);
+      list.append(extra);
+    }
   });
   wrap.append(list);
   render(wrap);

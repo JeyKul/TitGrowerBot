@@ -183,6 +183,8 @@ func (a *App) onCommand(ctx context.Context, m *tg.Message) {
 		r, err = a.loanOffer(ctx, act)
 	case "language":
 		r = a.languageMenu(m.Chat.ID, act)
+	case "resetgrow", "clearloan":
+		r, err = a.adminCmd(ctx, act, m, cmd)
 	default:
 		return
 	}
@@ -396,6 +398,42 @@ func (a *App) dod(ctx context.Context, act Act) (Reply, error) {
 	}
 	return text(a.texts.G(act.Lang, winner, "dod.result", "uid", uid, "name", esc(name), "growth", change, "length", newLength) +
 		"\n" + a.texts.G(act.Lang, winner, "dod.position", "pos", pos) + perksText + a.timeLeft(act.Lang)), nil
+}
+
+// adminCmd runs /resetgrow or /clearloan for the player whose message is replied to,
+// or whose user id is the argument. Only for the bot admins (ADMIN_IDS).
+func (a *App) adminCmd(ctx context.Context, act Act, m *tg.Message, cmd string) (Reply, error) {
+	if !a.cfg.Admins[act.User.ID] {
+		return text(a.t(act, "admin.not_allowed")), nil
+	}
+	var uid int64
+	if r := m.ReplyToMessage; r != nil && r.From != nil && !r.From.IsBot {
+		uid = r.From.ID
+	} else if id, err := strconv.ParseInt(strings.TrimSpace(m.CommandArguments()), 10, 64); err == nil {
+		uid = id
+	}
+	if uid == 0 {
+		return text(a.t(act, "admin.no_target", "cmd", cmd)), nil
+	}
+	name, err := userName(ctx, a.db, uid)
+	if err != nil {
+		return text(a.t(act, "admin.not_playing")), nil
+	}
+	name = esc(name)
+	if cmd == "resetgrow" {
+		ok, err := resetGrow(ctx, a.db, act.Chat, uid)
+		if err != nil || !ok {
+			return text(a.t(act, "admin.grow_not_used", "name", name)), err
+		}
+		log.Printf("admin %d: reset grow of %d in chat %d", act.User.ID, uid, act.Chat)
+		return text(a.t(act, "admin.grow_reset", "name", name)), nil
+	}
+	debt, err := clearLoan(ctx, a.db, act.Chat, uid)
+	if err != nil || debt == 0 {
+		return text(a.t(act, "admin.no_loan", "name", name)), err
+	}
+	log.Printf("admin %d: cleared loan of %d in chat %d (%d)", act.User.ID, uid, act.Chat, debt)
+	return text(a.t(act, "admin.loan_cleared", "name", name, "debt", debt)), nil
 }
 
 func (a *App) pvpStart(ctx context.Context, act Act, bet int64) (Reply, error) {

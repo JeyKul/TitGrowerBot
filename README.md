@@ -44,7 +44,9 @@ Project
 
 ### Web app
 A Telegram Mini App. Players see their size in every chat, the tops, and pick their gender.
-Admins (`ADMIN_IDS`) also get an admin tab: search users, set lengths, block/unblock, delete.
+Admins (`ADMIN_IDS`) also get an admin tab: search users, set lengths, allow another grow today,
+clear loans, block/unblock, delete. In a group, admins can also reply to someone with `/resetgrow`
+(grow once more today, size stays) or `/clearloan`, or give the user id: `/resetgrow 123456789`.
 Blocked users are ignored by the bot and hidden from tops and elections.
 
 Telegram needs **https**. Set in `.env`:

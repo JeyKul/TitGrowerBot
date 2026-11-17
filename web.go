@@ -92,6 +92,8 @@ func (a *App) serveWeb() {
 	mux.HandleFunc("POST /api/admin/block", a.api(true, a.apiAdminBlock))
 	mux.HandleFunc("POST /api/admin/length", a.api(true, a.apiAdminLength))
 	mux.HandleFunc("POST /api/admin/delete", a.api(true, a.apiAdminDelete))
+	mux.HandleFunc("POST /api/admin/resetgrow", a.api(true, a.apiAdminResetGrow))
+	mux.HandleFunc("POST /api/admin/clearloan", a.api(true, a.apiAdminClearLoan))
 
 	// Works with or without the proxy stripping the path, e.g. "/tits".
 	var handler http.Handler = mux
@@ -239,6 +241,41 @@ func (a *App) apiAdminLength(ctx context.Context, u *webUser, r *http.Request) (
 	}
 	log.Printf("admin %d: length of %d in chat %d = %d", u.ID, req.UID, req.Chat, req.Length)
 	return req, setLength(ctx, a.db, req.Chat, req.UID, req.Length)
+}
+
+type chatUserReq struct {
+	UID  int64 `json:"uid"`
+	Chat int64 `json:"chat"`
+}
+
+func (a *App) apiAdminResetGrow(ctx context.Context, u *webUser, r *http.Request) (any, error) {
+	var req chatUserReq
+	if err := readJSON(r, &req); err != nil || req.UID == 0 {
+		return nil, errors.New("bad request")
+	}
+	ok, err := resetGrow(ctx, a.db, req.Chat, req.UID)
+	if err == nil && !ok {
+		err = errors.New("they haven't grown there today")
+	}
+	if err == nil {
+		log.Printf("admin %d: reset grow of %d in chat %d", u.ID, req.UID, req.Chat)
+	}
+	return req, err
+}
+
+func (a *App) apiAdminClearLoan(ctx context.Context, u *webUser, r *http.Request) (any, error) {
+	var req chatUserReq
+	if err := readJSON(r, &req); err != nil || req.UID == 0 {
+		return nil, errors.New("bad request")
+	}
+	debt, err := clearLoan(ctx, a.db, req.Chat, req.UID)
+	if err == nil && debt == 0 {
+		err = errors.New("no loan in that chat")
+	}
+	if err == nil {
+		log.Printf("admin %d: cleared loan of %d in chat %d (%d)", u.ID, req.UID, req.Chat, debt)
+	}
+	return req, err
 }
 
 func (a *App) apiAdminDelete(ctx context.Context, u *webUser, r *http.Request) (any, error) {

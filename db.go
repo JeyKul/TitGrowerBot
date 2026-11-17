@@ -477,24 +477,28 @@ func personalStats(ctx context.Context, db *pgxpool.Pool, uid int64) (chats, max
 
 // UserChat is one chat a user plays in, for the web app.
 type UserChat struct {
-	Chat     int64  `json:"chat"`
-	Title    string `json:"title"`
-	Length   int64  `json:"length"`
-	Position int64  `json:"pos"`
-	Players  int64  `json:"players"`
+	Chat       int64  `json:"chat"`
+	Title      string `json:"title"`
+	Length     int64  `json:"length"`
+	Position   int64  `json:"pos"`
+	Players    int64  `json:"players"`
+	GrownToday bool   `json:"grown_today"`
+	Debt       int64  `json:"debt"` // 0 = no active loan
 }
 
 func userChats(ctx context.Context, db *pgxpool.Pool, uid int64) ([]UserChat, error) {
 	rows, err := db.Query(ctx, `SELECT t.chat_id, coalesce(c.settings->>'title', ''), t.length,
 			(SELECT count(*) + 1 FROM Tits o WHERE o.chat_id = t.chat_id AND o.length > t.length AND o.`+notBlocked+`),
-			(SELECT count(*) FROM Tits o WHERE o.chat_id = t.chat_id AND o.`+notBlocked+`)
+			(SELECT count(*) FROM Tits o WHERE o.chat_id = t.chat_id AND o.`+notBlocked+`),
+			date(t.updated_at) = current_date AND t.bonus_attempts = 0,
+			coalesce((SELECT sum(l.debt) FROM Loans l WHERE l.chat_id = t.chat_id AND l.uid = t.uid AND l.repaid_at IS NULL), 0)::bigint
 		FROM Tits t JOIN Chats c ON c.id = t.chat_id WHERE t.uid = $1 ORDER BY t.length DESC`, uid)
 	if err != nil {
 		return nil, err
 	}
 	return pgx.CollectRows(rows, func(r pgx.CollectableRow) (UserChat, error) {
 		var c UserChat
-		err := r.Scan(&c.Chat, &c.Title, &c.Length, &c.Position, &c.Players)
+		err := r.Scan(&c.Chat, &c.Title, &c.Length, &c.Position, &c.Players, &c.GrownToday, &c.Debt)
 		return c, err
 	})
 }
@@ -542,4 +546,25 @@ func setLength(ctx context.Context, db *pgxpool.Pool, chat, uid, length int64) e
 		return errors.New("this user doesn't play in that chat")
 	}
 	return err
+}
+
+// resetGrow lets a player /grow once more today. The size stays as it is.
+// The trigger takes one bonus attempt for this UPDATE itself, so 2 leaves one for the /grow.
+// Returns false if they haven't grown today anyway.
+func resetGrow(ctx context.Context, db *pgxpool.Pool, chat, uid int64) (bool, error) {
+	tag, err := db.Exec(ctx, `UPDATE Tits SET bonus_attempts = 2
+		WHERE chat_id = $1 AND uid = $2 AND date(updated_at) = current_date AND bonus_attempts = 0`, chat, uid)
+	return tag.RowsAffected() > 0, err
+}
+
+// clearLoan forgives the active loan of a player in a chat. Returns the debt that was dropped.
+func clearLoan(ctx context.Context, db *pgxpool.Pool, chat, uid int64) (int64, error) {
+	var debt int64
+	err := db.QueryRow(ctx, `UPDATE Loans l SET debt = 0 FROM Loans old
+		WHERE l.id = old.id AND l.chat_id = $1 AND l.uid = $2 AND l.repaid_at IS NULL
+		RETURNING old.debt`, chat, uid).Scan(&debt)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return 0, nil
+	}
+	return debt, err
 }
