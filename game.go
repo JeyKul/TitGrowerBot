@@ -297,6 +297,9 @@ func (a *App) grow(ctx context.Context, act Act) (Reply, error) {
 	if key := "grow.tease." + event[len("grow.direction."):]; a.texts.hasKey(act.Lang, key) {
 		tease = "\n\n<i>" + a.me(act, key) + "</i>"
 	}
+	if line := a.texts.Size(act.Lang, act.G, newLength, "length", newLength); line != "" {
+		tease = "\n\n" + line + tease
+	}
 	return text(a.me(act, "grow.result", "event", a.me(act, event), "incr", abs, "length", newLength) +
 		"\n" + a.me(act, "grow.position", "pos", pos) + tease + perksText + a.timeLeft(act.Lang)), nil
 }

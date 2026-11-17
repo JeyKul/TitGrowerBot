@@ -195,3 +195,24 @@ grow.tease.shrunk.dick.1 = It needs you. Don't you dare give up on it now~ 🥺
 grow.tease.shrunk.dick.2 = Shhh, it's just a bad day. Tomorrow it'll come back even thicker~
 grow.tease.shrunk.dick.she = Aww, don't pout, girl~ Come back tomorrow and make it grow again.
 grow.tease.shrunk.dick.they = Aww, don't pout, pet~ Come back tomorrow and make it grow again.
+
+# ---- size lines after a grow: size.<tits|dick>.under<N> / over<N> (N can be negative) ----
+# "under" tiers are checked first (smallest N first), then "over" (biggest N first); the first match wins.
+# Then as always: .she/.he/.they for pronouns, .1 .2 ... for random variants. {length} = the new size.
+size.dick.under0 = 🕳️ Below zero... it's hiding inside you, poor thing. Feed it!
+size.dick.under0.1 = 🥺 A negative cock? That's not a cock, that's a cry for help~
+size.dick.under5 = 🦐 Ohh, poor little shrimp~ So tiny, so cute, so desperate to grow.
+size.dick.under5.1 = 🤏 Is it in the room with us right now? Keep pumping, little one~
+size.dick.under5.she = 🦐 Ohh, poor little shrimp girl~ So tiny, so cute, so desperate to grow.
+size.dick.over20 = 🍆 Holy fuck, that's a real cock now~ Everyone's looking.
+size.dick.over20.1 = 😳 {length} cm?! Careful where you swing that thing~
+size.dick.over50 = 🐍 That's not a cock anymore, that's a monster. Absolutely obscene~
+size.dick.over100 = 🚀 {length} cm. Scientists want to study it. Legends will be told.
+size.tits.under0 = 🕳️ Below zero... where did they go? Feed them, you poor thing!
+size.tits.under0.1 = 🥺 Negative tits? That's a cry for help, babe~
+size.tits.under5 = 🫐 Two tiny little blueberries~ So cute, so desperate to grow.
+size.tits.under5.1 = 🤏 Flat as a board, but we believe in you, cutie~
+size.tits.over20 = 🍒 Mmm, now those are a real handful~ Everyone's staring.
+size.tits.over20.1 = 😳 {length} cc?! They're bursting out of your shirt~
+size.tits.over50 = 🍉 Absolute melons. They need their own zip code~
+size.tits.over100 = 🚀 {length} cc. Gravity has given up. Legends will be told.

@@ -6,6 +6,7 @@ import (
 	"math/rand/v2"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,6 +23,14 @@ import (
 type Texts struct {
 	m    map[string]map[string]string
 	alts map[string]map[string][]string // lang -> key -> all its texts, when it has variants
+	// lang -> body -> size tiers, from keys like size.dick.under5 and size.tits.over20
+	sizes map[string]map[string][]sizeTier
+}
+
+type sizeTier struct {
+	key   string
+	under bool // true: length < n, false: length > n
+	n     int64
 }
 
 func loadTexts(dir string) (*Texts, error) {
@@ -29,7 +38,7 @@ func loadTexts(dir string) (*Texts, error) {
 	if err != nil {
 		return nil, err
 	}
-	t := &Texts{m: map[string]map[string]string{}, alts: map[string]map[string][]string{}}
+	t := &Texts{m: map[string]map[string]string{}, alts: map[string]map[string][]string{}, sizes: map[string]map[string][]sizeTier{}}
 	for _, f := range files {
 		lang := strings.TrimSuffix(filepath.Base(f), ".txt")
 		kv, err := parseTextFile(f)
@@ -37,6 +46,7 @@ func loadTexts(dir string) (*Texts, error) {
 			return nil, fmt.Errorf("%s: %w", f, err)
 		}
 		t.m[lang], t.alts[lang] = groupVariants(kv)
+		t.sizes[lang] = findSizeTiers(t.m[lang])
 	}
 	if _, ok := t.m["en"]; !ok {
 		return nil, fmt.Errorf("no en.txt in %s", dir)
@@ -96,6 +106,47 @@ func groupVariants(kv map[string]string) (map[string]string, map[string][]string
 		}
 	}
 	return kv, alts
+}
+
+var sizeKey = regexp.MustCompile(`^size\.(tits|dick)\.(under|over)(-?\d+)$`)
+
+// findSizeTiers lists the size.<body>.under<N> / over<N> keys, "under" ones from the smallest N,
+// then "over" ones from the biggest N. The first one that matches a length is used.
+func findSizeTiers(kv map[string]string) map[string][]sizeTier {
+	out := map[string][]sizeTier{}
+	for k := range kv {
+		if m := sizeKey.FindStringSubmatch(k); m != nil {
+			n, _ := strconv.ParseInt(m[3], 10, 64)
+			out[m[1]] = append(out[m[1]], sizeTier{key: k, under: m[2] == "under", n: n})
+		}
+	}
+	for _, tiers := range out {
+		sort.Slice(tiers, func(i, j int) bool {
+			a, b := tiers[i], tiers[j]
+			if a.under != b.under {
+				return a.under
+			}
+			if a.under {
+				return a.n < b.n
+			}
+			return a.n > b.n
+		})
+	}
+	return out
+}
+
+// Size is the line of a language for a length, or "" if no tier matches.
+// Pronoun variants: size.dick.under5.they wins over size.dick.under5 for a they-player.
+func (t *Texts) Size(lang string, g Gender, length int64, args ...any) string {
+	for _, tier := range t.sizes[lang][g.Body] {
+		if (tier.under && length < tier.n) || (!tier.under && length > tier.n) {
+			if t.hasKey(lang, tier.key+"."+g.Pron) {
+				return t.T(lang, tier.key+"."+g.Pron, args...)
+			}
+			return t.T(lang, tier.key, args...)
+		}
+	}
+	return ""
 }
 
 // Langs lists the loaded languages, sorted.

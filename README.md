@@ -82,6 +82,9 @@ gender variants, e.g. `grow.direction.grown.dick.2`). Each time one of them, or 
 picked at random. Add as many as you like, the bot counts them when it starts.
 `grow.tease.grown` / `grow.tease.shrunk` add an optional teasing line after a grow; a language
 without these keys just doesn't show one.
+`size.dick.under5`, `size.tits.over20`, ... add a line for the new size after a grow: `underN` means
+below N, `overN` above N (N may be negative). "under" tiers are checked first (smallest N first),
+then "over" (biggest N first). Pronoun and number suffixes work as above: `size.dick.under5.they.1`.
 To add a language, copy `en.txt` to `<code>.txt` and translate it.
 
 Running
